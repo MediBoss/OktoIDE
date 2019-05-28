@@ -17,8 +17,8 @@ class BaseTabBarController: UITabBarController {
         view.backgroundColor = .yellow
         viewControllers = [
             
-            createNavController(vc: UIViewController(), title: "Home", tabImageName: "home"),
-            createNavController(vc: UIViewController(), title: "Editor", tabImageName: "editor"),
+            createNavController(vc: HomePageViewController(), title: "Home", tabImageName: "home"),
+            createNavController(vc: TextEditorController(), title: "Editor", tabImageName: "editor"),
             createNavController(vc: UIViewController(), title: "Profile", tabImageName: "avatar")
         ]
     }

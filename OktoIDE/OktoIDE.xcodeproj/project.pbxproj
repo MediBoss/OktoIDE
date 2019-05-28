@@ -130,9 +130,10 @@
 		B88D2D6E229D94DF0032A531 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B88D2D75229D95E40032A531 /* HomePageViewController.swift */,
+				B88D2D83229DAE450032A531 /* Home */,
+				B88D2D82229DAE330032A531 /* Profile */,
+				B88D2D80229DAE200032A531 /* TextEditor */,
 				B88D2D77229D96620032A531 /* BaseTabBarController.swift */,
-				B88D2D79229DAC000032A531 /* TextEditorController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -181,6 +182,29 @@
 				B88D2D7C229DAD830032A531 /* UIView+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B88D2D80229DAE200032A531 /* TextEditor */ = {
+			isa = PBXGroup;
+			children = (
+				B88D2D79229DAC000032A531 /* TextEditorController.swift */,
+			);
+			path = TextEditor;
+			sourceTree = "<group>";
+		};
+		B88D2D82229DAE330032A531 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		B88D2D83229DAE450032A531 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B88D2D75229D95E40032A531 /* HomePageViewController.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

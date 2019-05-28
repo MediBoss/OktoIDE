@@ -15,10 +15,14 @@ class TextEditorController: UIViewController {
     lazy var mainTextEditor: UITextView = {
        
         let tv = UITextView()
+        tv.backgroundColor = .red
         
         return tv
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.addSubview(mainTextEditor)
+        mainTextEditor.fillSuperview()
     }
 }
