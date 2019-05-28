@@ -23,9 +23,19 @@ class BaseTabBarController: UITabBarController {
         ]
     }
     
-    
-    fileprivate func createNavController(vc: UIViewController, title: String, tabImageName: String) -> UIViewController {
-        
+    /**
+     Generates a navigation controller with given view controller.
+     
+     - Parameters:
+         - vc: The view controller to be added on the navigation controller
+         - title: The location's latitude coordinate
+         - tabImageName: The name of the image file to be displayed at the bottom of tab bar
+
+     - Returns: A navigation controller configured with given parameters
+     **/
+    fileprivate func createNavController(vc: UIViewController,
+                                         title: String,
+                                         tabImageName: String) -> UIViewController {
         
         let navigationController = UINavigationController(rootViewController: vc)
         vc.view.backgroundColor = .white
