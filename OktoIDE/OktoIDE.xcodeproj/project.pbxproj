@@ -9,11 +9,18 @@
 /* Begin PBXBuildFile section */
 		B86DFDCA229A134C0075C666 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86DFDC9229A134C0075C666 /* AppDelegate.swift */; };
 		B86DFDCC229A134C0075C666 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86DFDCB229A134C0075C666 /* ViewController.swift */; };
-		B86DFDCF229A134C0075C666 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B86DFDCD229A134C0075C666 /* Main.storyboard */; };
 		B86DFDD2229A134C0075C666 /* OktoIDE.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B86DFDD0229A134C0075C666 /* OktoIDE.xcdatamodeld */; };
 		B86DFDD4229A134D0075C666 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B86DFDD3229A134D0075C666 /* Assets.xcassets */; };
 		B86DFDD7229A134D0075C666 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B86DFDD5229A134D0075C666 /* LaunchScreen.storyboard */; };
 		B86DFDE2229A134D0075C666 /* OktoIDETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86DFDE1229A134D0075C666 /* OktoIDETests.swift */; };
+		B88D2D76229D95E40032A531 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D2D75229D95E40032A531 /* HomePageViewController.swift */; };
+		B88D2D78229D96620032A531 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D2D77229D96620032A531 /* BaseTabBarController.swift */; };
+		B88D2D7A229DAC000032A531 /* TextEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D2D79229DAC000032A531 /* TextEditorController.swift */; };
+		B88D2D7D229DAD830032A531 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D2D7C229DAD830032A531 /* UIView+Extension.swift */; };
+		B88D2D7F229DADAB0032A531 /* CustomUIElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D2D7E229DADAB0032A531 /* CustomUIElements.swift */; };
+		B88D2D85229DB1560032A531 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D2D84229DB1560032A531 /* UIColor+Extension.swift */; };
+		B88D2D87229DB18F0032A531 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D2D86229DB18F0032A531 /* UIButton+Extension.swift */; };
+		B88D2D89229DB46F0032A531 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D2D88229DB46F0032A531 /* UITextView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +37,6 @@
 		B86DFDC6229A134C0075C666 /* OktoIDE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OktoIDE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B86DFDC9229A134C0075C666 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B86DFDCB229A134C0075C666 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B86DFDCE229A134C0075C666 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B86DFDD1229A134C0075C666 /* OktoIDE.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OktoIDE.xcdatamodel; sourceTree = "<group>"; };
 		B86DFDD3229A134D0075C666 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B86DFDD6229A134D0075C666 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +44,14 @@
 		B86DFDDD229A134D0075C666 /* OktoIDETests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OktoIDETests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B86DFDE1229A134D0075C666 /* OktoIDETests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OktoIDETests.swift; sourceTree = "<group>"; };
 		B86DFDE3229A134D0075C666 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B88D2D75229D95E40032A531 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		B88D2D77229D96620032A531 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
+		B88D2D79229DAC000032A531 /* TextEditorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditorController.swift; sourceTree = "<group>"; };
+		B88D2D7C229DAD830032A531 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		B88D2D7E229DADAB0032A531 /* CustomUIElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIElements.swift; sourceTree = "<group>"; };
+		B88D2D84229DB1560032A531 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		B88D2D86229DB18F0032A531 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		B88D2D88229DB46F0032A531 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,11 +93,17 @@
 		B86DFDC8229A134C0075C666 /* OktoIDE */ = {
 			isa = PBXGroup;
 			children = (
-				B86DFDC9229A134C0075C666 /* AppDelegate.swift */,
+				B88D2D7B229DAD3D0032A531 /* Extensions */,
+				B88D2D70229D95440032A531 /* Supporting Files */,
+				B88D2D74229D95950032A531 /* Services */,
+				B88D2D73229D958B0032A531 /* Networking */,
+				B88D2D72229D957A0032A531 /* Persistence */,
+				B88D2D71229D95680032A531 /* View */,
+				B88D2D6E229D94DF0032A531 /* Controller */,
+				B88D2D6D229D94D20032A531 /* ViewModel */,
+				B88D2D6C229D94C40032A531 /* Model */,
 				B86DFDCB229A134C0075C666 /* ViewController.swift */,
-				B86DFDCD229A134C0075C666 /* Main.storyboard */,
 				B86DFDD3229A134D0075C666 /* Assets.xcassets */,
-				B86DFDD5229A134D0075C666 /* LaunchScreen.storyboard */,
 				B86DFDD8229A134D0075C666 /* Info.plist */,
 				B86DFDD0229A134C0075C666 /* OktoIDE.xcdatamodeld */,
 			);
@@ -97,6 +117,103 @@
 				B86DFDE3229A134D0075C666 /* Info.plist */,
 			);
 			path = OktoIDETests;
+			sourceTree = "<group>";
+		};
+		B88D2D6C229D94C40032A531 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B88D2D6D229D94D20032A531 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B88D2D6E229D94DF0032A531 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B88D2D83229DAE450032A531 /* Home */,
+				B88D2D82229DAE330032A531 /* Profile */,
+				B88D2D80229DAE200032A531 /* TextEditor */,
+				B88D2D77229D96620032A531 /* BaseTabBarController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B88D2D70229D95440032A531 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B86DFDC9229A134C0075C666 /* AppDelegate.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B88D2D71229D95680032A531 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B86DFDD5229A134D0075C666 /* LaunchScreen.storyboard */,
+				B88D2D7E229DADAB0032A531 /* CustomUIElements.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B88D2D72229D957A0032A531 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		B88D2D73229D958B0032A531 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		B88D2D74229D95950032A531 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		B88D2D7B229DAD3D0032A531 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B88D2D7C229DAD830032A531 /* UIView+Extension.swift */,
+				B88D2D84229DB1560032A531 /* UIColor+Extension.swift */,
+				B88D2D86229DB18F0032A531 /* UIButton+Extension.swift */,
+				B88D2D88229DB46F0032A531 /* UITextView+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B88D2D80229DAE200032A531 /* TextEditor */ = {
+			isa = PBXGroup;
+			children = (
+				B88D2D79229DAC000032A531 /* TextEditorController.swift */,
+			);
+			path = TextEditor;
+			sourceTree = "<group>";
+		};
+		B88D2D82229DAE330032A531 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		B88D2D83229DAE450032A531 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B88D2D75229D95E40032A531 /* HomePageViewController.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,7 +299,6 @@
 			files = (
 				B86DFDD7229A134D0075C666 /* LaunchScreen.storyboard in Resources */,
 				B86DFDD4229A134D0075C666 /* Assets.xcassets in Resources */,
-				B86DFDCF229A134C0075C666 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,9 +316,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B88D2D76229D95E40032A531 /* HomePageViewController.swift in Sources */,
+				B88D2D7D229DAD830032A531 /* UIView+Extension.swift in Sources */,
+				B88D2D89229DB46F0032A531 /* UITextView+Extension.swift in Sources */,
 				B86DFDCC229A134C0075C666 /* ViewController.swift in Sources */,
+				B88D2D87229DB18F0032A531 /* UIButton+Extension.swift in Sources */,
+				B88D2D85229DB1560032A531 /* UIColor+Extension.swift in Sources */,
+				B88D2D78229D96620032A531 /* BaseTabBarController.swift in Sources */,
+				B88D2D7A229DAC000032A531 /* TextEditorController.swift in Sources */,
 				B86DFDD2229A134C0075C666 /* OktoIDE.xcdatamodeld in Sources */,
 				B86DFDCA229A134C0075C666 /* AppDelegate.swift in Sources */,
+				B88D2D7F229DADAB0032A531 /* CustomUIElements.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,14 +349,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B86DFDCD229A134C0075C666 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B86DFDCE229A134C0075C666 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B86DFDD5229A134D0075C666 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
