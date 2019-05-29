@@ -18,6 +18,9 @@
 		B88D2D7A229DAC000032A531 /* TextEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D2D79229DAC000032A531 /* TextEditorController.swift */; };
 		B88D2D7D229DAD830032A531 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D2D7C229DAD830032A531 /* UIView+Extension.swift */; };
 		B88D2D7F229DADAB0032A531 /* CustomUIElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D2D7E229DADAB0032A531 /* CustomUIElements.swift */; };
+		B88D2D85229DB1560032A531 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D2D84229DB1560032A531 /* UIColor+Extension.swift */; };
+		B88D2D87229DB18F0032A531 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D2D86229DB18F0032A531 /* UIButton+Extension.swift */; };
+		B88D2D89229DB46F0032A531 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D2D88229DB46F0032A531 /* UITextView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,9 @@
 		B88D2D79229DAC000032A531 /* TextEditorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditorController.swift; sourceTree = "<group>"; };
 		B88D2D7C229DAD830032A531 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		B88D2D7E229DADAB0032A531 /* CustomUIElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIElements.swift; sourceTree = "<group>"; };
+		B88D2D84229DB1560032A531 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		B88D2D86229DB18F0032A531 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		B88D2D88229DB46F0032A531 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +186,9 @@
 			isa = PBXGroup;
 			children = (
 				B88D2D7C229DAD830032A531 /* UIView+Extension.swift */,
+				B88D2D84229DB1560032A531 /* UIColor+Extension.swift */,
+				B88D2D86229DB18F0032A531 /* UIButton+Extension.swift */,
+				B88D2D88229DB46F0032A531 /* UITextView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -309,7 +318,10 @@
 			files = (
 				B88D2D76229D95E40032A531 /* HomePageViewController.swift in Sources */,
 				B88D2D7D229DAD830032A531 /* UIView+Extension.swift in Sources */,
+				B88D2D89229DB46F0032A531 /* UITextView+Extension.swift in Sources */,
 				B86DFDCC229A134C0075C666 /* ViewController.swift in Sources */,
+				B88D2D87229DB18F0032A531 /* UIButton+Extension.swift in Sources */,
+				B88D2D85229DB1560032A531 /* UIColor+Extension.swift in Sources */,
 				B88D2D78229D96620032A531 /* BaseTabBarController.swift in Sources */,
 				B88D2D7A229DAC000032A531 /* TextEditorController.swift in Sources */,
 				B86DFDD2229A134C0075C666 /* OktoIDE.xcdatamodeld in Sources */,
