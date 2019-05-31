@@ -13,8 +13,8 @@
 		B855B73B22A0984500FA2E67 /* BaseUICollectionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B855B73A22A0984500FA2E67 /* BaseUICollectionList.swift */; };
 		B855B73D22A0993500FA2E67 /* AllFilesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B855B73C22A0993500FA2E67 /* AllFilesCollectionViewCell.swift */; };
 		B855B73F22A0A94000FA2E67 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = B855B73E22A0A94000FA2E67 /* File.swift */; };
+		B855B74122A0C27B00FA2E67 /* SyntaxHighlightService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B855B74022A0C27B00FA2E67 /* SyntaxHighlightService.swift */; };
 		B86DFDCA229A134C0075C666 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86DFDC9229A134C0075C666 /* AppDelegate.swift */; };
-		B86DFDCC229A134C0075C666 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86DFDCB229A134C0075C666 /* ViewController.swift */; };
 		B86DFDD2229A134C0075C666 /* OktoIDE.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B86DFDD0229A134C0075C666 /* OktoIDE.xcdatamodeld */; };
 		B86DFDD4229A134D0075C666 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B86DFDD3229A134D0075C666 /* Assets.xcassets */; };
 		B86DFDD7229A134D0075C666 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B86DFDD5229A134D0075C666 /* LaunchScreen.storyboard */; };
@@ -47,9 +47,9 @@
 		B855B73A22A0984500FA2E67 /* BaseUICollectionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUICollectionList.swift; sourceTree = "<group>"; };
 		B855B73C22A0993500FA2E67 /* AllFilesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllFilesCollectionViewCell.swift; sourceTree = "<group>"; };
 		B855B73E22A0A94000FA2E67 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		B855B74022A0C27B00FA2E67 /* SyntaxHighlightService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntaxHighlightService.swift; sourceTree = "<group>"; };
 		B86DFDC6229A134C0075C666 /* OktoIDE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OktoIDE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B86DFDC9229A134C0075C666 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B86DFDCB229A134C0075C666 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B86DFDD1229A134C0075C666 /* OktoIDE.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OktoIDE.xcdatamodel; sourceTree = "<group>"; };
 		B86DFDD3229A134D0075C666 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B86DFDD6229A134D0075C666 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -142,7 +142,6 @@
 				B88D2D6E229D94DF0032A531 /* Controller */,
 				B88D2D6D229D94D20032A531 /* ViewModel */,
 				B88D2D6C229D94C40032A531 /* Model */,
-				B86DFDCB229A134C0075C666 /* ViewController.swift */,
 				B86DFDD3229A134D0075C666 /* Assets.xcassets */,
 				B86DFDD8229A134D0075C666 /* Info.plist */,
 				B86DFDD0229A134C0075C666 /* OktoIDE.xcdatamodeld */,
@@ -181,7 +180,6 @@
 				B88D2D82229DAE330032A531 /* Profile */,
 				B88D2D80229DAE200032A531 /* TextEditor */,
 				B88D2D77229D96620032A531 /* BaseTabBarController.swift */,
-				B81F63F5229F73D7000EB97E /* ProfilePageController.swift */,
 				B855B73A22A0984500FA2E67 /* BaseUICollectionList.swift */,
 			);
 			path = Controller;
@@ -222,6 +220,7 @@
 		B88D2D74229D95950032A531 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				B855B74022A0C27B00FA2E67 /* SyntaxHighlightService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -248,6 +247,7 @@
 		B88D2D82229DAE330032A531 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				B81F63F5229F73D7000EB97E /* ProfilePageController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -437,8 +437,8 @@
 				B855B73D22A0993500FA2E67 /* AllFilesCollectionViewCell.swift in Sources */,
 				B88D2D7D229DAD830032A531 /* UIView+Extension.swift in Sources */,
 				B88D2D89229DB46F0032A531 /* UITextView+Extension.swift in Sources */,
-				B86DFDCC229A134C0075C666 /* ViewController.swift in Sources */,
 				B88D2D87229DB18F0032A531 /* UIButton+Extension.swift in Sources */,
+				B855B74122A0C27B00FA2E67 /* SyntaxHighlightService.swift in Sources */,
 				B88D2D85229DB1560032A531 /* UIColor+Extension.swift in Sources */,
 				B88D2D78229D96620032A531 /* BaseTabBarController.swift in Sources */,
 				B88D2D7A229DAC000032A531 /* TextEditorController.swift in Sources */,
