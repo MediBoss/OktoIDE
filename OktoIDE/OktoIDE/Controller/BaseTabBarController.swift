@@ -14,12 +14,11 @@ class BaseTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .yellow
         viewControllers = [
             
             createNavController(vc: HomePageViewController(), title: "Home", tabImageName: "home"),
             createNavController(vc: TextEditorController(), title: "Editor", tabImageName: "editor"),
-            createNavController(vc: UIViewController(), title: "Profile", tabImageName: "avatar")
+            createNavController(vc: ProfilePageController(), title: "Profile", tabImageName: "avatar")
         ]
     }
     

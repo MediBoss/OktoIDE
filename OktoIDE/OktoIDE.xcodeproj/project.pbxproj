@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		81C10A38ED2E6956B6E53C7F /* Pods_OktoIDE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E06FA0881537B767C61BD1AA /* Pods_OktoIDE.framework */; };
+		ACE9F6F4AA56162B5DB621BE /* Pods_OktoIDETests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4671A3161A021BAD085681D4 /* Pods_OktoIDETests.framework */; };
+		B81F63F6229F73D7000EB97E /* ProfilePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81F63F5229F73D7000EB97E /* ProfilePageController.swift */; };
+		B855B73B22A0984500FA2E67 /* BaseUICollectionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B855B73A22A0984500FA2E67 /* BaseUICollectionList.swift */; };
+		B855B73D22A0993500FA2E67 /* AllFilesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B855B73C22A0993500FA2E67 /* AllFilesCollectionViewCell.swift */; };
+		B855B73F22A0A94000FA2E67 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = B855B73E22A0A94000FA2E67 /* File.swift */; };
 		B86DFDCA229A134C0075C666 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86DFDC9229A134C0075C666 /* AppDelegate.swift */; };
 		B86DFDCC229A134C0075C666 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86DFDCB229A134C0075C666 /* ViewController.swift */; };
 		B86DFDD2229A134C0075C666 /* OktoIDE.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B86DFDD0229A134C0075C666 /* OktoIDE.xcdatamodeld */; };
@@ -34,6 +40,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4671A3161A021BAD085681D4 /* Pods_OktoIDETests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OktoIDETests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		49FE197C465654C215EC18FB /* Pods-OktoIDE.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OktoIDE.release.xcconfig"; path = "Target Support Files/Pods-OktoIDE/Pods-OktoIDE.release.xcconfig"; sourceTree = "<group>"; };
+		AB761808C3DFF67D080A62E5 /* Pods-OktoIDE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OktoIDE.debug.xcconfig"; path = "Target Support Files/Pods-OktoIDE/Pods-OktoIDE.debug.xcconfig"; sourceTree = "<group>"; };
+		B81F63F5229F73D7000EB97E /* ProfilePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageController.swift; sourceTree = "<group>"; };
+		B855B73A22A0984500FA2E67 /* BaseUICollectionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUICollectionList.swift; sourceTree = "<group>"; };
+		B855B73C22A0993500FA2E67 /* AllFilesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllFilesCollectionViewCell.swift; sourceTree = "<group>"; };
+		B855B73E22A0A94000FA2E67 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		B86DFDC6229A134C0075C666 /* OktoIDE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OktoIDE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B86DFDC9229A134C0075C666 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B86DFDCB229A134C0075C666 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -52,6 +65,9 @@
 		B88D2D84229DB1560032A531 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		B88D2D86229DB18F0032A531 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		B88D2D88229DB46F0032A531 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
+		C30B973FCF4DE03F52D9D446 /* Pods-OktoIDETests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OktoIDETests.debug.xcconfig"; path = "Target Support Files/Pods-OktoIDETests/Pods-OktoIDETests.debug.xcconfig"; sourceTree = "<group>"; };
+		D283395F867BB9351BC646E8 /* Pods-OktoIDETests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OktoIDETests.release.xcconfig"; path = "Target Support Files/Pods-OktoIDETests/Pods-OktoIDETests.release.xcconfig"; sourceTree = "<group>"; };
+		E06FA0881537B767C61BD1AA /* Pods_OktoIDE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OktoIDE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81C10A38ED2E6956B6E53C7F /* Pods_OktoIDE.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,18 +83,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACE9F6F4AA56162B5DB621BE /* Pods_OktoIDETests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19EB0813B5DE698AA684AAF3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E06FA0881537B767C61BD1AA /* Pods_OktoIDE.framework */,
+				4671A3161A021BAD085681D4 /* Pods_OktoIDETests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		74C5210CC4FC95C9B9846230 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AB761808C3DFF67D080A62E5 /* Pods-OktoIDE.debug.xcconfig */,
+				49FE197C465654C215EC18FB /* Pods-OktoIDE.release.xcconfig */,
+				C30B973FCF4DE03F52D9D446 /* Pods-OktoIDETests.debug.xcconfig */,
+				D283395F867BB9351BC646E8 /* Pods-OktoIDETests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		B86DFDBD229A134C0075C666 = {
 			isa = PBXGroup;
 			children = (
 				B86DFDC8229A134C0075C666 /* OktoIDE */,
 				B86DFDE0229A134D0075C666 /* OktoIDETests */,
 				B86DFDC7229A134C0075C666 /* Products */,
+				74C5210CC4FC95C9B9846230 /* Pods */,
+				19EB0813B5DE698AA684AAF3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,6 +162,7 @@
 		B88D2D6C229D94C40032A531 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B855B73E22A0A94000FA2E67 /* File.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -140,6 +181,8 @@
 				B88D2D82229DAE330032A531 /* Profile */,
 				B88D2D80229DAE200032A531 /* TextEditor */,
 				B88D2D77229D96620032A531 /* BaseTabBarController.swift */,
+				B81F63F5229F73D7000EB97E /* ProfilePageController.swift */,
+				B855B73A22A0984500FA2E67 /* BaseUICollectionList.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -157,6 +200,7 @@
 			children = (
 				B86DFDD5229A134D0075C666 /* LaunchScreen.storyboard */,
 				B88D2D7E229DADAB0032A531 /* CustomUIElements.swift */,
+				B855B73C22A0993500FA2E67 /* AllFilesCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -223,9 +267,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B86DFDE6229A134D0075C666 /* Build configuration list for PBXNativeTarget "OktoIDE" */;
 			buildPhases = (
+				C8EFCA9497919423C048B071 /* [CP] Check Pods Manifest.lock */,
 				B86DFDC2229A134C0075C666 /* Sources */,
 				B86DFDC3229A134C0075C666 /* Frameworks */,
 				B86DFDC4229A134C0075C666 /* Resources */,
+				7C67353BB27960C058BA35EF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -240,6 +286,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B86DFDE9229A134D0075C666 /* Build configuration list for PBXNativeTarget "OktoIDETests" */;
 			buildPhases = (
+				A0E8FB7454E12D0F52F36F06 /* [CP] Check Pods Manifest.lock */,
 				B86DFDD9229A134D0075C666 /* Sources */,
 				B86DFDDA229A134D0075C666 /* Frameworks */,
 				B86DFDDB229A134D0075C666 /* Resources */,
@@ -311,12 +358,83 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7C67353BB27960C058BA35EF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OktoIDE/Pods-OktoIDE-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Prestyler/Prestyler.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Prestyler.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OktoIDE/Pods-OktoIDE-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A0E8FB7454E12D0F52F36F06 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OktoIDETests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C8EFCA9497919423C048B071 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OktoIDE-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B86DFDC2229A134C0075C666 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B81F63F6229F73D7000EB97E /* ProfilePageController.swift in Sources */,
 				B88D2D76229D95E40032A531 /* HomePageViewController.swift in Sources */,
+				B855B73D22A0993500FA2E67 /* AllFilesCollectionViewCell.swift in Sources */,
 				B88D2D7D229DAD830032A531 /* UIView+Extension.swift in Sources */,
 				B88D2D89229DB46F0032A531 /* UITextView+Extension.swift in Sources */,
 				B86DFDCC229A134C0075C666 /* ViewController.swift in Sources */,
@@ -324,7 +442,9 @@
 				B88D2D85229DB1560032A531 /* UIColor+Extension.swift in Sources */,
 				B88D2D78229D96620032A531 /* BaseTabBarController.swift in Sources */,
 				B88D2D7A229DAC000032A531 /* TextEditorController.swift in Sources */,
+				B855B73F22A0A94000FA2E67 /* File.swift in Sources */,
 				B86DFDD2229A134C0075C666 /* OktoIDE.xcdatamodeld in Sources */,
+				B855B73B22A0984500FA2E67 /* BaseUICollectionList.swift in Sources */,
 				B86DFDCA229A134C0075C666 /* AppDelegate.swift in Sources */,
 				B88D2D7F229DADAB0032A531 /* CustomUIElements.swift in Sources */,
 			);
@@ -478,6 +598,7 @@
 		};
 		B86DFDE7229A134D0075C666 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB761808C3DFF67D080A62E5 /* Pods-OktoIDE.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -496,6 +617,7 @@
 		};
 		B86DFDE8229A134D0075C666 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49FE197C465654C215EC18FB /* Pods-OktoIDE.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -514,6 +636,7 @@
 		};
 		B86DFDEA229A134D0075C666 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C30B973FCF4DE03F52D9D446 /* Pods-OktoIDETests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -535,6 +658,7 @@
 		};
 		B86DFDEB229A134D0075C666 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D283395F867BB9351BC646E8 /* Pods-OktoIDETests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
