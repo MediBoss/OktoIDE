@@ -7,12 +7,12 @@
 //
 
 import Foundation
-import Prestyler
 import UIKit
 
 
 class TextEditorController: UIViewController {
     
+    //- MARK: CLASS PROPERTIES
     lazy var textEditorkeyboardAccessory: UIView = {
         
         let accessoryView = UIView(frame: .zero)
@@ -82,24 +82,31 @@ class TextEditorController: UIViewController {
 
         return textEditor
     }()
+    
+    
+    //- MARK: VIEW CONTROLLER LIFECYCLE METHODS
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.addSubview(mainTextEditorTextView)
         mainTextEditorTextView.fillSuperview()
         addAcessory()
-        mainTextEditorTextView.delegate = self as? UITextViewDelegate
+        mainTextEditorTextView.delegate = self as UITextViewDelegate
     }
     
+    
+    //- MARK: CLASS METHODS
+    
+    /// Add a view on top of the text editor keyboard that will contain accessories.
     func addAcessory() {
         
         textEditorkeyboardAccessory.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 45)
         mainTextEditorTextView.inputAccessoryView = textEditorkeyboardAccessory
         constraintAccessoryViewItems()
-    
     }
     
-    func constraintAccessoryViewItems() {
+    /// Horizontally stack up buttons to tab, highlight, and move the cursor on top of the keyboard
+    fileprivate func constraintAccessoryViewItems() {
         
         let accessoryItemstackView = CustomStackView(subviews: [moveCursorToLeftButton,
                                                                 moveCursorToRighttButton,
@@ -112,7 +119,7 @@ class TextEditorController: UIViewController {
         accessoryItemstackView.fillSuperview()
     }
     
-    
+    /// Move the cursor backward by one character/space
     @objc fileprivate func cursorIsMovedToLeft(sender: UIButton) {
         
         if let selectedRange = mainTextEditorTextView.selectedTextRange {
@@ -124,6 +131,7 @@ class TextEditorController: UIViewController {
         }
     }
     
+    /// Move the cursor forward by one character/space
     @objc fileprivate func cursorIsMovedToRight(sender: UIButton) {
         
         if let selectedRange = mainTextEditorTextView.selectedTextRange {
@@ -135,32 +143,15 @@ class TextEditorController: UIViewController {
         }
     }
     
-    
-    
+    /// Highlight the entire text editor
     @objc fileprivate func allTextIsSelected(sender: UIButton) {
         
         mainTextEditorTextView.selectedTextRange = mainTextEditorTextView.textRange(from: mainTextEditorTextView.beginningOfDocument, to: mainTextEditorTextView.endOfDocument)
     }
     
+    /// Moves the cursor to the right by 4 characters to mimick the tab key
     @objc fileprivate func cursorIsTabbed(sender: UIButton) {
         
         mainTextEditorTextView.insertText("    ")
-    }
-    
-}
-
-extension TextEditorController: UITextViewDelegate {
-    
-    
-
-    func textViewDidChange(_ textView: UITextView) {
-
-        guard let unwrappedText = textView.text else { return }
-        Prestyler.defineRule("^", UIColor.swiftKeywordColorHighlight)
-
-        let prefilteredText = unwrappedText.prefilter(text: "var", by: "^").prefilter(text: "let", by: "^").prefilter(text: "static", by: "^").prefilter(text: "for", by: "^").prefilter(text: "func", by: "^").prefilter(text: "while", by: "^").prefilter(text: "if", by: "^").prefilter(text: "return", by: "^").prefilter(text: "lazy", by: "^").prefilter(text: "super", by: "^").prefilter(text: "else", by: "^").prefilter(text: "class", by: "^").prefilter(text: "protocol", by: "^").prefilter(text: "struct", by: "^").prefilter(text: "continue", by: "^").prefilter(text: "case", by: "^").prefilter(text: "switch", by: "^").prefilter(text: "enum", by: "^").prefilter(text: "default", by: "^").prefilter(text: "defer", by: "^").prefilter(text: "guard", by: "^").prefilter(text: "throw", by: "^").prefilter(text: "try", by: "^").prefilter(text: "catch", by: "^").prefilter(text: "true", by: "^").prefilter(text: "false", by: "^").prefilter(text: "Self", by: "^").prefilter(text: "self", by: "^").prefilter(text: "Any", by: "^").prefilter(text: "get", by: "^").prefilter(text: "set", by: "^").prefilter(text: "override", by: "^").prefilter(text: "dynamic", by: "^").prefilter(text: "#selector", by: "^").prefilter(text: "weak", by: "^").prefilter(text: "unowned", by: "^").prefilter(text: "didSet", by: "^").prefilter(text: "willSet", by: "^").prefilter(text: "required", by: "^").prefilter(text: "convenience", by: "^").prefilter(text: "in", by: "^")
-        
-        textView.attributedText = prefilteredText.prestyled()
-        textView.font = UIFont(name: "Helvetica", size: 20)
     }
 }
