@@ -92,6 +92,7 @@ class TextEditorController: UIViewController {
         mainTextEditorTextView.fillSuperview()
         addAcessory()
         mainTextEditorTextView.delegate = self as UITextViewDelegate
+        configureNavBar()
     }
     
     
@@ -153,5 +154,17 @@ class TextEditorController: UIViewController {
     @objc fileprivate func cursorIsTabbed(sender: UIButton) {
         
         mainTextEditorTextView.insertText("    ")
+    }
+    
+    @objc fileprivate func saveButtonIsTap(sender: UIBarButtonItem) {
+        print("save button tapped")
+    }
+    fileprivate func configureNavBar(){
+        
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "save",
+                                                            style: .done,
+                                                            target: self,
+                                                            action: #selector(saveButtonIsTap(sender:)))
     }
 }

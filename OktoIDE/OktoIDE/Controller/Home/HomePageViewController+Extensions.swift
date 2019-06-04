@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import SwipeCellKit
 import UIKit
 
-extension HomePageViewController: UICollectionViewDelegateFlowLayout{
+extension HomePageViewController: UICollectionViewDelegateFlowLayout, SwipeCollectionViewCellDelegate{
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return files.count
@@ -19,9 +20,29 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout{
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AllFilesCollectionViewCell.id, for: indexPath) as! AllFilesCollectionViewCell
         
-        let currentFile = files[indexPath.row]
-        cell.file = currentFile
+        cell.delegate = self
+        cell.file = files[indexPath.row]
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, editActionsForItemAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        
+        guard orientation == .right else { return nil }
+        
+        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+            // handle action by updating model with deletion
+        }
+        
+        let editAction = SwipeAction(style: .default, title: "Edit") { (action, indexPath) in
+            
+            let destinationVC = TextEditorController()
+            self.navigationController?.pushViewController(destinationVC, animated: true)
+        }
+        
+        // customize the action appearance
+        deleteAction.image = UIImage(named: "delete")
+        
+        return [deleteAction, editAction]
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -32,7 +53,7 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout{
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenWidth = collectionView.bounds.width
-        return CGSize(width: screenWidth/1.1, height: screenWidth/2)
+        return CGSize(width: screenWidth/1.1, height: screenWidth/3)
     }
     
     
@@ -47,4 +68,5 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout{
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 20
     }
+    
 }

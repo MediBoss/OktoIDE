@@ -7,6 +7,11 @@ target 'OktoIDE' do
 
   # Pods for OktoIDE
   pod 'Prestyler'
+  pod 'SnapKit'
+  pod 'ReachabilitySwift'
+  pod 'KeychainSwift'
+  pod 'SwipeCellKit'
+
   target 'OktoIDETests' do
     inherit! :search_paths
     # Pods for testing

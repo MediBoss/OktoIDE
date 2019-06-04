@@ -8,22 +8,58 @@
 
 import UIKit
 
+extension Notification.Name{
+    static let didReceiveFileObject = Notification.Name("didReceivedFileObject")
+}
 class HomePageViewController: BaseUICollectionViewList {
 
     
-    var files: [File] = [
-        File(name: "networkManager.swift", editTimeStamp: "Wednesday 03 2019"),
-        File(name: "driver.go", editTimeStamp: "Sunday 03 2019"),
-        File(name: "server.js", editTimeStamp: "Friday 03 2019"),
-        File(name: "user.py", editTimeStamp: "Thursday 03 2019"),
-        File(name: "File.swift", editTimeStamp: "Tuesday 03 2019"),
-        File(name: "__init__.py", editTimeStamp: "Monday 03 2019")
-    ]
+    var files: [File] = [File](){
+        didSet{
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+    }
     override func viewDidLoad() {
         
         super.viewDidLoad()
         collectionView.backgroundColor = .lightGray
         collectionView.register(AllFilesCollectionViewCell.self, forCellWithReuseIdentifier: AllFilesCollectionViewCell.id)
+        configureNavBar()
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(onDidReceiveNewFile(sender:)),
+                                               name: .didReceiveFileObject,
+                                               object: nil)
+    }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .didReceiveFileObject, object: nil)
+    }
+    
+    @objc fileprivate func onDidReceiveNewFile(sender: Notification) {
+        
+        if let receivedFile = sender.object as? File {
+            self.files.append(receivedFile)
+        }
+    }
+
+    fileprivate func configureNavBar(){
+        
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+",
+                                                            style: .done,
+                                                            target: self,
+                                                            action: #selector(addFile(sender:)))
+    }
+    
+    @objc func addFile(sender: UIBarButtonItem){
+        
+    
+        let destinationVC = CreateFileController()
+        destinationVC.modalPresentationStyle = .overCurrentContext
+        destinationVC.modalTransitionStyle = .crossDissolve
+        self.present(destinationVC, animated: true, completion: nil)
     }
 }

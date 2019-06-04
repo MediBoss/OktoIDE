@@ -7,17 +7,18 @@
 //
 
 import Foundation
+import SwipeCellKit
 import UIKit
 
-class AllFilesCollectionViewCell: UICollectionViewCell {
+class AllFilesCollectionViewCell: SwipeCollectionViewCell {
     
     static let id = "AllFilesCollectionViewCellID"
     
     var file: File! {
         didSet{
-            
+
             fileNameLabel.text = file.name
-            editedLabel.text = "Edited : \(file.editTimeStamp)"
+            editedLabel.text = "Edited : \(File.getTodayDate())"
             languageColorView.backgroundColor = file.getLanguageAssociatedColor()
         }
     }

@@ -1,16 +1,32 @@
 PODS:
+  - KeychainSwift (15.0.0)
   - Prestyler (1.1.0)
+  - ReachabilitySwift (4.3.1)
+  - SnapKit (5.0.0)
+  - SwipeCellKit (2.6.0)
 
 DEPENDENCIES:
+  - KeychainSwift
   - Prestyler
+  - ReachabilitySwift
+  - SnapKit
+  - SwipeCellKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - KeychainSwift
     - Prestyler
+    - ReachabilitySwift
+    - SnapKit
+    - SwipeCellKit
 
 SPEC CHECKSUMS:
+  KeychainSwift: c6fc018d287804faf1ce3f258a1e51a7178c8382
   Prestyler: 738297750a0e56ba2664197413e5eac4b3ef72c4
+  ReachabilitySwift: 4032e2f59586e11e3b0ebe15b167abdd587a388b
+  SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
+  SwipeCellKit: 935ca28c187ec6e1ffb2b578cf8ddca842bfdcbb
 
-PODFILE CHECKSUM: 759ce2238448d521f95b16c1f3ddf6de71b09d2a
+PODFILE CHECKSUM: 2a875e35c987cef95511c3aa1a495d44fb0637c8
 
 COCOAPODS: 1.6.0.beta.2

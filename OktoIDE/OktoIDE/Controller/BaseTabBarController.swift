@@ -17,7 +17,7 @@ class BaseTabBarController: UITabBarController {
         viewControllers = [
             
             createNavController(vc: HomePageViewController(), title: "Home", tabImageName: "home"),
-            createNavController(vc: TextEditorController(), title: "Editor", tabImageName: "editor"),
+//            createNavController(vc: TextEditorController(), title: "Editor", tabImageName: "editor"),
             createNavController(vc: ProfilePageController(), title: "Profile", tabImageName: "avatar")
         ]
     }
@@ -36,13 +36,18 @@ class BaseTabBarController: UITabBarController {
                                          title: String,
                                          tabImageName: String) -> UIViewController {
         
+        
+        
         let navigationController = UINavigationController(rootViewController: vc)
         vc.view.backgroundColor = .white
         vc.navigationItem.title = title
+        navigationController.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: ThemeService.shared.getMainColor()]
+
         navigationController.tabBarItem.title = title
         navigationController.tabBarItem.image = UIImage(named: tabImageName)
         navigationController.navigationBar.prefersLargeTitles = true
         
         return navigationController
     }
+    
 }
