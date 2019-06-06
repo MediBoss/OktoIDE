@@ -10,11 +10,19 @@ import Foundation
 import Prestyler
 import UIKit
 
-struct SyntaxHighlighService {
+class SyntaxHighlighService {
     
+    // - MARK : CLASS INSTANCES
     static let shared = SyntaxHighlighService()
     
+    static let languageWithHighlight = ["swift", "python", "javascript", "go"]
     
+    static let languageColorDict = ["swift": UIColor.swiftKeywordColorHighlight,
+                                    "py": UIColor.pythonKeywordColorHighlight,
+                                    "js": UIColor.javascriptKeywordColorHighlight,
+                                    "go": UIColor.goKeywordColorHighlight]
+    
+    // MARK : CLASS METHODS
     func highlightText(for language: String, in textView: UITextView) {
         
         guard let unwrappedText = textView.text else { return }

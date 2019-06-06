@@ -20,16 +20,16 @@ class CreateFileController: UIViewController{
     var createButton = CustomButton()
     var popUpContainer = UIView()
     var mainStackView = CustomStackView()
+    let fileExtensionPickerView = UIPickerView()
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         self.view.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.4)
         
-        
         setUpPopUpContainer()
         setUpTitleLabel()
-        setUpGroupNameTextFiled()
-        setUpGroupAddressTextfield()
+        setUpAllTextFiledElements()
         setUpSaveButton()
         mainStackViewAutoLayout()
         addSwipeToDismis()
@@ -84,7 +84,7 @@ class CreateFileController: UIViewController{
     }
     
     
-    fileprivate func setUpGroupNameTextFiled(){
+    fileprivate func setUpAllTextFiledElements(){
         
         fileNameTextField = CustomTextField(placeHolder: "Name",
                                              border: 1,
@@ -93,18 +93,17 @@ class CreateFileController: UIViewController{
                                              textColor: ThemeService.shared.getMainColor(),
                                              alignment: .left,
                                              borderStyle: .none)
-    }
-    
-    fileprivate func setUpGroupAddressTextfield(){
         
         fileExtensionTextField = CustomTextField(placeHolder: "Extension",
-                                                border: 1,
-                                                cornerRadius: 5,
-                                                borderColor: ThemeService.shared.getMainColor(),
-                                                textColor: ThemeService.shared.getMainColor(),
-                                                alignment: .left,
-                                                borderStyle: .none)
-        //groupAddressTextField.delegate = self
+                                                 border: 1,
+                                                 cornerRadius: 5,
+                                                 borderColor: ThemeService.shared.getMainColor(),
+                                                 textColor: ThemeService.shared.getMainColor(),
+                                                 alignment: .left,
+                                                 borderStyle: .none)
+        
+        fileExtensionTextField.inputView = fileExtensionPickerView
+        fileExtensionPickerView.delegate = self
     }
     
     fileprivate func setUpSaveButton(){
@@ -145,3 +144,21 @@ class CreateFileController: UIViewController{
     
 }
 
+extension CreateFileController: UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+       return SyntaxHighlighService.languageColorDict.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return SyntaxHighlighService.languageWithHighlight[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        fileExtensionTextField.text = SyntaxHighlighService.languageWithHighlight[row]
+    }
+}
