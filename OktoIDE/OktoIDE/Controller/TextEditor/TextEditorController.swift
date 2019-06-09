@@ -13,6 +13,8 @@ import UIKit
 class TextEditorController: UIViewController {
     
     //- MARK: CLASS PROPERTIES
+    var editingFile: File?
+    
     lazy var textEditorkeyboardAccessory: UIView = {
         
         let accessoryView = UIView(frame: .zero)
@@ -73,28 +75,29 @@ class TextEditorController: UIViewController {
     lazy var mainTextEditorTextView: UITextView = {
        
         let textEditor = UITextView()
-        textEditor.backgroundColor = .white
-        textEditor.textColor = .gloomyGreen
+        textEditor.backgroundColor = ThemeService.lightBackground
+        textEditor.textColor = .green
         textEditor.autocapitalizationType = .none
-        textEditor.text = "// This is your text editor. Use it as a scratch pad"
         textEditor.enablesReturnKeyAutomatically = true
+        textEditor.text = self.editingFile?.content
         textEditor.font = UIFont(name: "Helvetica", size: 20)
 
         return textEditor
     }()
     
-    
     //- MARK: VIEW CONTROLLER LIFECYCLE METHODS
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        editingFile?.content = "import Foundation \nimport Alamofire \n\ntypealias HTTPParams = [String: Any]?\n\nstruct File { \n\n   var name: String\n   var content: String\n   private var ext: String\n\n   init(name: String, ext: String) {\n      self.name = name\n           self.ext = ext\n   }\n\n   func getFileName() -> String{\n      return self.name\n   }\n\n   func setFileName(name: String){\n      self.name = name\n   }\n\n\n   func sync(comp: @escaping()->()){\n\n      if self != nil {\n         GithubService.shared.syncFile()\n   }\n}"
+        
         view.addSubview(mainTextEditorTextView)
+        SyntaxHighlighService.shared.highlightText(for: "swift", in: mainTextEditorTextView)
         mainTextEditorTextView.fillSuperview()
         addAcessory()
         mainTextEditorTextView.delegate = self as UITextViewDelegate
         configureNavBar()
     }
-    
     
     //- MARK: CLASS METHODS
     
@@ -157,7 +160,9 @@ class TextEditorController: UIViewController {
     }
     
     @objc fileprivate func saveButtonIsTap(sender: UIBarButtonItem) {
-        print("save button tapped")
+        
+        //editingFile?.content = mainTextEditorTextView.text
+        dismiss(animated: true, completion: nil)
     }
     fileprivate func configureNavBar(){
         

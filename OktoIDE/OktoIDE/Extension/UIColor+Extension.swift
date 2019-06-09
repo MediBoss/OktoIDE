@@ -19,14 +19,16 @@ extension UIColor{
     static var lightGray = UIColor(red: 0.898, green: 0.898, blue: 0.898, alpha: 1.0)
     static var lightCyan = UIColor(red: 0.9686, green: 0.9843, blue: 1, alpha: 1.0)
     static var lightBlue = UIColor(red: 109/255, green: 188/255, blue: 237/255, alpha: 1.0)
-    static var lightDark = UIColor(red: 0.3765, green: 0.3765, blue: 0.3765, alpha: 1.0)
+    static var lightDark = UIColor(red: 0.0667, green: 0.0667, blue: 0.0667, alpha: 1.0) /* #111111 */
     static var lightPink = UIColor(red: 1, green: 0.3882, blue: 0.9176, alpha: 1.0)
     static var cyanGreen = UIColor(red: 0.0627, green: 0.8078, blue: 0.6824, alpha: 1.0)
     static var customGreen = UIColor(red: 0.4235, green: 0.7569, blue: 0.1647, alpha: 1.0)
     static let darkBlue = UIColor(red: 0.1294, green: 0.2706, blue: 0.3765, alpha: 1.0)
     static let swiftKeywordColorHighlight = UIColor(red: 206/255, green: 0/255, blue: 141/255, alpha: 1.0)
+    static let swiftGithubRepoColor = UIColor(red: 1, green: 0.6745, blue: 0.2706, alpha: 1.0)
     static let pythonKeywordColorHighlight = UIColor(red: 0.2078, green: 0.4471, blue: 0.6471, alpha: 1.0)
     static let goKeywordColorHighlight = UIColor(red: 0.2039, green: 0.6314, blue: 1, alpha: 1.0)
     static let javascriptKeywordColorHighlight = UIColor(red: 0.9216, green: 0.9569, blue: 0.0667, alpha: 1.0)
-
+    static let darkModeBacgroundColor = #colorLiteral(red: 0.07895455509, green: 0.1626217663, blue: 0.2949268222, alpha: 1)
+    static var currentBackgroundColor = UIColor.white
 }

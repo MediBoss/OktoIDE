@@ -14,10 +14,10 @@ class BaseTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tabBar.barTintColor = .black
         viewControllers = [
             
             createNavController(vc: HomePageViewController(), title: "Home", tabImageName: "home"),
-//            createNavController(vc: TextEditorController(), title: "Editor", tabImageName: "editor"),
             createNavController(vc: ProfilePageController(), title: "Profile", tabImageName: "avatar")
         ]
     }
@@ -39,9 +39,19 @@ class BaseTabBarController: UITabBarController {
         
         
         let navigationController = UINavigationController(rootViewController: vc)
-        vc.view.backgroundColor = .white
+        
+        if ThemeService.shared.isThemeDark(){
+            navigationController.navigationBar.barTintColor = .black
+            navigationController.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+           navigationController.navigationBar.tintColor = .white
+            
+        } else {
+            
+            navigationController.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: ThemeService.shared.getMainColor()]
+        }
+        
+        //vc.view.backgroundColor = .white
         vc.navigationItem.title = title
-        navigationController.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: ThemeService.shared.getMainColor()]
 
         navigationController.tabBarItem.title = title
         navigationController.tabBarItem.image = UIImage(named: tabImageName)

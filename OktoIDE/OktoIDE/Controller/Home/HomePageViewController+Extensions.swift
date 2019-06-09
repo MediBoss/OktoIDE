@@ -46,7 +46,13 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout, SwipeColle
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // When the user selects a file
+        
+        let selectedFile = self.files[indexPath.row]
+        let destinationVC = TextEditorController()
+        
+        // Dependency Injection
+        destinationVC.editingFile = selectedFile
+        navigationController?.pushViewController(destinationVC, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView,

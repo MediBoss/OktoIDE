@@ -11,20 +11,38 @@ import UIKit
 extension Notification.Name{
     static let didReceiveFileObject = Notification.Name("didReceivedFileObject")
 }
+
 class HomePageViewController: BaseUICollectionViewList {
 
     
-    var files: [File] = [File](){
-        didSet{
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
-        }
-    }
+//    var files: [File] = [File](){
+//        didSet{
+//            DispatchQueue.main.async {
+//                self.collectionView.reloadData()
+//            }
+//        }
+//    }
+    
+    var files: [File] = [
+        
+        File(name: "File.swift", ext: "swift"),
+        File(name: "mailer.js", ext: "js"),
+        File(name: "manage.py", ext: "py"),
+        File(name: "server.go", ext: "go"),
+        File(name: "scheduler.js", ext: "js"),
+        File(name: "HomePageViewController", ext: "swift"),
+        File(name: "__init__.py", ext: "py")
+    ]
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        collectionView.backgroundColor = .lightGray
+        
+        if ThemeService.shared.isThemeDark(){
+            collectionView.backgroundColor = .black
+            
+        } else {
+            collectionView.backgroundColor = .lightGray
+        }
         collectionView.register(AllFilesCollectionViewCell.self, forCellWithReuseIdentifier: AllFilesCollectionViewCell.id)
         configureNavBar()
         
@@ -37,6 +55,7 @@ class HomePageViewController: BaseUICollectionViewList {
     deinit {
         NotificationCenter.default.removeObserver(self, name: .didReceiveFileObject, object: nil)
     }
+    
     
     @objc fileprivate func onDidReceiveNewFile(sender: Notification) {
         

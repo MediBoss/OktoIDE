@@ -49,7 +49,14 @@ class AllFilesCollectionViewCell: SwipeCollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = .white
+        if ThemeService.shared.isThemeDark(){
+            self.backgroundColor = .lightDark
+            self.fileNameLabel.textColor = .white
+            self.editedLabel.textColor = .lightGray
+        } else {
+            self.backgroundColor = .lightGray
+        }
+        
         styleCell()
         constraintCellItems()
     }

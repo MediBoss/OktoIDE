@@ -9,12 +9,23 @@
 import Foundation
 import UIKit
 
-struct ThemeService{
+class ThemeService{
     
     static let shared = ThemeService()
+    static var lightBackground = UIColor.white
     
     func getMainColor() -> UIColor{
         
         return #colorLiteral(red: 0.07895455509, green: 0.1626217663, blue: 0.2949268222, alpha: 1)
+    }
+    
+    func isThemeDark() -> Bool{
+        let theme = UserDefaults.standard.bool(forKey: "isDarkMode")
+        
+        if theme == true {
+            return true
+        }
+        
+        return false
     }
 }

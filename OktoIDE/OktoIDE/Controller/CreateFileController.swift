@@ -38,8 +38,7 @@ class CreateFileController: UIViewController{
     // MARK : CLASS METHODS
     
     
-    @objc fileprivate func createButtonTapped(sender: UIButton){
-        print("create")
+    @objc fileprivate func saveButtonTapped(sender: UIButton){
         
         guard let fileName = fileNameTextField.text, let fileExtension = fileExtensionTextField.text else { return }
         
@@ -108,7 +107,7 @@ class CreateFileController: UIViewController{
     
     fileprivate func setUpSaveButton(){
         
-        createButton = CustomButton(title: "Save", fontSize: 15, titleColor: .white, target: self, action: #selector(createButtonTapped), event: .touchUpInside, titleFontName: "Helvetica")
+        createButton = CustomButton(title: "Save", fontSize: 15, titleColor: .white, target: self, action: #selector(saveButtonTapped), event: .touchUpInside, titleFontName: "Helvetica")
         
         createButton.backgroundColor = ThemeService.shared.getMainColor()
         createButton.layer.cornerRadius = 10

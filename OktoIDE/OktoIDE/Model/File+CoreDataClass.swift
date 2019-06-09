@@ -1,36 +1,26 @@
 //
-//  File.swift
+//  File+CoreDataClass.swift
 //  OktoIDE
 //
-//  Created by Medi Assumani on 5/30/19.
+//  Created by Medi Assumani on 6/8/19.
 //  Copyright © 2019 Medi Assumani. All rights reserved.
 //
+//
 
+import CoreData
 import Foundation
 import UIKit
 
+@objc(File)
+public class File: NSManagedObject {
 
-struct File {
-    
-    var name: String
-    var body: String
-    var ext: String
-    
-    init(name: String, ext: String) {
-        
-        self.name = name
-        self.ext = ext
-        self.body = ""
-    }
-    
     func getLanguageAssociatedColor() -> UIColor {
         
         var color: UIColor = .white
-        let separator = self.name.split(separator: ".")
         
         SyntaxHighlighService.languageColorDict.forEach { (key, value) in
-            if key == self.ext.lowercased() {
-               color = value
+            if key == self.ext?.lowercased() {
+                color = value
             }
         }
         return color
