@@ -42,7 +42,11 @@ class CreateFileController: UIViewController{
         
         guard let fileName = fileNameTextField.text, let fileExtension = fileExtensionTextField.text else { return }
         
-        let file = File(name: fileName, ext: fileExtension)
+        let file = CoreDataManager.shared.create()
+        file.name = fileName
+        file.ext = fileExtension
+        
+        CoreDataManager.shared.save()
         
         NotificationCenter.default.post(name: .didReceiveFileObject, object: file)
         self.dismiss(animated: true, completion: nil)

@@ -17,7 +17,7 @@
 		B855B73D22A0993500FA2E67 /* AllFilesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B855B73C22A0993500FA2E67 /* AllFilesCollectionViewCell.swift */; };
 		B855B74122A0C27B00FA2E67 /* SyntaxHighlightService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B855B74022A0C27B00FA2E67 /* SyntaxHighlightService.swift */; };
 		B855B74322A0CA3300FA2E67 /* HomePageViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B855B74222A0CA3300FA2E67 /* HomePageViewController+Extensions.swift */; };
-		B855B74622A0CBC400FA2E67 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B855B74522A0CBC400FA2E67 /* Constant.swift */; };
+		B855B74622A0CBC400FA2E67 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B855B74522A0CBC400FA2E67 /* Helper.swift */; };
 		B85DCE1222A5DBC20035B74C /* TextEditorController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DCE1122A5DBC20035B74C /* TextEditorController+Extension.swift */; };
 		B85DCE1422A5DFC40035B74C /* GithubServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DCE1322A5DFC40035B74C /* GithubServices.swift */; };
 		B86DFDCA229A134C0075C666 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86DFDC9229A134C0075C666 /* AppDelegate.swift */; };
@@ -59,7 +59,7 @@
 		B855B73C22A0993500FA2E67 /* AllFilesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllFilesCollectionViewCell.swift; sourceTree = "<group>"; };
 		B855B74022A0C27B00FA2E67 /* SyntaxHighlightService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntaxHighlightService.swift; sourceTree = "<group>"; };
 		B855B74222A0CA3300FA2E67 /* HomePageViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomePageViewController+Extensions.swift"; sourceTree = "<group>"; };
-		B855B74522A0CBC400FA2E67 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		B855B74522A0CBC400FA2E67 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		B85DCE1122A5DBC20035B74C /* TextEditorController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextEditorController+Extension.swift"; sourceTree = "<group>"; };
 		B85DCE1322A5DFC40035B74C /* GithubServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubServices.swift; sourceTree = "<group>"; };
 		B86DFDC6229A134C0075C666 /* OktoIDE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OktoIDE.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,7 +129,7 @@
 		B855B74422A0CB9C00FA2E67 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				B855B74522A0CBC400FA2E67 /* Constant.swift */,
+				B855B74522A0CBC400FA2E67 /* Helper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -404,6 +404,7 @@
 				"${BUILT_PRODUCTS_DIR}/Prestyler/Prestyler.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/StatusAlert/StatusAlert.framework",
 				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -414,6 +415,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Prestyler.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StatusAlert.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -475,7 +477,7 @@
 				B81F63F6229F73D7000EB97E /* ProfilePageController.swift in Sources */,
 				B8043A1522ACA81D0009EC45 /* File+CoreDataClass.swift in Sources */,
 				B8DFC3D722A5EDFB00EED470 /* CreateFileController.swift in Sources */,
-				B855B74622A0CBC400FA2E67 /* Constant.swift in Sources */,
+				B855B74622A0CBC400FA2E67 /* Helper.swift in Sources */,
 				B88D2D76229D95E40032A531 /* HomePageViewController.swift in Sources */,
 				B85DCE1222A5DBC20035B74C /* TextEditorController+Extension.swift in Sources */,
 				B8043A1622ACA81D0009EC45 /* File+CoreDataProperties.swift in Sources */,

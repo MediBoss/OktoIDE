@@ -18,15 +18,11 @@ struct CoreDataManager {
     
     static let shared = CoreDataManager()
     
-    lazy var mainManagedContext: NSManagedObjectContext = {
-        return self.peristentContainer.viewContext
-    }()
-    
-    private lazy var persistentContainer: NSPersistentContainer = {
+    let persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "OktoIDE")
         
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if error {
+            if (error != nil) {
                 // TODO - Add production ready error handling
                 print("Error Occured while loading stores")
             }
@@ -37,12 +33,12 @@ struct CoreDataManager {
     
 
     /// Caches a 'File' object on the SQLite Database
-    mutating func save(){
+    func save(){
         
-        if self.mainManagedContext.hasChanges {
+        if (self.persistentContainer.viewContext.hasChanges) {
             
             do {
-                try mainManagedContext.save()
+                try self.persistentContainer.viewContext.save()
             } catch {
                 let savingErrror = error
                 print("Error with description : \(savingErrror.localizedDescription)")
@@ -51,32 +47,36 @@ struct CoreDataManager {
     }
     
     /// Creates and returns a new 'File' object compatible to be stored in SQLite Database
-    mutating func create() -> File{
+    func create() -> File{
         
-        let newFileObject = NSEntityDescription.insertNewObject(forEntityName: "File", into: mainManagedContext) as! File
+        let newFileObject = NSEntityDescription.insertNewObject(forEntityName: "File", into: persistentContainer.viewContext) as! File
         return newFileObject
     }
     
     /// Reads and returns all 'File' objects from the SQLite Database
-    mutating func fetch(completion: @escaping(CoreDataFetchResult) -> ()) {
+    func fetchTrips(completion: @escaping(CoreDataFetchResult) -> ()) {
+        
+        let fetchRequest: NSFetchRequest<File> = File.fetchRequest()
+        let viewContext = persistentContainer.viewContext
         
         do {
-            let fetchedFiles = try mainManagedContext.fetch(File.fetchRequest())
-            completion(.success(fetchedFiles))
+            let allTrips = try viewContext.fetch(fetchRequest)
+            completion(.success(allTrips))
         } catch {
-            
+            completion(.failure(error))
         }
     }
     
-    /// Removes a 'File' object from the SQLite Database
-    static func delete(file: File){
+    /// Removes a 'File' object from the SQLite Database and saves the changes
+    func delete(file: File){
         
-        
+        self.persistentContainer.viewContext.delete(file)
+        self.save()
     }
     
     
     /// Removes a collection  of 'File' object from the SQLite Database
-    static func deleteMany(files: [File], completion: (Result<Bool, Error>) -> ()) {
+    func deleteMany(files: [File], completion: (Result<Bool, Error>) -> ()) {
         
         files.forEach { (file) in
             self.delete(file: file)

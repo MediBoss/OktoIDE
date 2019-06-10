@@ -15,24 +15,14 @@ extension Notification.Name{
 class HomePageViewController: BaseUICollectionViewList {
 
     
-//    var files: [File] = [File](){
-//        didSet{
-//            DispatchQueue.main.async {
-//                self.collectionView.reloadData()
-//            }
-//        }
-//    }
+    var files: [File] = [File](){
+        didSet{
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+    }
     
-    var files: [File] = [
-        
-        File(name: "File.swift", ext: "swift"),
-        File(name: "mailer.js", ext: "js"),
-        File(name: "manage.py", ext: "py"),
-        File(name: "server.go", ext: "go"),
-        File(name: "scheduler.js", ext: "js"),
-        File(name: "HomePageViewController", ext: "swift"),
-        File(name: "__init__.py", ext: "py")
-    ]
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -51,6 +41,23 @@ class HomePageViewController: BaseUICollectionViewList {
                                                name: .didReceiveFileObject,
                                                object: nil)
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        CoreDataManager.shared.fetchTrips { (fetchResults) in
+
+            switch fetchResults {
+            case let .success(fetchedFilesCallback):
+                self.files = fetchedFilesCallback
+            case let .failure(error):
+                // TODO : Add proper production error handling
+                print("Error found \(error.localizedDescription)")
+            }
+        }
+    }
+    
     
     deinit {
         NotificationCenter.default.removeObserver(self, name: .didReceiveFileObject, object: nil)

@@ -28,19 +28,35 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout, SwipeColle
     func collectionView(_ collectionView: UICollectionView, editActionsForItemAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         
         guard orientation == .right else { return nil }
+        let swipedFile = self.files[indexPath.row]
         
         let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
-            // handle action by updating model with deletion
+            
+            let deleteAlert = UIAlertController(title: "Delete image", message: "Are you sure you want to delete this file? There is no going back.", preferredStyle: .alert)
+            
+            let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
+                print("deleted successfully")
+                
+            })
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: { _ in
+                print("action canceled")
+            })
+            
+            deleteAlert.addAction(deleteAction)
+            deleteAlert.addAction(cancelAction)
+            self.present(deleteAlert, animated: true, completion: nil)
+            //CoreDataManager.shared.delete(file: swipedFile)
         }
         
         let editAction = SwipeAction(style: .default, title: "Edit") { (action, indexPath) in
             
             let destinationVC = TextEditorController()
+            destinationVC.editingFile = swipedFile
             self.navigationController?.pushViewController(destinationVC, animated: true)
         }
         
-        // customize the action appearance
-        deleteAction.image = UIImage(named: "delete")
+        deleteAction.image = UIImage(named: "Trash_Icon")
         
         return [deleteAction, editAction]
     }
@@ -50,7 +66,6 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout, SwipeColle
         let selectedFile = self.files[indexPath.row]
         let destinationVC = TextEditorController()
         
-        // Dependency Injection
         destinationVC.editingFile = selectedFile
         navigationController?.pushViewController(destinationVC, animated: true)
     }
