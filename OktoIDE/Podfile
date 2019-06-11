@@ -12,6 +12,7 @@ target 'OktoIDE' do
   pod 'KeychainSwift'
   pod 'SwipeCellKit'
   pod 'StatusAlert' 
+  pod "ViewAnimator"
 
   target 'OktoIDETests' do
     inherit! :search_paths

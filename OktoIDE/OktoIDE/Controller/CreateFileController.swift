@@ -17,7 +17,7 @@ class CreateFileController: UIViewController{
     var titleLabel = CustomLabel()
     var fileNameTextField =  CustomTextField()
     var fileExtensionTextField = CustomTextField()
-    var createButton = CustomButton()
+    var saveButton = CustomButton()
     var popUpContainer = UIView()
     var mainStackView = CustomStackView()
     let fileExtensionPickerView = UIPickerView()
@@ -25,6 +25,7 @@ class CreateFileController: UIViewController{
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
         self.view.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.4)
         
         setUpPopUpContainer()
@@ -43,7 +44,7 @@ class CreateFileController: UIViewController{
         guard let fileName = fileNameTextField.text, let fileExtension = fileExtensionTextField.text else { return }
         
         let file = CoreDataManager.shared.create()
-        file.name = fileName
+        file.name = "\(fileName).\(fileExtension)"
         file.ext = fileExtension
         
         CoreDataManager.shared.save()
@@ -111,15 +112,15 @@ class CreateFileController: UIViewController{
     
     fileprivate func setUpSaveButton(){
         
-        createButton = CustomButton(title: "Save", fontSize: 15, titleColor: .white, target: self, action: #selector(saveButtonTapped), event: .touchUpInside, titleFontName: "Helvetica")
+        saveButton = CustomButton(title: "Save", fontSize: 15, titleColor: .white, target: self, action: #selector(saveButtonTapped), event: .touchUpInside, titleFontName: "Helvetica")
         
-        createButton.backgroundColor = ThemeService.shared.getMainColor()
-        createButton.layer.cornerRadius = 10
+        saveButton.backgroundColor = ThemeService.shared.getMainColor()
+        saveButton.layer.cornerRadius = 10
     }
     
     fileprivate func mainStackViewAutoLayout(){
         
-        mainStackView = CustomStackView(subviews: [titleLabel, fileNameTextField, fileExtensionTextField,createButton],
+        mainStackView = CustomStackView(subviews: [titleLabel, fileNameTextField, fileExtensionTextField,saveButton],
                                     alignment: .center,
                                     axis: .vertical,
                                     distribution: .fill)
@@ -140,8 +141,8 @@ class CreateFileController: UIViewController{
                                      fileNameTextField.widthAnchor.constraint(equalTo: mainStackView.widthAnchor, multiplier: 0.9),
                                      fileExtensionTextField.heightAnchor.constraint(equalTo: mainStackView.heightAnchor, multiplier: 0.25),
                                      fileExtensionTextField.widthAnchor.constraint(equalTo: mainStackView.widthAnchor, multiplier: 0.9),
-          createButton.heightAnchor.constraint(equalTo: mainStackView.heightAnchor, multiplier: 0.2),
-            createButton.widthAnchor.constraint(equalTo: mainStackView.widthAnchor, multiplier: 0.5)
+          saveButton.heightAnchor.constraint(equalTo: mainStackView.heightAnchor, multiplier: 0.2),
+            saveButton.widthAnchor.constraint(equalTo: mainStackView.widthAnchor, multiplier: 0.5)
             ])
     }
     

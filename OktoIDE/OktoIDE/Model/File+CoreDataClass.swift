@@ -19,7 +19,7 @@ public class File: NSManagedObject {
         var color: UIColor = .white
         
         SyntaxHighlighService.languageColorDict.forEach { (key, value) in
-            if key == self.ext?.lowercased() {
+            if key == self.ext {
                 color = value
             }
         }

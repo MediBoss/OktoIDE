@@ -15,7 +15,7 @@ class SyntaxHighlighService {
     // - MARK : CLASS INSTANCES
     static let shared = SyntaxHighlighService()
     
-    static let languageWithHighlight = ["swift", "python", "javascript", "go"]
+    static let languageWithHighlight = ["swift", "py", "js", "go"]
     
     static let languageColorDict = ["swift": UIColor.swiftGithubRepoColor,
                                     "py": UIColor.pythonKeywordColorHighlight,
