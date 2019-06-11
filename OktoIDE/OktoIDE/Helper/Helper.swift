@@ -7,29 +7,18 @@
 //
 
 import Foundation
+import StatusAlert
+import UIKit
 
 struct Helper{
     
-    static func createStatusAlert(title: String, message: String, choice: Selection){
+    static func createStatusAlert(title: String, message: String?){
         
         let statusAlert = StatusAlert()
-        
-        switch choice {
-        case .selected:
             
-            statusAlert.image = UIImage(named: "selected")
-            statusAlert.title = title
-            statusAlert.message = message
-            statusAlert.canBePickedOrDismissed = true
-            
-        case .deselected:
-            
-            statusAlert.image = UIImage(named: "deselect")
-            statusAlert.title = title
-            statusAlert.message = message
-            statusAlert.canBePickedOrDismissed = true
-        }
-        
+        statusAlert.image = UIImage(named: "trash")
+        statusAlert.title = title
+        statusAlert.canBePickedOrDismissed = true
         statusAlert.showInKeyWindow()
     }
 }

@@ -35,8 +35,9 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout, SwipeColle
             let deleteAlert = UIAlertController(title: "Delete image", message: "Are you sure you want to delete this file? There is no going back.", preferredStyle: .alert)
             
             let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
-                print("deleted successfully")
-                
+                CoreDataManager.shared.delete(file: swipedFile)
+                Helper.createStatusAlert(title: "Deleted", message: nil)
+                self.files.remove(at: indexPath.row)
             })
             
             let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: { _ in
@@ -46,7 +47,6 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout, SwipeColle
             deleteAlert.addAction(deleteAction)
             deleteAlert.addAction(cancelAction)
             self.present(deleteAlert, animated: true, completion: nil)
-            //CoreDataManager.shared.delete(file: swipedFile)
         }
         
         let editAction = SwipeAction(style: .default, title: "Edit") { (action, indexPath) in

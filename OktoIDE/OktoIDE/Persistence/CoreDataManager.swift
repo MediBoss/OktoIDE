@@ -31,7 +31,6 @@ struct CoreDataManager {
         return container
     }()
     
-
     /// Caches a 'File' object on the SQLite Database
     func save(){
         
