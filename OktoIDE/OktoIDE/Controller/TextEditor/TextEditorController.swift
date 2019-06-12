@@ -77,8 +77,9 @@ class TextEditorController: UIViewController {
         let textEditor = UITextView()
         textEditor.backgroundColor = ThemeService.lightBackground
         textEditor.textColor = .green
+        textEditor.enablesReturnKeyAutomatically = false
         textEditor.autocapitalizationType = .none
-        textEditor.enablesReturnKeyAutomatically = true
+        textEditor.autocorrectionType = .no
         textEditor.text = self.editingFile?.content
         textEditor.font = UIFont(name: "Helvetica", size: 20)
 

@@ -6,8 +6,10 @@
 //  Copyright © 2019 Medi Assumani. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import ViewAnimator
+
 
 extension Notification.Name{
     static let didReceiveFileObject = Notification.Name("didReceivedFileObject")
@@ -15,7 +17,8 @@ extension Notification.Name{
 
 class HomePageViewController: BaseUICollectionViewList {
 
-    
+    private var animationCounter = 0
+    private  let animations = [AnimationType.from(direction: .right, offset: 30.0)]
     var files: [File] = [File](){
         didSet{
             DispatchQueue.main.async {
@@ -52,6 +55,7 @@ class HomePageViewController: BaseUICollectionViewList {
             switch fetchResults {
             case let .success(fetchedFilesCallback):
                 self.files = fetchedFilesCallback
+                self.animateCells()
             case let .failure(error):
                 // TODO : Add proper production error handling
                 print("Error found \(error.localizedDescription)")
@@ -64,6 +68,21 @@ class HomePageViewController: BaseUICollectionViewList {
         NotificationCenter.default.removeObserver(self, name: .didReceiveFileObject, object: nil)
     }
     
+    /// Animates the home page table view cells when app starts
+    private func animateCells(){
+        
+        if (animationCounter <= 0) {
+            collectionView.reloadData()
+            collectionView.performBatchUpdates({
+                UIView.animate(views: self.collectionView.orderedVisibleCells,
+                               animations: animations, duration: 0.7, completion: {
+                                self.animationCounter += 1
+                })
+            }, completion: nil)
+        } else {
+            return
+        }
+    }
     
     @objc fileprivate func onDidReceiveNewFile(sender: Notification) {
         
