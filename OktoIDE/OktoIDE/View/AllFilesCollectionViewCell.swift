@@ -38,7 +38,7 @@ class AllFilesCollectionViewCell: SwipeCollectionViewCell {
     lazy var languageColorView: UIView = {
        
         var view = UIView()
-        view.backgroundColor = .swiftKeywordColorHighlight
+        view.backgroundColor = .swiftGithubRepoColor 
         view.heightAnchor.constraint(equalToConstant: 20).isActive = true
         view.widthAnchor.constraint(equalToConstant: 20).isActive = true
         view.layer.cornerRadius = 10

@@ -34,7 +34,7 @@ class ProfilePageController: UIViewController {
     var themeSwitch = UISwitch()
         
         themeSwitch.isOn = false
-        themeSwitch.onTintColor = .swiftKeywordColorHighlight
+        themeSwitch.onTintColor = .green
         themeSwitch.addTarget(self, action: #selector(themeSwitchToggled(_:)), for: .valueChanged)
         return themeSwitch
     }()

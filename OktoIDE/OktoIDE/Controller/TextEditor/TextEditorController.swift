@@ -90,10 +90,12 @@ class TextEditorController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        editingFile?.content = "import Foundation \nimport Alamofire \n\ntypealias HTTPParams = [String: Any]?\n\nstruct File { \n\n   var name: String\n   var content: String\n   private var ext: String\n\n   init(name: String, ext: String) {\n      self.name = name\n           self.ext = ext\n   }\n\n   func getFileName() -> String{\n      return self.name\n   }\n\n   func setFileName(name: String){\n      self.name = name\n   }\n\n\n   func sync(comp: @escaping()->()){\n\n      if self != nil {\n         GithubService.shared.syncFile()\n   }\n}"
-        
+//        editingFile?.content = "import Foundation \nimport Alamofire \n\ntypealias HTTPParams = [String: Any]?\n\nstruct File { \n\n   var name: String\n   var content: String\n   private var ext: String\n\n   init(name: String, ext: String) {\n      self.name = name\n           self.ext = ext\n   }\n\n   func getFileName() -> String{\n      return self.name\n   }\n\n   func setFileName(name: String){\n      self.name = name\n   }\n\n\n   func sync(comp: @escaping()->()){\n\n      if self != nil {\n         GithubService.shared.syncFile()\n   }\n}"
+//
         view.addSubview(mainTextEditorTextView)
-        SyntaxHighlighService.shared.highlightText(for: "swift", in: mainTextEditorTextView)
+        
+        Helper.getEditorSyntaxtHighlight(ext: editingFile?.ext, textView: mainTextEditorTextView)
+        //SyntaxHighlighService.shared.highlightText(for: "swift", in: mainTextEditorTextView)
         mainTextEditorTextView.fillSuperview()
         addAcessory()
         mainTextEditorTextView.delegate = self as UITextViewDelegate
@@ -163,6 +165,8 @@ class TextEditorController: UIViewController {
     @objc fileprivate func saveButtonIsTap(sender: UIBarButtonItem) {
         
         //editingFile?.content = mainTextEditorTextView.text
+        editingFile?.content = mainTextEditorTextView.text
+        CoreDataManager.shared.save()
         dismiss(animated: true, completion: nil)
     }
     fileprivate func configureNavBar(){

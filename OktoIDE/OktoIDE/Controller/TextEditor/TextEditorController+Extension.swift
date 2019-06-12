@@ -13,7 +13,8 @@ extension TextEditorController: UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
         
-        SyntaxHighlighService.shared.highlightText(for: "swift", in: textView)
+        guard let ext = editingFile?.ext else { return }
+        Helper.getEditorSyntaxtHighlight(ext: ext, textView: textView)
     }
 }
 

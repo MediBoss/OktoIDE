@@ -21,5 +21,20 @@ struct Helper{
         statusAlert.canBePickedOrDismissed = true
         statusAlert.showInKeyWindow()
     }
+    
+    static func getEditorSyntaxtHighlight(ext: String?, textView: UITextView) {
+        
+        switch ext {
+        case "swift":
+            SyntaxHighlighService.shared.swiftSyntaxtHighlight(on: textView)
+        case "py":
+            SyntaxHighlighService.shared.pythonSyntaxtHighlight(on: textView)
+            
+        case "js":
+            SyntaxHighlighService.shared.jsSyntaxHighlight(on: textView)
+        default:
+            print("Unavailable syntaxt highliting")
+        }
+    }
 }
 
