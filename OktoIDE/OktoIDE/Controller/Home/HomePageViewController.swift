@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ViewAnimator
 
 extension Notification.Name{
     static let didReceiveFileObject = Notification.Name("didReceivedFileObject")

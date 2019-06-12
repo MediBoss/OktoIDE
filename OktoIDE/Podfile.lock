@@ -5,6 +5,7 @@ PODS:
   - SnapKit (5.0.0)
   - StatusAlert (1.1.1)
   - SwipeCellKit (2.6.0)
+  - ViewAnimator (2.5.1)
 
 DEPENDENCIES:
   - KeychainSwift
@@ -13,6 +14,7 @@ DEPENDENCIES:
   - SnapKit
   - StatusAlert
   - SwipeCellKit
+  - ViewAnimator
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -22,6 +24,7 @@ SPEC REPOS:
     - SnapKit
     - StatusAlert
     - SwipeCellKit
+    - ViewAnimator
 
 SPEC CHECKSUMS:
   KeychainSwift: c6fc018d287804faf1ce3f258a1e51a7178c8382
@@ -30,7 +33,8 @@ SPEC CHECKSUMS:
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
   StatusAlert: a18ec3c33d36a06d4479c1f2b15ffac67aaf7ab1
   SwipeCellKit: 935ca28c187ec6e1ffb2b578cf8ddca842bfdcbb
+  ViewAnimator: 173932c659a43c5a15c665878750d92801ae2cf1
 
-PODFILE CHECKSUM: 6341cd7951cee5ba89cbe0b2fd522a633467d028
+PODFILE CHECKSUM: cb26d48f5b721f69f5be82ebfae0afeffca51a2c
 
 COCOAPODS: 1.6.0.beta.2
