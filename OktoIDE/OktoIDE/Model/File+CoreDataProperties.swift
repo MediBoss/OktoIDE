@@ -2,7 +2,7 @@
 //  File+CoreDataProperties.swift
 //  OktoIDE
 //
-//  Created by Medi Assumani on 6/8/19.
+//  Created by Medi Assumani on 6/12/19.
 //  Copyright © 2019 Medi Assumani. All rights reserved.
 //
 //
@@ -17,8 +17,9 @@ extension File {
         return NSFetchRequest<File>(entityName: "File")
     }
 
-    @NSManaged public var name: String?
     @NSManaged public var content: String?
     @NSManaged public var ext: String?
+    @NSManaged public var name: String?
+    @NSManaged public var editedAt: String?
 
 }

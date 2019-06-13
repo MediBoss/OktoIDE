@@ -46,6 +46,7 @@ class CreateFileController: UIViewController{
         let file = CoreDataManager.shared.create()
         file.name = "\(fileName).\(fileExtension)"
         file.ext = fileExtension
+        file.editedAt = Date().toPrettyString()
         
         CoreDataManager.shared.save()
         

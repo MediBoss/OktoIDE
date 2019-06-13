@@ -15,8 +15,10 @@ extension Notification.Name{
     static let didReceiveFileObject = Notification.Name("didReceivedFileObject")
 }
 
-class HomePageViewController: BaseUICollectionViewList {
+class HomePageViewController: BaseUICollectionViewList, UISearchBarDelegate {
 
+    fileprivate var fileSearchResults = [File]()
+    fileprivate var fileSearchController = UISearchController(searchResultsController: nil)
     private var animationCounter = 0
     private  let animations = [AnimationType.from(direction: .right, offset: 30.0)]
     var files: [File] = [File](){
@@ -35,10 +37,11 @@ class HomePageViewController: BaseUICollectionViewList {
             collectionView.backgroundColor = .black
             
         } else {
-            collectionView.backgroundColor = .lightGray
+            collectionView.backgroundColor = .white
         }
         collectionView.register(AllFilesCollectionViewCell.self, forCellWithReuseIdentifier: AllFilesCollectionViewCell.id)
         configureNavBar()
+        setUpSearchBar()
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(onDidReceiveNewFile(sender:)),
@@ -50,8 +53,7 @@ class HomePageViewController: BaseUICollectionViewList {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        CoreDataManager.shared.fetchTrips { (fetchResults) in
-
+        CoreDataManager.shared.fetchFilles(with: nil) { (fetchResults) in
             switch fetchResults {
             case let .success(fetchedFilesCallback):
                 self.files = fetchedFilesCallback
@@ -63,6 +65,7 @@ class HomePageViewController: BaseUICollectionViewList {
         }
     }
     
+
     
     deinit {
         NotificationCenter.default.removeObserver(self, name: .didReceiveFileObject, object: nil)
@@ -82,6 +85,18 @@ class HomePageViewController: BaseUICollectionViewList {
         } else {
             return
         }
+    }
+    
+    
+    /// Configures and Styles the search bar
+    fileprivate func setUpSearchBar() {
+        
+        definesPresentationContext = true
+        navigationItem.searchController = self.fileSearchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        self.fileSearchController.dimsBackgroundDuringPresentation = false
+        self.fileSearchController.searchBar.delegate = self
+        navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")        
     }
     
     @objc fileprivate func onDidReceiveNewFile(sender: Notification) {
@@ -107,5 +122,14 @@ class HomePageViewController: BaseUICollectionViewList {
         destinationVC.modalPresentationStyle = .overCurrentContext
         destinationVC.modalTransitionStyle = .crossDissolve
         self.present(destinationVC, animated: true, completion: nil)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        let predicate = NSPredicate(format: "name == %@", searchText)
+        CoreDataManager.shared.fetchFilles(with: predicate) { (fetchResults) in
+            print(fetchResults)
+        }
+        
     }
 }

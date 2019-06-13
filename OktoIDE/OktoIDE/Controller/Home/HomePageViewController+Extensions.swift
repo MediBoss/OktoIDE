@@ -32,7 +32,7 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout, SwipeColle
         
         let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
             
-            let deleteAlert = UIAlertController(title: "Delete image", message: "Are you sure you want to delete this file? There is no going back.", preferredStyle: .alert)
+            let deleteAlert = UIAlertController(title: "Delete File", message: "Are you sure you want to delete this file? There is no going back.", preferredStyle: .alert)
             
             let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
                 CoreDataManager.shared.delete(file: swipedFile)

@@ -18,7 +18,7 @@ class AllFilesCollectionViewCell: SwipeCollectionViewCell {
         didSet{
 
             fileNameLabel.text = file.name
-            editedLabel.text = "Edited : \(File.getTodayDate())"
+            editedLabel.text = "Last edited : \(file.editedAt ?? "")"
             languageColorView.backgroundColor = file.getLanguageAssociatedColor()
         }
     }

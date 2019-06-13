@@ -14,7 +14,6 @@ class BaseTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tabBar.barTintColor = .black
         viewControllers = [
             
             createNavController(vc: HomePageViewController(), title: "Home", tabImageName: "home"),
@@ -44,10 +43,13 @@ class BaseTabBarController: UITabBarController {
             navigationController.navigationBar.barTintColor = .black
             navigationController.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
            navigationController.navigationBar.tintColor = .white
+            tabBar.barTintColor = .black
             
         } else {
             
             navigationController.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: ThemeService.shared.getMainColor()]
+            navigationController.tabBarController?.tabBar.tintColor = .white
+            tabBar.barTintColor = .white
         }
         
         //vc.view.backgroundColor = .white

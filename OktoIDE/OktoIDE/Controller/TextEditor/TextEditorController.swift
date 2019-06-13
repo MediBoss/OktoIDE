@@ -75,8 +75,7 @@ class TextEditorController: UIViewController {
     lazy var mainTextEditorTextView: UITextView = {
        
         let textEditor = UITextView()
-        textEditor.backgroundColor = ThemeService.lightBackground
-        textEditor.textColor = .green
+        textEditor.textColor = .white
         textEditor.enablesReturnKeyAutomatically = false
         textEditor.autocapitalizationType = .none
         textEditor.autocorrectionType = .no
@@ -90,16 +89,14 @@ class TextEditorController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        editingFile?.content = "import Foundation \nimport Alamofire \n\ntypealias HTTPParams = [String: Any]?\n\nstruct File { \n\n   var name: String\n   var content: String\n   private var ext: String\n\n   init(name: String, ext: String) {\n      self.name = name\n           self.ext = ext\n   }\n\n   func getFileName() -> String{\n      return self.name\n   }\n\n   func setFileName(name: String){\n      self.name = name\n   }\n\n\n   func sync(comp: @escaping()->()){\n\n      if self != nil {\n         GithubService.shared.syncFile()\n   }\n}"
-//
         view.addSubview(mainTextEditorTextView)
         
         Helper.getEditorSyntaxtHighlight(ext: editingFile?.ext, textView: mainTextEditorTextView)
-        //SyntaxHighlighService.shared.highlightText(for: "swift", in: mainTextEditorTextView)
         mainTextEditorTextView.fillSuperview()
         addAcessory()
         mainTextEditorTextView.delegate = self as UITextViewDelegate
         configureNavBar()
+        adjustTheme()
     }
     
     //- MARK: CLASS METHODS
@@ -110,6 +107,17 @@ class TextEditorController: UIViewController {
         textEditorkeyboardAccessory.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 45)
         mainTextEditorTextView.inputAccessoryView = textEditorkeyboardAccessory
         constraintAccessoryViewItems()
+    }
+    
+    fileprivate func adjustTheme() {
+        
+        if ThemeService.shared.isThemeDark(){
+            mainTextEditorTextView.backgroundColor = .black
+            mainTextEditorTextView.textColor = .white
+        } else {
+            mainTextEditorTextView.backgroundColor = .lightGray
+            mainTextEditorTextView.textColor = .black
+        }
     }
     
     /// Horizontally stack up buttons to tab, highlight, and move the cursor on top of the keyboard
@@ -162,19 +170,22 @@ class TextEditorController: UIViewController {
         mainTextEditorTextView.insertText("    ")
     }
     
-    @objc fileprivate func saveButtonIsTap(sender: UIBarButtonItem) {
+    @objc fileprivate func saveButtonIsTapped() {
         
-        //editingFile?.content = mainTextEditorTextView.text
+        let date = Date()
         editingFile?.content = mainTextEditorTextView.text
+        editingFile?.editedAt = Date().toPrettyString()
         CoreDataManager.shared.save()
-        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
+
     }
+    
     fileprivate func configureNavBar(){
         
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "save",
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save",
                                                             style: .done,
                                                             target: self,
-                                                            action: #selector(saveButtonIsTap(sender:)))
+                                                            action: #selector(saveButtonIsTapped))
     }
 }

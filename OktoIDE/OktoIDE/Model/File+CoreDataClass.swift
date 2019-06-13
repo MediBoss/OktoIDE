@@ -2,7 +2,7 @@
 //  File+CoreDataClass.swift
 //  OktoIDE
 //
-//  Created by Medi Assumani on 6/8/19.
+//  Created by Medi Assumani on 6/12/19.
 //  Copyright © 2019 Medi Assumani. All rights reserved.
 //
 //
@@ -24,12 +24,5 @@ public class File: NSManagedObject {
             }
         }
         return color
-    }
-    
-    static func getTodayDate() -> String{
-        let date = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd.MM.yyyy"
-        return formatter.string(from: date)
     }
 }

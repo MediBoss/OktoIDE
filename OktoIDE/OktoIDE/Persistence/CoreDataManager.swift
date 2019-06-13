@@ -53,10 +53,12 @@ struct CoreDataManager {
     }
     
     /// Reads and returns all 'File' objects from the SQLite Database
-    func fetchTrips(completion: @escaping(CoreDataFetchResult) -> ()) {
+    func fetchFilles(with predicate: NSPredicate?, completion: @escaping(CoreDataFetchResult) -> ()) {
         
         let fetchRequest: NSFetchRequest<File> = File.fetchRequest()
         let viewContext = persistentContainer.viewContext
+        
+        fetchRequest.predicate = predicate
         
         do {
             let allTrips = try viewContext.fetch(fetchRequest)
