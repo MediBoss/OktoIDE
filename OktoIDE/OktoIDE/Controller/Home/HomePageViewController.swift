@@ -65,8 +65,6 @@ class HomePageViewController: BaseUICollectionViewList, UISearchBarDelegate {
         }
     }
     
-
-    
     deinit {
         NotificationCenter.default.removeObserver(self, name: .didReceiveFileObject, object: nil)
     }
@@ -138,7 +136,7 @@ class HomePageViewController: BaseUICollectionViewList, UISearchBarDelegate {
                         self.collectionView.reloadData()
                     }
                     
-                case let .failure(_):
+                case .failure(_):
                     print("Error found while fetching files in store")
                 }
             }
