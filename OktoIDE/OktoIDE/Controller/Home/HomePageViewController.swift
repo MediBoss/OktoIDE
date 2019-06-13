@@ -96,7 +96,7 @@ class HomePageViewController: BaseUICollectionViewList, UISearchBarDelegate {
         navigationItem.hidesSearchBarWhenScrolling = false
         self.fileSearchController.dimsBackgroundDuringPresentation = false
         self.fileSearchController.searchBar.delegate = self
-        navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")        
+        navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
     }
     
     @objc fileprivate func onDidReceiveNewFile(sender: Notification) {
@@ -126,10 +126,22 @@ class HomePageViewController: BaseUICollectionViewList, UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        let predicate = NSPredicate(format: "name == %@", searchText)
-        CoreDataManager.shared.fetchFilles(with: predicate) { (fetchResults) in
-            print(fetchResults)
+        if !searchText.isEmpty {
+            let predicate = NSPredicate(format: "name contains[c] %@", searchText)
+            CoreDataManager.shared.fetchFilles(with: predicate) { (fetchResults) in
+                
+                switch fetchResults{
+                case let .success(fetchedFiles):
+                    self.files = fetchedFiles
+                    
+                    DispatchQueue.main.async {
+                        self.collectionView.reloadData()
+                    }
+                    
+                case let .failure(_):
+                    print("Error found while fetching files in store")
+                }
+            }
         }
-        
     }
 }
