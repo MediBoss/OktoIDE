@@ -1,4 +1,5 @@
 PODS:
+  - IQKeyboardManager (6.2.1)
   - KeychainSwift (15.0.0)
   - Prestyler (1.1.0)
   - ReachabilitySwift (4.3.1)
@@ -8,6 +9,7 @@ PODS:
   - ViewAnimator (2.5.1)
 
 DEPENDENCIES:
+  - IQKeyboardManager
   - KeychainSwift
   - Prestyler
   - ReachabilitySwift
@@ -18,6 +20,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - IQKeyboardManager
     - KeychainSwift
     - Prestyler
     - ReachabilitySwift
@@ -27,6 +30,7 @@ SPEC REPOS:
     - ViewAnimator
 
 SPEC CHECKSUMS:
+  IQKeyboardManager: 964638372b4a61892cc74fdfa6fd26de8c9464a2
   KeychainSwift: c6fc018d287804faf1ce3f258a1e51a7178c8382
   Prestyler: 738297750a0e56ba2664197413e5eac4b3ef72c4
   ReachabilitySwift: 4032e2f59586e11e3b0ebe15b167abdd587a388b
@@ -35,6 +39,6 @@ SPEC CHECKSUMS:
   SwipeCellKit: 935ca28c187ec6e1ffb2b578cf8ddca842bfdcbb
   ViewAnimator: 173932c659a43c5a15c665878750d92801ae2cf1
 
-PODFILE CHECKSUM: cb26d48f5b721f69f5be82ebfae0afeffca51a2c
+PODFILE CHECKSUM: 811ba16a4704c0b6dd04452f16f3c9a09fa2fa62
 
 COCOAPODS: 1.6.0.beta.2

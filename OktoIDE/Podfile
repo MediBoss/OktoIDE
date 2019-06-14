@@ -13,6 +13,7 @@ target 'OktoIDE' do
   pod 'SwipeCellKit'
   pod 'StatusAlert' 
   pod "ViewAnimator"
+  pod 'IQKeyboardManager'
 
   target 'OktoIDETests' do
     inherit! :search_paths
