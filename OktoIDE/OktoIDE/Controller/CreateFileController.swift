@@ -99,6 +99,9 @@ class CreateFileController: UIViewController{
                                              alignment: .left,
                                              borderStyle: .none)
         
+        fileNameTextField.attributedPlaceholder = NSAttributedString(string: "Name",
+                                                               attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        
         fileExtensionTextField = CustomTextField(placeHolder: "Extension",
                                                  border: 1,
                                                  cornerRadius: 5,
@@ -106,6 +109,9 @@ class CreateFileController: UIViewController{
                                                  textColor: ThemeService.shared.getMainColor(),
                                                  alignment: .left,
                                                  borderStyle: .none)
+        
+        fileExtensionTextField.attributedPlaceholder = NSAttributedString(string: "Extension",
+                                                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         
         fileExtensionTextField.inputView = fileExtensionPickerView
         fileExtensionPickerView.delegate = self

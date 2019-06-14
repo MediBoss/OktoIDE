@@ -15,6 +15,7 @@ extension TextEditorController: UITextViewDelegate {
         
         guard let ext = editingFile?.ext else { return }
         Helper.getEditorSyntaxtHighlight(ext: ext, textView: textView)
+        
     }
 }
 

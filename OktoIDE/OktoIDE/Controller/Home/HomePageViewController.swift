@@ -92,8 +92,10 @@ class HomePageViewController: BaseUICollectionViewList, UISearchBarDelegate {
         definesPresentationContext = true
         navigationItem.searchController = self.fileSearchController
         navigationItem.hidesSearchBarWhenScrolling = false
+        
         self.fileSearchController.dimsBackgroundDuringPresentation = false
         self.fileSearchController.searchBar.delegate = self
+        
         navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
     }
     
@@ -105,7 +107,6 @@ class HomePageViewController: BaseUICollectionViewList, UISearchBarDelegate {
     }
 
     fileprivate func configureNavBar(){
-        
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+",
                                                             style: .done,

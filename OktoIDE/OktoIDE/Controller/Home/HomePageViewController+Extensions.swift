@@ -74,7 +74,7 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout, SwipeColle
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenWidth = collectionView.bounds.width
-        return CGSize(width: screenWidth/1.1, height: screenWidth/3)
+        return CGSize(width: screenWidth/1.1, height: screenWidth/2.7)
     }
     
     

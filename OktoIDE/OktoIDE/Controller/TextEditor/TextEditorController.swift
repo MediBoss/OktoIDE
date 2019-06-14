@@ -68,6 +68,19 @@ class TextEditorController: UIViewController {
         button.setImage(UIImage(named: "marker"), for: .normal)
         button.addTarget(self, action: #selector(allTextIsSelected(sender:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
+    }()
+    
+    lazy var quoteButton: UIButton = {
+        
+        let button = UIButton(type: .custom)
+        
+        button.setTitle(" \"\" ", for: .normal)
+        button.addTarget(self, action: #selector(quoteButtonIsTapped(sender:)), for: .touchUpInside)
+        button.setTitleColor(.black, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
         return button
     }()
     
@@ -75,12 +88,11 @@ class TextEditorController: UIViewController {
     lazy var mainTextEditorTextView: UITextView = {
        
         let textEditor = UITextView()
-        textEditor.textColor = .white
+        
         textEditor.enablesReturnKeyAutomatically = false
         textEditor.autocapitalizationType = .none
         textEditor.autocorrectionType = .no
         textEditor.text = self.editingFile?.content
-        textEditor.font = UIFont(name: "Helvetica", size: 20)
 
         return textEditor
     }()
@@ -96,7 +108,6 @@ class TextEditorController: UIViewController {
         addAcessory()
         mainTextEditorTextView.delegate = self as UITextViewDelegate
         configureNavBar()
-        adjustTheme()
     }
     
     //- MARK: CLASS METHODS
@@ -109,23 +120,13 @@ class TextEditorController: UIViewController {
         constraintAccessoryViewItems()
     }
     
-    fileprivate func adjustTheme() {
-        
-        if ThemeService.shared.isThemeDark(){
-            mainTextEditorTextView.backgroundColor = .black
-            mainTextEditorTextView.textColor = .white
-        } else {
-            mainTextEditorTextView.backgroundColor = .lightGray
-            mainTextEditorTextView.textColor = .black
-        }
-    }
-    
     /// Horizontally stack up buttons to tab, highlight, and move the cursor on top of the keyboard
     fileprivate func constraintAccessoryViewItems() {
         
         let accessoryItemstackView = CustomStackView(subviews: [moveCursorToLeftButton,
                                                                 moveCursorToRighttButton,
                                                                 tabButton,
+                                                                quoteButton,
                                                                 highlightAllTextButton],
                                         alignment: .center,
                                         axis: .horizontal,
@@ -144,6 +145,11 @@ class TextEditorController: UIViewController {
                 mainTextEditorTextView.selectedTextRange = mainTextEditorTextView.textRange(from: newPosition, to: newPosition)
             }
         }
+    }
+    
+    @objc fileprivate func quoteButtonIsTapped(sender: UIButton) {
+        
+        print("insert quote")
     }
     
     /// Move the cursor forward by one character/space
@@ -172,7 +178,6 @@ class TextEditorController: UIViewController {
     
     @objc fileprivate func saveButtonIsTapped() {
         
-        let date = Date()
         editingFile?.content = mainTextEditorTextView.text
         editingFile?.editedAt = Date().toPrettyString()
         CoreDataManager.shared.save()
@@ -182,7 +187,7 @@ class TextEditorController: UIViewController {
     
     fileprivate func configureNavBar(){
         
-        
+        navigationItem.title = editingFile?.name ?? ""
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save",
                                                             style: .done,
                                                             target: self,

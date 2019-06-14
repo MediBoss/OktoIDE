@@ -41,24 +41,21 @@ class BaseTabBarController: UITabBarController {
         
         if ThemeService.shared.isThemeDark(){
             navigationController.navigationBar.barTintColor = .black
-            navigationController.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+
+            navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
            navigationController.navigationBar.tintColor = .white
             tabBar.barTintColor = .black
             
         } else {
             
             navigationController.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: ThemeService.shared.getMainColor()]
-            navigationController.tabBarController?.tabBar.tintColor = .white
-            tabBar.barTintColor = .white
+            tabBar.unselectedItemTintColor = ThemeService.shared.getMainColor()
         }
         
-        //vc.view.backgroundColor = .white
         vc.navigationItem.title = title
-
         navigationController.tabBarItem.title = title
         navigationController.tabBarItem.image = UIImage(named: tabImageName)
-        navigationController.navigationBar.prefersLargeTitles = true
-        
+
         return navigationController
     }
     
