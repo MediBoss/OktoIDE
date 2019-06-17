@@ -49,7 +49,6 @@ class CreateFileController: UIViewController{
         file.editedAt = Date().toPrettyString()
         
         CoreDataManager.shared.save()
-        
         NotificationCenter.default.post(name: .didReceiveFileObject, object: file)
         self.dismiss(animated: true, completion: nil)
     }

@@ -17,13 +17,5 @@ extension TextEditorController: UITextViewDelegate {
         Helper.getEditorSyntaxtHighlight(ext: ext, textView: textView)
         
     }
-    
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if(text == "\n") {
-            textView.resignFirstResponder()
-            return false
-        }
-        return true
-    }
 }
 

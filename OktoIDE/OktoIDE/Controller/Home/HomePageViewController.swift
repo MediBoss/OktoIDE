@@ -101,8 +101,13 @@ class HomePageViewController: BaseUICollectionViewList, UISearchBarDelegate {
     
     @objc fileprivate func onDidReceiveNewFile(sender: Notification) {
         
+        
         if let receivedFile = sender.object as? File {
+            
             self.files.append(receivedFile)
+            let destinationVC = TextEditorController()
+            destinationVC.editingFile = receivedFile
+            navigationController?.pushViewController(destinationVC, animated: true)
         }
     }
 
