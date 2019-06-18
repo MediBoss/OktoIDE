@@ -34,6 +34,7 @@
 		B88D2D85229DB1560032A531 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D2D84229DB1560032A531 /* UIColor+Extension.swift */; };
 		B88D2D87229DB18F0032A531 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D2D86229DB18F0032A531 /* UIButton+Extension.swift */; };
 		B88D2D89229DB46F0032A531 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D2D88229DB46F0032A531 /* UITextView+Extension.swift */; };
+		B8A9520122B86A4400788BF3 /* KeyboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A9520022B86A4400788BF3 /* KeyboardService.swift */; };
 		B8DFC3D722A5EDFB00EED470 /* CreateFileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DFC3D622A5EDFB00EED470 /* CreateFileController.swift */; };
 		B8DFC3D922A5FC1100EED470 /* ThemeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DFC3D822A5FC1100EED470 /* ThemeService.swift */; };
 /* End PBXBuildFile section */
@@ -81,6 +82,7 @@
 		B88D2D84229DB1560032A531 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		B88D2D86229DB18F0032A531 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		B88D2D88229DB46F0032A531 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
+		B8A9520022B86A4400788BF3 /* KeyboardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardService.swift; sourceTree = "<group>"; };
 		B8DFC3D622A5EDFB00EED470 /* CreateFileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFileController.swift; sourceTree = "<group>"; };
 		B8DFC3D822A5FC1100EED470 /* ThemeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeService.swift; sourceTree = "<group>"; };
 		C30B973FCF4DE03F52D9D446 /* Pods-OktoIDETests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OktoIDETests.debug.xcconfig"; path = "Target Support Files/Pods-OktoIDETests/Pods-OktoIDETests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 			children = (
 				B855B74022A0C27B00FA2E67 /* SyntaxHighlightService.swift */,
 				B8DFC3D822A5FC1100EED470 /* ThemeService.swift */,
+				B8A9520022B86A4400788BF3 /* KeyboardService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -497,6 +500,7 @@
 				B855B74122A0C27B00FA2E67 /* SyntaxHighlightService.swift in Sources */,
 				B88D2D85229DB1560032A531 /* UIColor+Extension.swift in Sources */,
 				B88D2D78229D96620032A531 /* BaseTabBarController.swift in Sources */,
+				B8A9520122B86A4400788BF3 /* KeyboardService.swift in Sources */,
 				B8449C8422B1D84800B973E0 /* Data+Extension.swift in Sources */,
 				B88D2D7A229DAC000032A531 /* TextEditorController.swift in Sources */,
 				B86DFDD2229A134C0075C666 /* OktoIDE.xcdatamodeld in Sources */,

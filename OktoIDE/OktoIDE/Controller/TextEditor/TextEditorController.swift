@@ -28,7 +28,7 @@ class TextEditorController: UIViewController {
     lazy var tabButton: UIButton = {
         
         let button = UIButton(type: .custom)
-        button.setTitle("Tab", for: .normal)
+        button.setTitle("tab", for: .normal)
         button.addTarget(self, action: #selector(cursorIsTabbed(sender:)), for: .touchUpInside)
         button.setTitleColor(.black, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -42,6 +42,45 @@ class TextEditorController: UIViewController {
         button.setImage(UIImage(named: "left-arrow"), for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.addTarget(self, action: #selector(cursorIsMovedToLeft(sender:)), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
+        
+    }()
+    
+    lazy var leftParenthese: UIButton = {
+        
+        let button = UIButton(type: .custom)
+        
+        button.setTitle("(", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.addTarget(self, action: #selector(leftParentheseButtonTapped(sender:)), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
+        
+    }()
+    
+    lazy var rightParenthese: UIButton = {
+        
+        let button = UIButton(type: .custom)
+        
+        button.setTitle(")", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.addTarget(self, action: #selector(rightParentheseButtonTapped(sender:)), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
+        
+    }()
+    
+    lazy var colonButton: UIButton = {
+        
+        let button = UIButton(type: .custom)
+        
+        button.setTitle(":", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.addTarget(self, action: #selector(colonButtonTapped(sender:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         
         return button
@@ -125,9 +164,13 @@ class TextEditorController: UIViewController {
         
         let accessoryItemstackView = CustomStackView(subviews: [moveCursorToLeftButton,
                                                                 moveCursorToRighttButton,
+                                                                highlightAllTextButton,
                                                                 tabButton,
+                                                                colonButton,
                                                                 quoteButton,
-                                                                highlightAllTextButton],
+                                                                leftParenthese,
+                                                                rightParenthese
+                                                                ],
                                         alignment: .center,
                                         axis: .horizontal,
                                         distribution: .fillEqually)
@@ -149,7 +192,7 @@ class TextEditorController: UIViewController {
     
     @objc fileprivate func quoteButtonIsTapped(sender: UIButton) {
         
-        print("insert quote")
+        mainTextEditorTextView.insertText("\"")
     }
     
     /// Move the cursor forward by one character/space
@@ -174,6 +217,21 @@ class TextEditorController: UIViewController {
     @objc fileprivate func cursorIsTabbed(sender: UIButton) {
         
         mainTextEditorTextView.insertText("    ")
+    }
+    
+    @objc fileprivate func leftParentheseButtonTapped(sender: UIButton){
+        
+        mainTextEditorTextView.insertText("(")
+    }
+    
+    @objc fileprivate func rightParentheseButtonTapped(sender: UIButton){
+        
+        mainTextEditorTextView.insertText(")")
+    }
+    
+    @objc fileprivate func colonButtonTapped(sender: UIButton){
+        
+        mainTextEditorTextView.insertText(":")
     }
     
     @objc fileprivate func saveButtonIsTapped() {
