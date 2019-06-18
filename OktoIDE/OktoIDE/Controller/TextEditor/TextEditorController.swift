@@ -57,7 +57,6 @@ class TextEditorController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         
         return button
-        
     }()
     
     
@@ -71,7 +70,6 @@ class TextEditorController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         
         return button
-        
     }()
     
     lazy var rightBracketButton: UIButton = {
@@ -84,7 +82,6 @@ class TextEditorController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         
         return button
-        
     }()
     
     lazy var colonButton: UIButton = {
@@ -97,7 +94,6 @@ class TextEditorController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         
         return button
-        
     }()
     
     lazy var highlightAllTextButton: UIButton = {

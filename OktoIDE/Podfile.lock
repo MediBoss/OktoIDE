@@ -1,4 +1,7 @@
 PODS:
+  - BaseAPI (0.1.5)
+  - GithubAPI (0.0.6):
+    - BaseAPI
   - IQKeyboardManager (6.2.1)
   - KeychainSwift (15.0.0)
   - Prestyler (1.1.0)
@@ -9,6 +12,7 @@ PODS:
   - ViewAnimator (2.5.1)
 
 DEPENDENCIES:
+  - GithubAPI
   - IQKeyboardManager
   - KeychainSwift
   - Prestyler
@@ -20,6 +24,8 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - BaseAPI
+    - GithubAPI
     - IQKeyboardManager
     - KeychainSwift
     - Prestyler
@@ -30,6 +36,8 @@ SPEC REPOS:
     - ViewAnimator
 
 SPEC CHECKSUMS:
+  BaseAPI: 9248feed65933cd20283514e7a9917ecba1b69c0
+  GithubAPI: bc5bfd90489f5138a8d1e00003b18abe31579eb0
   IQKeyboardManager: 964638372b4a61892cc74fdfa6fd26de8c9464a2
   KeychainSwift: c6fc018d287804faf1ce3f258a1e51a7178c8382
   Prestyler: 738297750a0e56ba2664197413e5eac4b3ef72c4
@@ -39,6 +47,6 @@ SPEC CHECKSUMS:
   SwipeCellKit: 935ca28c187ec6e1ffb2b578cf8ddca842bfdcbb
   ViewAnimator: 173932c659a43c5a15c665878750d92801ae2cf1
 
-PODFILE CHECKSUM: 811ba16a4704c0b6dd04452f16f3c9a09fa2fa62
+PODFILE CHECKSUM: d7f06cb18687441bf7f007a1fa3fec440fdf43ef
 
 COCOAPODS: 1.6.0.beta.2
