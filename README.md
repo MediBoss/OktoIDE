@@ -1,4 +1,4 @@
-<a href="https://itunes.apple.com/us/app/lofti-study-space-finder/id1446711696?mt=8" rel="some text">![Foo](LINK_GOES_HERE)</a>
+<a href="" rel="some text">![Foo](https://raw.githubusercontent.com/GitHawkApp/GitHawk/master/images/app-store-badge.png)</a>
 # OktoIDE
 
 ### Overview & Mission Statement
