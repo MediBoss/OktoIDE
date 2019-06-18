@@ -35,20 +35,7 @@ class TextEditorController: UIViewController {
         return button
     }()
     
-    lazy var moveCursorToLeftButton: UIButton = {
-        
-        let button = UIButton(type: .custom)
-
-        button.setImage(UIImage(named: "left-arrow"), for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.addTarget(self, action: #selector(cursorIsMovedToLeft(sender:)), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        
-        return button
-        
-    }()
-    
-    lazy var leftParenthese: UIButton = {
+    lazy var leftParentheseButton: UIButton = {
         
         let button = UIButton(type: .custom)
         
@@ -58,16 +45,42 @@ class TextEditorController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         
         return button
-        
     }()
     
-    lazy var rightParenthese: UIButton = {
+    lazy var rightParentheseButton: UIButton = {
         
         let button = UIButton(type: .custom)
-        
+
         button.setTitle(")", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.addTarget(self, action: #selector(rightParentheseButtonTapped(sender:)), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
+        
+    }()
+    
+    
+    lazy var leftBracketButton: UIButton = {
+        
+        let button = UIButton(type: .custom)
+        
+        button.setTitle("{", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.addTarget(self, action: #selector(leftBracketButtonTapped), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
+        
+    }()
+    
+    lazy var rightBracketButton: UIButton = {
+        
+        let button = UIButton(type: .custom)
+        
+        button.setTitle("}", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.addTarget(self, action: #selector(rightBracketButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         
         return button
@@ -85,18 +98,6 @@ class TextEditorController: UIViewController {
         
         return button
         
-    }()
-    
-    lazy var moveCursorToRighttButton: UIButton = {
-        
-        let button = UIButton(type: .custom)
-        
-        button.setImage(UIImage(named: "right-arrow"), for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.addTarget(self, action: #selector(cursorIsMovedToRight(sender:)), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        
-        return button
     }()
     
     lazy var highlightAllTextButton: UIButton = {
@@ -162,14 +163,14 @@ class TextEditorController: UIViewController {
     /// Horizontally stack up buttons to tab, highlight, and move the cursor on top of the keyboard
     fileprivate func constraintAccessoryViewItems() {
         
-        let accessoryItemstackView = CustomStackView(subviews: [moveCursorToLeftButton,
-                                                                moveCursorToRighttButton,
-                                                                highlightAllTextButton,
-                                                                tabButton,
+        let accessoryItemstackView = CustomStackView(subviews: [leftParentheseButton,
+                                                                rightParentheseButton,
+                                                                leftBracketButton,
+                                                                rightBracketButton,
                                                                 colonButton,
                                                                 quoteButton,
-                                                                leftParenthese,
-                                                                rightParenthese
+                                                                tabButton,
+                                                                highlightAllTextButton
                                                                 ],
                                         alignment: .center,
                                         axis: .horizontal,
@@ -178,16 +179,16 @@ class TextEditorController: UIViewController {
         accessoryItemstackView.fillSuperview()
     }
     
-    /// Move the cursor backward by one character/space
-    @objc fileprivate func cursorIsMovedToLeft(sender: UIButton) {
+    ///
+    @objc fileprivate func leftParentheseButtonTapped(sender: UIButton) {
         
-        if let selectedRange = mainTextEditorTextView.selectedTextRange {
-            
-            if let newPosition = mainTextEditorTextView.position(from: selectedRange.start, offset: -1) {
-
-                mainTextEditorTextView.selectedTextRange = mainTextEditorTextView.textRange(from: newPosition, to: newPosition)
-            }
-        }
+        mainTextEditorTextView.insertText("(")
+    }
+    
+    ///
+    @objc fileprivate func rightParentheseButtonTapped(sender: UIButton) {
+        
+        mainTextEditorTextView.insertText(")")
     }
     
     @objc fileprivate func quoteButtonIsTapped(sender: UIButton) {
@@ -195,17 +196,6 @@ class TextEditorController: UIViewController {
         mainTextEditorTextView.insertText("\"")
     }
     
-    /// Move the cursor forward by one character/space
-    @objc fileprivate func cursorIsMovedToRight(sender: UIButton) {
-        
-        if let selectedRange = mainTextEditorTextView.selectedTextRange {
-            
-            if let newPosition = mainTextEditorTextView.position(from: selectedRange.start, offset: 1) {
-                
-                mainTextEditorTextView.selectedTextRange = mainTextEditorTextView.textRange(from: newPosition, to: newPosition)
-            }
-        }
-    }
     
     /// Highlight the entire text editor
     @objc fileprivate func allTextIsSelected(sender: UIButton) {
@@ -219,14 +209,14 @@ class TextEditorController: UIViewController {
         mainTextEditorTextView.insertText("    ")
     }
     
-    @objc fileprivate func leftParentheseButtonTapped(sender: UIButton){
+    @objc fileprivate func leftBracketButtonTapped(sender: UIButton){
         
-        mainTextEditorTextView.insertText("(")
+        mainTextEditorTextView.insertText("{")
     }
     
-    @objc fileprivate func rightParentheseButtonTapped(sender: UIButton){
+    @objc fileprivate func rightBracketButtonTapped(sender: UIButton){
         
-        mainTextEditorTextView.insertText(")")
+        mainTextEditorTextView.insertText("}")
     }
     
     @objc fileprivate func colonButtonTapped(sender: UIButton){
