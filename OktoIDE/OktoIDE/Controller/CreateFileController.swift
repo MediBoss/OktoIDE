@@ -34,11 +34,12 @@ class CreateFileController: UIViewController{
         setUpSaveButton()
         mainStackViewAutoLayout()
         addSwipeToDismis()
+        
+        
     }
     
     // MARK : CLASS METHODS
-    
-    
+     
     @objc fileprivate func saveButtonTapped(sender: UIButton){
         
         guard let fileName = fileNameTextField.text, let fileExtension = fileExtensionTextField.text else { return }

@@ -32,5 +32,6 @@ extension UIColor{
     static let javascriptKeywordColorHighlight = UIColor(red: 0.9216, green: 0.9569, blue: 0.0667, alpha: 1.0)
     static let darkModeBacgroundColor = #colorLiteral(red: 0.07895455509, green: 0.1626217663, blue: 0.2949268222, alpha: 1)
     static var currentBackgroundColor = UIColor.white
+    static var swiftTypesColorSyntax = UIColor(red: 0.3373, green: 0.1255, blue: 0.6471, alpha: 1.0)
 
 }
