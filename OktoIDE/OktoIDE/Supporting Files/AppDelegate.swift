@@ -15,13 +15,15 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         IQKeyboardManager.shared().isEnabled = true
         window = UIWindow(frame: UIScreen.main.bounds)
-        showHomePage(for: window)
+        
+        self.UserLoggeInState(window)
         
         return true
     }
@@ -31,16 +33,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Sync with Github SDK before the user goes offline
     }
     
-    /**
-     Displays the home page view controller on the given window
-     - Parameters:
-        - window : an instance of UIWindow to configure the root view controllers
-     **/
+    
+    /// Redirectes user to Home page or login page based on Log in status
+    fileprivate func UserLoggeInState(_ window: UIWindow?) {
+        
+        if UserDefaults.standard.value(forKey: "currentUser") != nil {
+            self.showHomePage(for: window)
+        } else {
+            self.showLoginPage(for: window)
+        }
+    }
+    
+    /// Displays the home page view controller on the given window
     fileprivate func showHomePage(for window: UIWindow?){
         
         if let window = window {
             
             let destinationVC = BaseTabBarController()
+            window.rootViewController = destinationVC
+            window.makeKeyAndVisible()
+        }
+    }
+    
+    /// Displays the login page view controller on the given window
+    func showLoginPage(for window: UIWindow?){
+        
+        if let window = window {
+            
+            let destinationVC = LoginViewController()
             window.rootViewController = destinationVC
             window.makeKeyAndVisible()
         }

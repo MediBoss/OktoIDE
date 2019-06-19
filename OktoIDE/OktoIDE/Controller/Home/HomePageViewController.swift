@@ -21,6 +21,8 @@ class HomePageViewController: BaseUICollectionViewList, UISearchBarDelegate {
     fileprivate var fileSearchController = UISearchController(searchResultsController: nil)
     private var animationCounter = 0
     private  let animations = [AnimationType.from(direction: .right, offset: 30.0)]
+    
+    var user: User!
     var files: [File] = [File](){
         didSet{
             DispatchQueue.main.async {

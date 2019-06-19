@@ -20,12 +20,14 @@
 		B855B74322A0CA3300FA2E67 /* HomePageViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B855B74222A0CA3300FA2E67 /* HomePageViewController+Extensions.swift */; };
 		B855B74622A0CBC400FA2E67 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B855B74522A0CBC400FA2E67 /* Helper.swift */; };
 		B85DCE1222A5DBC20035B74C /* TextEditorController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DCE1122A5DBC20035B74C /* TextEditorController+Extension.swift */; };
-		B85DCE1422A5DFC40035B74C /* GithubServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DCE1322A5DFC40035B74C /* GithubServices.swift */; };
+		B85DCE1422A5DFC40035B74C /* GithubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DCE1322A5DFC40035B74C /* GithubService.swift */; };
 		B86DFDCA229A134C0075C666 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86DFDC9229A134C0075C666 /* AppDelegate.swift */; };
 		B86DFDD2229A134C0075C666 /* OktoIDE.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B86DFDD0229A134C0075C666 /* OktoIDE.xcdatamodeld */; };
 		B86DFDD4229A134D0075C666 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B86DFDD3229A134D0075C666 /* Assets.xcassets */; };
 		B86DFDD7229A134D0075C666 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B86DFDD5229A134D0075C666 /* LaunchScreen.storyboard */; };
 		B86DFDE2229A134D0075C666 /* OktoIDETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86DFDE1229A134D0075C666 /* OktoIDETests.swift */; };
+		B87F656F22B9A31D00A72403 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F656E22B9A31D00A72403 /* User.swift */; };
+		B87F657122B9B4B300A72403 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F657022B9B4B300A72403 /* LoginViewController.swift */; };
 		B88D2D76229D95E40032A531 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D2D75229D95E40032A531 /* HomePageViewController.swift */; };
 		B88D2D78229D96620032A531 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D2D77229D96620032A531 /* BaseTabBarController.swift */; };
 		B88D2D7A229DAC000032A531 /* TextEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D2D79229DAC000032A531 /* TextEditorController.swift */; };
@@ -64,7 +66,7 @@
 		B855B74222A0CA3300FA2E67 /* HomePageViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomePageViewController+Extensions.swift"; sourceTree = "<group>"; };
 		B855B74522A0CBC400FA2E67 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		B85DCE1122A5DBC20035B74C /* TextEditorController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextEditorController+Extension.swift"; sourceTree = "<group>"; };
-		B85DCE1322A5DFC40035B74C /* GithubServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubServices.swift; sourceTree = "<group>"; };
+		B85DCE1322A5DFC40035B74C /* GithubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubService.swift; sourceTree = "<group>"; };
 		B86DFDC6229A134C0075C666 /* OktoIDE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OktoIDE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B86DFDC9229A134C0075C666 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B86DFDD1229A134C0075C666 /* OktoIDE.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OktoIDE.xcdatamodel; sourceTree = "<group>"; };
@@ -74,6 +76,8 @@
 		B86DFDDD229A134D0075C666 /* OktoIDETests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OktoIDETests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B86DFDE1229A134D0075C666 /* OktoIDETests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OktoIDETests.swift; sourceTree = "<group>"; };
 		B86DFDE3229A134D0075C666 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B87F656E22B9A31D00A72403 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B87F657022B9B4B300A72403 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B88D2D75229D95E40032A531 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		B88D2D77229D96620032A531 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 		B88D2D79229DAC000032A531 /* TextEditorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditorController.swift; sourceTree = "<group>"; };
@@ -192,6 +196,7 @@
 			children = (
 				B8449C8522B1D8E700B973E0 /* File+CoreDataClass.swift */,
 				B8449C8622B1D8E700B973E0 /* File+CoreDataProperties.swift */,
+				B87F656E22B9A31D00A72403 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -212,6 +217,7 @@
 				B88D2D77229D96620032A531 /* BaseTabBarController.swift */,
 				B855B73A22A0984500FA2E67 /* BaseUICollectionList.swift */,
 				B8DFC3D622A5EDFB00EED470 /* CreateFileController.swift */,
+				B87F657022B9B4B300A72403 /* LoginViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -245,7 +251,7 @@
 		B88D2D73229D958B0032A531 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				B85DCE1322A5DFC40035B74C /* GithubServices.swift */,
+				B85DCE1322A5DFC40035B74C /* GithubService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -488,6 +494,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B87F657122B9B4B300A72403 /* LoginViewController.swift in Sources */,
+				B87F656F22B9A31D00A72403 /* User.swift in Sources */,
 				B81F63F6229F73D7000EB97E /* ProfilePageController.swift in Sources */,
 				B8DFC3D722A5EDFB00EED470 /* CreateFileController.swift in Sources */,
 				B855B74622A0CBC400FA2E67 /* Helper.swift in Sources */,
@@ -510,7 +518,7 @@
 				B86DFDD2229A134C0075C666 /* OktoIDE.xcdatamodeld in Sources */,
 				B8449C8822B1D8E700B973E0 /* File+CoreDataProperties.swift in Sources */,
 				B855B73B22A0984500FA2E67 /* BaseUICollectionList.swift in Sources */,
-				B85DCE1422A5DFC40035B74C /* GithubServices.swift in Sources */,
+				B85DCE1422A5DFC40035B74C /* GithubService.swift in Sources */,
 				B86DFDCA229A134C0075C666 /* AppDelegate.swift in Sources */,
 				B88D2D7F229DADAB0032A531 /* CustomUIElements.swift in Sources */,
 			);
