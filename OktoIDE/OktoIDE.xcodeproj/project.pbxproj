@@ -17,7 +17,7 @@
 		B855B73B22A0984500FA2E67 /* BaseUICollectionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B855B73A22A0984500FA2E67 /* BaseUICollectionList.swift */; };
 		B855B73D22A0993500FA2E67 /* AllFilesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B855B73C22A0993500FA2E67 /* AllFilesCollectionViewCell.swift */; };
 		B855B74122A0C27B00FA2E67 /* SyntaxHighlightService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B855B74022A0C27B00FA2E67 /* SyntaxHighlightService.swift */; };
-		B855B74322A0CA3300FA2E67 /* HomePageViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B855B74222A0CA3300FA2E67 /* HomePageViewController+Extensions.swift */; };
+		B855B74322A0CA3300FA2E67 /* ProjectsPageViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B855B74222A0CA3300FA2E67 /* ProjectsPageViewController+Extensions.swift */; };
 		B855B74622A0CBC400FA2E67 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B855B74522A0CBC400FA2E67 /* Helper.swift */; };
 		B85DCE1222A5DBC20035B74C /* TextEditorController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DCE1122A5DBC20035B74C /* TextEditorController+Extension.swift */; };
 		B85DCE1422A5DFC40035B74C /* GithubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DCE1322A5DFC40035B74C /* GithubService.swift */; };
@@ -28,7 +28,7 @@
 		B86DFDE2229A134D0075C666 /* OktoIDETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86DFDE1229A134D0075C666 /* OktoIDETests.swift */; };
 		B87F656F22B9A31D00A72403 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F656E22B9A31D00A72403 /* User.swift */; };
 		B87F657122B9B4B300A72403 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F657022B9B4B300A72403 /* LoginViewController.swift */; };
-		B88D2D76229D95E40032A531 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D2D75229D95E40032A531 /* HomePageViewController.swift */; };
+		B88D2D76229D95E40032A531 /* ProjectsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D2D75229D95E40032A531 /* ProjectsPageViewController.swift */; };
 		B88D2D78229D96620032A531 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D2D77229D96620032A531 /* BaseTabBarController.swift */; };
 		B88D2D7A229DAC000032A531 /* TextEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D2D79229DAC000032A531 /* TextEditorController.swift */; };
 		B88D2D7D229DAD830032A531 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D2D7C229DAD830032A531 /* UIView+Extension.swift */; };
@@ -37,6 +37,8 @@
 		B88D2D87229DB18F0032A531 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D2D86229DB18F0032A531 /* UIButton+Extension.swift */; };
 		B88D2D89229DB46F0032A531 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D2D88229DB46F0032A531 /* UITextView+Extension.swift */; };
 		B8A9520122B86A4400788BF3 /* KeyboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A9520022B86A4400788BF3 /* KeyboardService.swift */; };
+		B8DBB03022BB149D00D12364 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DBB02F22BB149D00D12364 /* Project.swift */; };
+		B8DBB03222BB1A7D00D12364 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DBB03122BB1A7D00D12364 /* NetworkError.swift */; };
 		B8DFC3D722A5EDFB00EED470 /* CreateFileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DFC3D622A5EDFB00EED470 /* CreateFileController.swift */; };
 		B8DFC3D922A5FC1100EED470 /* ThemeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DFC3D822A5FC1100EED470 /* ThemeService.swift */; };
 /* End PBXBuildFile section */
@@ -63,7 +65,7 @@
 		B855B73A22A0984500FA2E67 /* BaseUICollectionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUICollectionList.swift; sourceTree = "<group>"; };
 		B855B73C22A0993500FA2E67 /* AllFilesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllFilesCollectionViewCell.swift; sourceTree = "<group>"; };
 		B855B74022A0C27B00FA2E67 /* SyntaxHighlightService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntaxHighlightService.swift; sourceTree = "<group>"; };
-		B855B74222A0CA3300FA2E67 /* HomePageViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomePageViewController+Extensions.swift"; sourceTree = "<group>"; };
+		B855B74222A0CA3300FA2E67 /* ProjectsPageViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProjectsPageViewController+Extensions.swift"; sourceTree = "<group>"; };
 		B855B74522A0CBC400FA2E67 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		B85DCE1122A5DBC20035B74C /* TextEditorController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextEditorController+Extension.swift"; sourceTree = "<group>"; };
 		B85DCE1322A5DFC40035B74C /* GithubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubService.swift; sourceTree = "<group>"; };
@@ -78,7 +80,7 @@
 		B86DFDE3229A134D0075C666 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B87F656E22B9A31D00A72403 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B87F657022B9B4B300A72403 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		B88D2D75229D95E40032A531 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		B88D2D75229D95E40032A531 /* ProjectsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsPageViewController.swift; sourceTree = "<group>"; };
 		B88D2D77229D96620032A531 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 		B88D2D79229DAC000032A531 /* TextEditorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditorController.swift; sourceTree = "<group>"; };
 		B88D2D7C229DAD830032A531 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -87,6 +89,8 @@
 		B88D2D86229DB18F0032A531 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		B88D2D88229DB46F0032A531 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		B8A9520022B86A4400788BF3 /* KeyboardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardService.swift; sourceTree = "<group>"; };
+		B8DBB02F22BB149D00D12364 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		B8DBB03122BB1A7D00D12364 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		B8DFC3D622A5EDFB00EED470 /* CreateFileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFileController.swift; sourceTree = "<group>"; };
 		B8DFC3D822A5FC1100EED470 /* ThemeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeService.swift; sourceTree = "<group>"; };
 		C30B973FCF4DE03F52D9D446 /* Pods-OktoIDETests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OktoIDETests.debug.xcconfig"; path = "Target Support Files/Pods-OktoIDETests/Pods-OktoIDETests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -197,6 +201,7 @@
 				B8449C8522B1D8E700B973E0 /* File+CoreDataClass.swift */,
 				B8449C8622B1D8E700B973E0 /* File+CoreDataProperties.swift */,
 				B87F656E22B9A31D00A72403 /* User.swift */,
+				B8DBB02F22BB149D00D12364 /* Project.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -211,7 +216,7 @@
 		B88D2D6E229D94DF0032A531 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B88D2D83229DAE450032A531 /* Home */,
+				B88D2D83229DAE450032A531 /* Projects */,
 				B88D2D82229DAE330032A531 /* Profile */,
 				B88D2D80229DAE200032A531 /* TextEditor */,
 				B88D2D77229D96620032A531 /* BaseTabBarController.swift */,
@@ -252,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				B85DCE1322A5DFC40035B74C /* GithubService.swift */,
+				B8DBB03122BB1A7D00D12364 /* NetworkError.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -295,13 +301,13 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		B88D2D83229DAE450032A531 /* Home */ = {
+		B88D2D83229DAE450032A531 /* Projects */ = {
 			isa = PBXGroup;
 			children = (
-				B855B74222A0CA3300FA2E67 /* HomePageViewController+Extensions.swift */,
-				B88D2D75229D95E40032A531 /* HomePageViewController.swift */,
+				B855B74222A0CA3300FA2E67 /* ProjectsPageViewController+Extensions.swift */,
+				B88D2D75229D95E40032A531 /* ProjectsPageViewController.swift */,
 			);
-			path = Home;
+			path = Projects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -495,15 +501,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				B87F657122B9B4B300A72403 /* LoginViewController.swift in Sources */,
+				B8DBB03222BB1A7D00D12364 /* NetworkError.swift in Sources */,
 				B87F656F22B9A31D00A72403 /* User.swift in Sources */,
 				B81F63F6229F73D7000EB97E /* ProfilePageController.swift in Sources */,
 				B8DFC3D722A5EDFB00EED470 /* CreateFileController.swift in Sources */,
 				B855B74622A0CBC400FA2E67 /* Helper.swift in Sources */,
-				B88D2D76229D95E40032A531 /* HomePageViewController.swift in Sources */,
+				B88D2D76229D95E40032A531 /* ProjectsPageViewController.swift in Sources */,
 				B85DCE1222A5DBC20035B74C /* TextEditorController+Extension.swift in Sources */,
 				B8DFC3D922A5FC1100EED470 /* ThemeService.swift in Sources */,
 				B8449C8722B1D8E700B973E0 /* File+CoreDataClass.swift in Sources */,
-				B855B74322A0CA3300FA2E67 /* HomePageViewController+Extensions.swift in Sources */,
+				B855B74322A0CA3300FA2E67 /* ProjectsPageViewController+Extensions.swift in Sources */,
 				B855B73D22A0993500FA2E67 /* AllFilesCollectionViewCell.swift in Sources */,
 				B88D2D7D229DAD830032A531 /* UIView+Extension.swift in Sources */,
 				B88D2D89229DB46F0032A531 /* UITextView+Extension.swift in Sources */,
@@ -513,6 +520,7 @@
 				B88D2D85229DB1560032A531 /* UIColor+Extension.swift in Sources */,
 				B88D2D78229D96620032A531 /* BaseTabBarController.swift in Sources */,
 				B8A9520122B86A4400788BF3 /* KeyboardService.swift in Sources */,
+				B8DBB03022BB149D00D12364 /* Project.swift in Sources */,
 				B8449C8422B1D84800B973E0 /* Data+Extension.swift in Sources */,
 				B88D2D7A229DAC000032A531 /* TextEditorController.swift in Sources */,
 				B86DFDD2229A134C0075C666 /* OktoIDE.xcdatamodeld in Sources */,

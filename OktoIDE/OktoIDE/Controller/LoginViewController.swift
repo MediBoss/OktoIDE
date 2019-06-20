@@ -51,6 +51,7 @@ class LoginViewController: UIViewController {
         
         guard let username = userNameTextField.text, let password = passwordTextField.text else { return }
         
+        
         GithubService.shared.login(username, password) { (result) in
             
             switch result{

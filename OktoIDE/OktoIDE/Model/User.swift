@@ -11,9 +11,11 @@ import UIKit
 
 struct User: Codable{
     
-    let login: String
+    let name: String
+    let username: String
     let id: Int
     let avatarURL: URL
+
     private static var _current: User?
     
     static var currentUser: User {
@@ -29,9 +31,10 @@ struct User: Codable{
         }
     }
     
-    init(login: String, id: Int, avatarURL: URL) {
+    init(name: String, username: String, id: Int, avatarURL: URL) {
         
-        self.login = login
+        self.name = name
+        self.username = username
         self.id = id
         self.avatarURL = avatarURL
     }

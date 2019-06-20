@@ -1,5 +1,5 @@
 //
-//  HomePageViewController.swift
+//  ProjectsPageViewController.swift
 //  OktoIDE
 //
 //  Created by Medi Assumani on 5/28/19.
@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import GithubAPI
 import UIKit
 import ViewAnimator
 
@@ -15,15 +16,14 @@ extension Notification.Name{
     static let didReceiveFileObject = Notification.Name("didReceivedFileObject")
 }
 
-class HomePageViewController: BaseUICollectionViewList, UISearchBarDelegate {
+class ProjectsPageViewController: BaseUICollectionViewList, UISearchBarDelegate {
 
     fileprivate var fileSearchResults = [File]()
     fileprivate var fileSearchController = UISearchController(searchResultsController: nil)
     private var animationCounter = 0
     private  let animations = [AnimationType.from(direction: .right, offset: 30.0)]
     
-    var user: User!
-    var files: [File] = [File](){
+    var projects: [Project] = []{
         didSet{
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
@@ -31,45 +31,64 @@ class HomePageViewController: BaseUICollectionViewList, UISearchBarDelegate {
         }
     }
     
+    //var user: User!
+//    var files: [File] = [File](){
+//        didSet{
+//            DispatchQueue.main.async {
+//                self.collectionView.reloadData()
+//            }
+//        }
+//    }
+    
+
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
+        GithubService.shared.getUserProjects { (result) in
+            
+            switch result{
+            case let .success(projects):
+                self.projects = projects
+            case let .failure(_):
+                print("Error occured")
+            }
+        }
         if ThemeService.shared.isThemeDark(){
             collectionView.backgroundColor = .black
-            
+
         } else {
             collectionView.backgroundColor = .white
         }
         collectionView.register(AllFilesCollectionViewCell.self, forCellWithReuseIdentifier: AllFilesCollectionViewCell.id)
         configureNavBar()
         setUpSearchBar()
-        
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(onDidReceiveNewFile(sender:)),
-                                               name: .didReceiveFileObject,
-                                               object: nil)
-    }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
 
-        CoreDataManager.shared.fetchFilles(with: nil) { (fetchResults) in
-            switch fetchResults {
-            case let .success(fetchedFilesCallback):
-                self.files = fetchedFilesCallback
-                self.animateCells()
-            case let .failure(error):
-                // TODO : Add proper production error handling
-                print("Error found \(error.localizedDescription)")
-            }
-        }
+//        NotificationCenter.default.addObserver(self,
+//                                               selector: #selector(onDidReceiveNewFile(sender:)),
+//                                               name: .didReceiveFileObject,
+//                                               object: nil)
     }
     
-    deinit {
-        NotificationCenter.default.removeObserver(self, name: .didReceiveFileObject, object: nil)
-    }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//
+//        CoreDataManager.shared.fetchFilles(with: nil) { (fetchResults) in
+//            switch fetchResults {
+//            case let .success(fetchedFilesCallback):
+//                self.files = fetchedFilesCallback
+//                self.animateCells()
+//            case let .failure(error):
+//                // TODO : Add proper production error handling
+//                print("Error found \(error.localizedDescription)")
+//            }
+//        }
+//    }
+    
+//    deinit {
+//        NotificationCenter.default.removeObserver(self, name: .didReceiveFileObject, object: nil)
+//    }
     
     /// Animates the home page table view cells when app starts
     private func animateCells(){
@@ -101,17 +120,17 @@ class HomePageViewController: BaseUICollectionViewList, UISearchBarDelegate {
         navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
     }
     
-    @objc fileprivate func onDidReceiveNewFile(sender: Notification) {
-        
-        
-        if let receivedFile = sender.object as? File {
-            
-            self.files.append(receivedFile)
-            let destinationVC = TextEditorController()
-            destinationVC.editingFile = receivedFile
-            navigationController?.pushViewController(destinationVC, animated: true)
-        }
-    }
+//    @objc fileprivate func onDidReceiveNewFile(sender: Notification) {
+//
+//
+//        if let receivedFile = sender.object as? File {
+//
+//            self.projects.append(receivedFile)
+//            let destinationVC = TextEditorController()
+//            destinationVC.editingFile = receivedFile
+//            navigationController?.pushViewController(destinationVC, animated: true)
+//        }
+//    }
 
     fileprivate func configureNavBar(){
         
@@ -130,24 +149,24 @@ class HomePageViewController: BaseUICollectionViewList, UISearchBarDelegate {
         self.present(destinationVC, animated: true, completion: nil)
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        if !searchText.isEmpty {
-            let predicate = NSPredicate(format: "name contains[c] %@", searchText)
-            CoreDataManager.shared.fetchFilles(with: predicate) { (fetchResults) in
-                
-                switch fetchResults{
-                case let .success(fetchedFiles):
-                    self.files = fetchedFiles
-                    
-                    DispatchQueue.main.async {
-                        self.collectionView.reloadData()
-                    }
-                    
-                case .failure(_):
-                    print("Error found while fetching files in store")
-                }
-            }
-        }
-    }
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        
+//        if !searchText.isEmpty {
+//            let predicate = NSPredicate(format: "name contains[c] %@", searchText)
+//            CoreDataManager.shared.fetchFilles(with: predicate) { (fetchResults) in
+//                
+//                switch fetchResults{
+//                case let .success(fetchedFiles):
+//                    self.files = fetchedFiles
+//                    
+//                    DispatchQueue.main.async {
+//                        self.collectionView.reloadData()
+//                    }
+//                    
+//                case .failure(_):
+//                    print("Error found while fetching files in store")
+//                }
+//            }
+//        }
+//    }
 }
