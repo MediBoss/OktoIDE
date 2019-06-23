@@ -42,16 +42,16 @@ class CreateFileController: UIViewController{
      
     @objc fileprivate func saveButtonTapped(sender: UIButton){
         
-        guard let fileName = fileNameTextField.text, let fileExtension = fileExtensionTextField.text else { return }
-        
-        let file = CoreDataManager.shared.create()
-        file.name = "\(fileName).\(fileExtension)"
-        file.ext = fileExtension
-        file.editedAt = Date().toPrettyString()
-        
-        CoreDataManager.shared.save()
-        NotificationCenter.default.post(name: .didReceiveFileObject, object: file)
-        self.dismiss(animated: true, completion: nil)
+//        guard let fileName = fileNameTextField.text, let fileExtension = fileExtensionTextField.text else { return }
+//
+//        let file = CoreDataManager.shared.create()
+//        file.name = "\(fileName).\(fileExtension)"
+//        file.ext = fileExtension
+//        file.editedAt = Date().toPrettyString()
+//
+//        //CoreDataManager.shared.save()
+//        NotificationCenter.default.post(name: .didReceiveFileObject, object: file)
+//        self.dismiss(animated: true, completion: nil)
     }
     
     fileprivate func addSwipeToDismis() {

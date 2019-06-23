@@ -18,7 +18,7 @@ extension Notification.Name{
 
 class ProjectsPageViewController: BaseUICollectionViewList, UISearchBarDelegate {
 
-    fileprivate var fileSearchResults = [File]()
+    //fileprivate var fileSearchResults = [File]()
     fileprivate var fileSearchController = UISearchController(searchResultsController: nil)
     private var animationCounter = 0
     private  let animations = [AnimationType.from(direction: .right, offset: 30.0)]
@@ -46,7 +46,7 @@ class ProjectsPageViewController: BaseUICollectionViewList, UISearchBarDelegate 
         super.viewDidLoad()
         
         GithubService.shared.getUserProjects { (result) in
-            
+
             switch result{
             case let .success(projects):
                 self.projects = projects
@@ -61,7 +61,7 @@ class ProjectsPageViewController: BaseUICollectionViewList, UISearchBarDelegate 
             collectionView.backgroundColor = .white
         }
         collectionView.register(AllFilesCollectionViewCell.self, forCellWithReuseIdentifier: AllFilesCollectionViewCell.id)
-        configureNavBar()
+        //configureNavBar()
         setUpSearchBar()
 
 //        NotificationCenter.default.addObserver(self,
@@ -132,13 +132,13 @@ class ProjectsPageViewController: BaseUICollectionViewList, UISearchBarDelegate 
 //        }
 //    }
 
-    fileprivate func configureNavBar(){
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+",
-                                                            style: .done,
-                                                            target: self,
-                                                            action: #selector(addFile(sender:)))
-    }
+//    fileprivate func configureNavBar(){
+//
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+",
+//                                                            style: .done,
+//                                                            target: self,
+//                                                            action: #selector(addFile(sender:)))
+//    }
     
     @objc func addFile(sender: UIBarButtonItem){
         

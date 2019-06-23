@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum NetworkError: String, Error {
+public enum HTTPNetworkError: String, Error {
     
     case parametersNil = "Error Found : Parameters are nil."
     case headersNil = "Error Found : Headers are Nil"

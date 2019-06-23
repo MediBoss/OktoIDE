@@ -50,23 +50,23 @@ class AllFilesCollectionViewCell: SwipeCollectionViewCell {
     
     static let id = "AllFilesCollectionViewCellID"
     
-    var file: File! {
-        didSet{
-
-            fileNameLabel.text = file.name
-            editedLabel.text = "Last edited : \(file.editedAt ?? "")"
-            languageColorView.backgroundColor = file.getLanguageAssociatedColor()
-        }
-    }
+//    var file: File! {
+//        didSet{
+//
+//            fileNameLabel.text = file.name
+//            editedLabel.text = "Last edited : \(file.editedAt ?? "")"
+//            languageColorView.backgroundColor = file.getLanguageAssociatedColor()
+//        }
+//    }
     
     lazy var fileNameLabel = CustomLabel(fontSize: 18,
-                                         text: "NetworkManager.swift",
+                                         text: "",
                                          textColor: ThemeService.shared.getMainColor(),
                                          textAlignment: .center,
                                          fontName: "Helvetica")
     
     lazy var editedLabel = CustomLabel(fontSize: 13,
-                                       text: "Edited: 03.14.2019",
+                                       text: "",
                                        textColor: .gray,
                                        textAlignment: .left,
                                        fontName: "Helvetica")

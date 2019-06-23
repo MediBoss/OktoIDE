@@ -16,7 +16,7 @@ class BaseTabBarController: UITabBarController {
         
         viewControllers = [
             
-            createNavController(vc: ProjectsPageViewController(), title: "Home", tabImageName: "home"),
+            createNavController(vc: ProjectsPageViewController(), title: "Projects", tabImageName: "home"),
             createNavController(vc: ProfilePageController(), title: "Profile", tabImageName: "avatar")
         ]
     }
@@ -53,6 +53,7 @@ class BaseTabBarController: UITabBarController {
         }
         
         vc.navigationItem.title = title
+        vc.navigationController?.navigationBar.prefersLargeTitles = true
         navigationController.tabBarItem.title = title
         navigationController.tabBarItem.image = UIImage(named: tabImageName)
 

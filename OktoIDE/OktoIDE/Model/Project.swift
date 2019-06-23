@@ -14,11 +14,13 @@ struct Project {
     let name: String
     let id: Int
     let language: String
+    let allContentsUrl: String
     
-    init(name: String, id: Int, language: String) {
+    init(name: String, id: Int, language: String, allContentsUrl: String) {
         
         self.name = name
         self.id = id
         self.language = language
+        self.allContentsUrl = allContentsUrl
     }
 }

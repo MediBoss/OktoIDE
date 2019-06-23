@@ -62,14 +62,26 @@ extension ProjectsPageViewController: UICollectionViewDelegateFlowLayout{
 //        return [deleteAction, editAction]
 //    }
 //    
-//    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//
-//        let selectedFile = self.files[indexPath.row]
-//        let destinationVC = TextEditorController()
-//        
-//        destinationVC.editingFile = selectedFile
-//        navigationController?.pushViewController(destinationVC, animated: true)
-//    }
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+        
+        let destinationVC = ProjectDetailsViewController()
+        let selectedProject = self.projects[indexPath.row]
+        GithubService.shared.getRepoContents(projectName: selectedProject.name) { (result) in
+            
+            switch result{
+            case let .success(contents):
+                
+                DispatchQueue.main.async {
+                    destinationVC.contents = contents
+                    self.navigationController?.pushViewController(destinationVC, animated: true)
+                }
+                
+            case let .failure(error):
+                print(error.localizedDescription)
+            }
+        }
+    }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,

@@ -13,7 +13,7 @@ import UIKit
 class TextEditorController: UIViewController {
     
     //- MARK: CLASS PROPERTIES
-    var editingFile: File?
+    var editingFile: Content?
     
     lazy var textEditorkeyboardAccessory: UIView = {
         
@@ -128,7 +128,7 @@ class TextEditorController: UIViewController {
         textEditor.enablesReturnKeyAutomatically = false
         textEditor.autocapitalizationType = .none
         textEditor.autocorrectionType = .no
-        textEditor.text = self.editingFile?.content
+        //textEditor.text = self.editingFile?.content
 
         return textEditor
     }()
@@ -139,17 +139,18 @@ class TextEditorController: UIViewController {
         
         view.addSubview(mainTextEditorTextView)
         
-        Helper.getEditorSyntaxtHighlight(ext: editingFile?.ext, textView: mainTextEditorTextView)
+//        Helper.getEditorSyntaxtHighlight(ext: editingFile?.ext, textView: mainTextEditorTextView)
         mainTextEditorTextView.fillSuperview()
         addAcessory()
         mainTextEditorTextView.delegate = self as UITextViewDelegate
         configureNavBar()
+        decodedFileContents()
     }
     
     //- MARK: CLASS METHODS
     
     /// Add a view on top of the text editor keyboard that will contain accessories.
-    func addAcessory() {
+    fileprivate func addAcessory() {
         
         textEditorkeyboardAccessory.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 45)
         mainTextEditorTextView.inputAccessoryView = textEditorkeyboardAccessory
@@ -173,6 +174,17 @@ class TextEditorController: UIViewController {
                                         distribution: .fillEqually)
         textEditorkeyboardAccessory.addSubview(accessoryItemstackView)
         accessoryItemstackView.fillSuperview()
+    }
+    
+    fileprivate func decodedFileContents() {
+        
+        let base64Encoded = "YW55IGN\nhcm5hbCBwb\nGVhc3VyZS4="
+        let cleanEncodedString = base64Encoded.replacingOccurrences(of: "\n", with: "")
+        let decodedData = Data(base64Encoded: cleanEncodedString)
+        if let data = decodedData {
+            let decodedString = String(data: data, encoding: .utf8)!
+            print(decodedString)
+        }
     }
     
     ///
@@ -222,16 +234,17 @@ class TextEditorController: UIViewController {
     
     @objc fileprivate func saveButtonIsTapped() {
         
-        editingFile?.content = mainTextEditorTextView.text
-        editingFile?.editedAt = Date().toPrettyString()
-        CoreDataManager.shared.save()
-        navigationController?.popViewController(animated: true)
+//        editingFile?.content = mainTextEditorTextView.text
+//        editingFile?.editedAt = Date().toPrettyString()
+//        //CoreDataManager.shared.save()
+//        navigationController?.popViewController(animated: true)
 
     }
     
     fileprivate func configureNavBar(){
         
         navigationItem.title = editingFile?.name ?? ""
+        navigationController?.navigationBar.prefersLargeTitles = false
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save",
                                                             style: .done,
                                                             target: self,
