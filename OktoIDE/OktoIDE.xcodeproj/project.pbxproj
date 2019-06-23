@@ -28,6 +28,9 @@
 		B85DCE1422A5DFC40035B74C /* GithubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DCE1322A5DFC40035B74C /* GithubService.swift */; };
 		B8685F8022BECF0600821D5A /* ContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8685F7F22BECF0600821D5A /* ContentTableViewCell.swift */; };
 		B8685F8222C037A500821D5A /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8685F8122C037A500821D5A /* String+Extension.swift */; };
+		B8685F8422C043B000821D5A /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8685F8322C043B000821D5A /* Route.swift */; };
+		B8685F8622C0441500821D5A /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8685F8522C0441500821D5A /* KeychainManager.swift */; };
+		B8685F8822C045B500821D5A /* SecretsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8685F8722C045B500821D5A /* SecretsConfig.swift */; };
 		B86DFDCA229A134C0075C666 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86DFDC9229A134C0075C666 /* AppDelegate.swift */; };
 		B86DFDD4229A134D0075C666 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B86DFDD3229A134D0075C666 /* Assets.xcassets */; };
 		B86DFDD7229A134D0075C666 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B86DFDD5229A134D0075C666 /* LaunchScreen.storyboard */; };
@@ -81,6 +84,9 @@
 		B85DCE1322A5DFC40035B74C /* GithubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubService.swift; sourceTree = "<group>"; };
 		B8685F7F22BECF0600821D5A /* ContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTableViewCell.swift; sourceTree = "<group>"; };
 		B8685F8122C037A500821D5A /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		B8685F8322C043B000821D5A /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		B8685F8522C0441500821D5A /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		B8685F8722C045B500821D5A /* SecretsConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretsConfig.swift; sourceTree = "<group>"; };
 		B86DFDC6229A134C0075C666 /* OktoIDE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OktoIDE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B86DFDC9229A134C0075C666 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B86DFDD3229A134D0075C666 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -197,7 +203,7 @@
 				B88D2D70229D95440032A531 /* Supporting Files */,
 				B88D2D74229D95950032A531 /* Service */,
 				B88D2D73229D958B0032A531 /* Networking */,
-				B88D2D72229D957A0032A531 /* Persistence */,
+				B88D2D72229D957A0032A531 /* Caching */,
 				B88D2D71229D95680032A531 /* View */,
 				B88D2D6E229D94DF0032A531 /* Controller */,
 				B88D2D6D229D94D20032A531 /* ViewModel */,
@@ -223,6 +229,7 @@
 				B87F656E22B9A31D00A72403 /* User.swift */,
 				B8DBB02F22BB149D00D12364 /* Project.swift */,
 				B84DE8C622BD5F370013A79B /* Content.swift */,
+				B8685F8322C043B000821D5A /* Route.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -268,12 +275,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		B88D2D72229D957A0032A531 /* Persistence */ = {
+		B88D2D72229D957A0032A531 /* Caching */ = {
 			isa = PBXGroup;
 			children = (
 				B824D36722ACA68E002577D3 /* CoreDataManager.swift */,
+				B8685F8522C0441500821D5A /* KeychainManager.swift */,
+				B8685F8722C045B500821D5A /* SecretsConfig.swift */,
 			);
-			path = Persistence;
+			path = Caching;
 			sourceTree = "<group>";
 		};
 		B88D2D73229D958B0032A531 /* Networking */ = {
@@ -554,8 +563,11 @@
 				B88D2D7A229DAC000032A531 /* TextEditorController.swift in Sources */,
 				B84DE8BB22BC597C0013A79B /* HTTNetworkRequest.swift in Sources */,
 				B855B73B22A0984500FA2E67 /* BaseUICollectionList.swift in Sources */,
+				B8685F8822C045B500821D5A /* SecretsConfig.swift in Sources */,
+				B8685F8622C0441500821D5A /* KeychainManager.swift in Sources */,
 				B85DCE1422A5DFC40035B74C /* GithubService.swift in Sources */,
 				B86DFDCA229A134C0075C666 /* AppDelegate.swift in Sources */,
+				B8685F8422C043B000821D5A /* Route.swift in Sources */,
 				B88D2D7F229DADAB0032A531 /* CustomUIElements.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

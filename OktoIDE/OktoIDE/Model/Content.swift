@@ -26,6 +26,7 @@ struct Content: Codable {
     var type: String
     var content: String?
     var encoding: String?
+    var ext: String?
 }
 
 

@@ -128,7 +128,7 @@ class TextEditorController: UIViewController {
         textEditor.enablesReturnKeyAutomatically = false
         textEditor.autocapitalizationType = .none
         textEditor.autocorrectionType = .no
-        //textEditor.text = self.editingFile?.content
+        textEditor.text = self.editingFile?.content?.decodeFromBase64()
 
         return textEditor
     }()
@@ -139,12 +139,11 @@ class TextEditorController: UIViewController {
         
         view.addSubview(mainTextEditorTextView)
         
-//        Helper.getEditorSyntaxtHighlight(ext: editingFile?.ext, textView: mainTextEditorTextView)
+        Helper.getEditorSyntaxtHighlight(ext: editingFile?.ext, textView: mainTextEditorTextView)
         mainTextEditorTextView.fillSuperview()
         addAcessory()
         mainTextEditorTextView.delegate = self as UITextViewDelegate
         configureNavBar()
-        decodedFileContents()
     }
     
     //- MARK: CLASS METHODS
@@ -174,17 +173,6 @@ class TextEditorController: UIViewController {
                                         distribution: .fillEqually)
         textEditorkeyboardAccessory.addSubview(accessoryItemstackView)
         accessoryItemstackView.fillSuperview()
-    }
-    
-    fileprivate func decodedFileContents() {
-        
-        let base64Encoded = "YW55IGN\nhcm5hbCBwb\nGVhc3VyZS4="
-        let cleanEncodedString = base64Encoded.replacingOccurrences(of: "\n", with: "")
-        let decodedData = Data(base64Encoded: cleanEncodedString)
-        if let data = decodedData {
-            let decodedString = String(data: data, encoding: .utf8)!
-            print(decodedString)
-        }
     }
     
     ///

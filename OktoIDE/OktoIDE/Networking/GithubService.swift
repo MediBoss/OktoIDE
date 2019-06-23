@@ -7,74 +7,20 @@
 //
 
 import Foundation
-import GithubAPI
 import KeychainSwift
+import GithubAPI
 
-enum Routes{
-    case base // Get the base URL of the Githubp V3 API
-    case repos(projectName: String) // Get all the current user's repository
-    case contens(projectName: String, contentName: String) // get content for a file from a repository
-}
 
-extension String {
-    func fromBase64() -> String? {
-        guard let data = Data(base64Encoded: self) else {
-            return nil
-        }
-        return String(data: data, encoding: .utf8)
-    }
-    
-    func toBase64() -> String {
-        return Data(self.utf8).base64EncodedString()
-    }
-}
-
-extension Routes {
-    
-    var route: String {
-        switch self {
-            
-        case .base:
-            return "https://api.github.com"
-        case .repos(projectName: let aProjectName):
-            return "/repos/MediBoss/\(aProjectName)/contents?ref=master"
-        case .contens(projectName: let aProjectName, contentName: let aContentName):
-            return "https://api.github.com/repos/MediBoss/\(aProjectName)/contents/\(aContentName)?ref=master"
-        }
-    }
-}
 struct GithubService{
     
     static let shared = GithubService()
     let githubSession = URLSession(configuration: .default)
     
-    
-    /// Caches the user's username and password keychain
-    private func cacheAuthObject(auth: BasicAuthentication){
-        
-        let keychain = KeychainSwift()
-        
-        keychain.set(auth.username, forKey: "username")
-        keychain.set(auth.password, forKey: "password")
-    }
-    
-    /// Retrieves and returns the user's credentials from keychain
-    private func retrieveCachedObject() throws -> BasicAuthentication {
-        
-        let keychain = KeychainSwift()
-        
-        guard let username = keychain.get("username"), let password = keychain.get("password") else {
-            throw HTTPNetworkError.KeychainNil
-        }
-        
-        return BasicAuthentication(username: username, password: password)
-    }
-    
     /// Logs in the user using their Github.com credentials
     func login(_ username: String, _ password: String, completion: @escaping(Result<User,Error>) -> ()) {
         
         let authentication = BasicAuthentication(username: username, password: password)
-        self.cacheAuthObject(auth: authentication)
+        KeychainManager.shared.cacheAuthObject(auth: authentication)
         
         UserAPI(authentication: authentication).getUser { (response, error) in
             
@@ -101,7 +47,7 @@ struct GithubService{
         
         do {
             
-            let auth = try self.retrieveCachedObject()
+            let auth = try KeychainManager.shared.retrieveCachedObject()
             var projects = [Project]()
             
             
@@ -125,30 +71,12 @@ struct GithubService{
         }
     }
     
-//    func urlWithParameters(url: String, parameters: [String: String]?) -> String {
-//        var retUrl = url
-//        if let parameters = parameters {
-//            if parameters.count > 0 {
-//                retUrl.append("?")
-//                parameters.keys.forEach {
-//                    guard let value = parameters[$0] else { return }
-//                    let escapedValue = value.addingPercentEncoding(withAllowedCharacters: CharacterSet.BaseAPI_URLQueryAllowedCharacterSet())
-//                    if let escapedValue = escapedValue {
-//                        retUrl.append("\($0)=\(escapedValue)&")
-//                    }
-//                }
-//                retUrl.removeLast()
-//            }
-//        }
-//        return retUrl
-//    }
-    
+
     func getRepoContents(projectName: String, completion: @escaping(Result<[Content], HTTPNetworkError>) -> ()){
         
         let client_id = "8a673fc74bd93937138d"
         let client_secret = "b36b58ae39ddd6b1516eb66582e03f84c13cb368"
 
-        let session = URLSession(configuration: .default)
         let url = URL(string: "\(Routes.base.route)\(Routes.repos(projectName: projectName).route)")
 
         
@@ -193,9 +121,13 @@ struct GithubService{
                 switch result{
                 case .success:
                     
-                    guard let file = try? JSONDecoder().decode(Content.self, from: unwrappedData) else { return }
-
+                    guard var file = try? JSONDecoder().decode(Content.self, from: unwrappedData) else { return }
+                    
+                    let index = file.name.firstIndex(of: ".")
+                    file.ext = file.name.grabSubstring(start: index, on: file.name)
+                    
                     completion(.success(file))
+                    
                 case .failure:
                     completion(.failure(HTTPNetworkError.FragmentResponse))
                 }

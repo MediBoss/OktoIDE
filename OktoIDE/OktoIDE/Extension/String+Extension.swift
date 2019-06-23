@@ -17,8 +17,14 @@ extension String {
     
     func decodeFromBase64() -> String{
         
-        guard let cleanEncodedString = self.replacingOccurrences(of: "\n", with: "") else { return }
-        guard let data = Data(base64Encoded: cleanEncodedString) else { return nil }
-        return String(data: data, encoding: .utf8)
+        let cleanEncodedString = self.replacingOccurrences(of: "\n", with: "")
+        guard let data = Data(base64Encoded: cleanEncodedString) else { return "" }
+        return String(data: data, encoding: .utf8)!
+    }
+    
+    func grabSubstring(start at: String.Index?, on string: String) -> String {
+        
+        let ext = string.suffix(from: at!).replacingOccurrences(of: ".", with: "")
+        return ext
     }
 }
