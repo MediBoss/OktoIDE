@@ -18,9 +18,9 @@ class SyntaxHighlighService {
     static let languageWithHighlight = ["swift", "py", "js"]
     let textEditorFont = UIFont(name: "PingFangTC-Regular", size: 20)
     
-    static let languageColorDict = ["swift": UIColor.swiftGithubRepoColor,
-                                    "py": UIColor.pythonKeywordColorHighlight,
-                                    "js": UIColor.javascriptKeywordColorHighlight
+    static let languageColorDict = ["Swift": UIColor.swiftGithubRepoColor,
+                                    "Python": UIColor.pythonKeywordColorHighlight,
+                                    "JavaScript": UIColor.javascriptKeywordColorHighlight
     ]
     
     // MARK : CLASS METHODS

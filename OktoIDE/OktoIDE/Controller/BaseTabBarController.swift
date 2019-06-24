@@ -42,7 +42,8 @@ class BaseTabBarController: UITabBarController {
         if ThemeService.shared.isThemeDark(){
             navigationController.navigationBar.barTintColor = .black
 
-            navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+            navigationController.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+
            navigationController.navigationBar.tintColor = .white
             tabBar.barTintColor = .black
             

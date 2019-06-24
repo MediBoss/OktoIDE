@@ -56,9 +56,13 @@ struct GithubService{
                     
                     response?.forEach({ (project) in
                         
-                        guard let name = project.name, let id = project.id, let language = project.language, let contentsUrl = project.contentsUrl else { return }
+                        guard let name = project.name,
+                            let id = project.id,
+                            let language = project.language,
+                            let contentsUrl = project.contentsUrl,
+                            let editTime = project.updatedAt else { return }
                         
-                        let newProject = Project(name: name, id: id, language: language, allContentsUrl: contentsUrl)
+                        let newProject = Project(name: name, id: id, language: language, allContentsUrl: contentsUrl, updateTime: editTime)
                         projects.append(newProject)
                     })
                     completion(.success(projects))
@@ -74,15 +78,12 @@ struct GithubService{
 
     func getRepoContents(projectName: String, completion: @escaping(Result<[Content], HTTPNetworkError>) -> ()){
         
-        let client_id = "8a673fc74bd93937138d"
-        let client_secret = "b36b58ae39ddd6b1516eb66582e03f84c13cb368"
-
         let url = URL(string: "\(Routes.base.route)\(Routes.repos(projectName: projectName).route)")
 
         
         var request = URLRequest(url: url!)
-        request.addValue(client_id, forHTTPHeaderField: "client_id")
-        request.addValue(client_secret, forHTTPHeaderField: "client_secret")
+        request.addValue(SecretsConfig.client_id, forHTTPHeaderField: "client_id")
+        request.addValue(SecretsConfig.client_secret, forHTTPHeaderField: "client_secret")
         githubSession.dataTask(with: request) { (data, res, err) in
             
             if err == nil {
@@ -98,7 +99,6 @@ struct GithubService{
                 case .failure:
                     completion(.failure(HTTPNetworkError.FragmentResponse))
                 }
-                
             }
         }.resume()
     }
@@ -107,10 +107,10 @@ struct GithubService{
         
         let url = URL(string: content.url)
         var request = URLRequest(url: url!)
-        let client_id = "8a673fc74bd93937138d"
-        let client_secret = "b36b58ae39ddd6b1516eb66582e03f84c13cb368"
-        request.addValue(client_id, forHTTPHeaderField: "client_id")
-        request.addValue(client_secret, forHTTPHeaderField: "client_secret")
+
+        request.addValue(SecretsConfig.client_id, forHTTPHeaderField: "client_id")
+        request.addValue(SecretsConfig.client_secret, forHTTPHeaderField: "client_secret")
+        
         githubSession.dataTask(with: request) { (data, res, err) in
             
             if err == nil {

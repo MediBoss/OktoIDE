@@ -13,14 +13,28 @@ struct Project {
     
     let name: String
     let id: Int
-    let language: String
+    let language: String?
     let allContentsUrl: String
+    let updatedTime: String
     
-    init(name: String, id: Int, language: String, allContentsUrl: String) {
+    init(name: String, id: Int, language: String?, allContentsUrl: String, updateTime: String) {
         
         self.name = name
         self.id = id
         self.language = language
         self.allContentsUrl = allContentsUrl
+        self.updatedTime = updateTime
+    }
+    
+    func getLanguageAssociatedColor() -> UIColor {
+        
+        var color: UIColor = .white
+        
+        SyntaxHighlighService.languageColorDict.forEach { (key, value) in
+            if key == self.language {
+                color = value
+            }
+        }
+        return color
     }
 }

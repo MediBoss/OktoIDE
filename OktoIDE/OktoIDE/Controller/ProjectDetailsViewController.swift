@@ -19,6 +19,7 @@ class ProjectDetailsViewController: UIViewController {
         return tableview
     }()
     
+    var project: Project!
     var contents = [Content](){
         didSet{
             DispatchQueue.main.async {
@@ -38,8 +39,6 @@ class ProjectDetailsViewController: UIViewController {
         projectContentTableView.dataSource = self
         
         projectContentTableView.register(ContentTableViewCell.self, forCellReuseIdentifier: ContentTableViewCell.id)
-        
-        
     }
 }
 
@@ -78,12 +77,14 @@ extension ProjectDetailsViewController: UITableViewDataSource, UITableViewDelega
                     }
                 
                 case .failure(_):
-                    print("uh oh")
+                    print("j")
                 }
             }
             
         } else {
-            print("It's a directory, download its content")
+            
+            print("oops")
+            
         }
     }
 }

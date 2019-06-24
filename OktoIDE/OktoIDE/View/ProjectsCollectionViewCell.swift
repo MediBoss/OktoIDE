@@ -1,5 +1,5 @@
 //
-//  AllFilesCollectionViewCell.swift
+//  ProjectsCollectionViewCell.swift
 //  OktoIDE
 //
 //  Created by Medi Assumani on 5/30/19.
@@ -46,26 +46,26 @@ extension CALayer {
     }
 }
 
-class AllFilesCollectionViewCell: SwipeCollectionViewCell {
+class ProjectsCollectionViewCell: SwipeCollectionViewCell {
     
     static let id = "AllFilesCollectionViewCellID"
     
-//    var file: File! {
-//        didSet{
-//
-//            fileNameLabel.text = file.name
-//            editedLabel.text = "Last edited : \(file.editedAt ?? "")"
-//            languageColorView.backgroundColor = file.getLanguageAssociatedColor()
-//        }
-//    }
+    var project: Project! {
+        didSet{
+
+            projectNameLabel.text = project.name
+            editedTimeLabel.text = "Last edited : \(project.updatedTime ?? "")"
+            languageColorView.backgroundColor = project.getLanguageAssociatedColor()
+        }
+    }
     
-    lazy var fileNameLabel = CustomLabel(fontSize: 18,
+    lazy var projectNameLabel = CustomLabel(fontSize: 18,
                                          text: "",
                                          textColor: ThemeService.shared.getMainColor(),
                                          textAlignment: .center,
                                          fontName: "Helvetica")
     
-    lazy var editedLabel = CustomLabel(fontSize: 13,
+    lazy var editedTimeLabel = CustomLabel(fontSize: 13,
                                        text: "",
                                        textColor: .gray,
                                        textAlignment: .left,
@@ -86,8 +86,8 @@ class AllFilesCollectionViewCell: SwipeCollectionViewCell {
         
         if ThemeService.shared.isThemeDark(){
             self.backgroundColor = .lightDark
-            self.fileNameLabel.textColor = .white
-            self.editedLabel.textColor = .gray
+            self.projectNameLabel.textColor = .white
+            self.editedTimeLabel.textColor = .gray
         } else {
             self.backgroundColor = .lightGray
         }
@@ -109,7 +109,7 @@ class AllFilesCollectionViewCell: SwipeCollectionViewCell {
     }
     fileprivate func constraintCellItems() {
         
-        let labelStackView = CustomStackView(subviews: [fileNameLabel, editedLabel],
+        let labelStackView = CustomStackView(subviews: [projectNameLabel, editedTimeLabel],
                                              alignment: .leading,
                                              axis: .vertical,
                                              distribution: .fillEqually)

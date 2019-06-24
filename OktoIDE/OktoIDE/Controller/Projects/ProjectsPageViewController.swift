@@ -11,19 +11,14 @@ import GithubAPI
 import UIKit
 import ViewAnimator
 
-
-extension Notification.Name{
-    static let didReceiveFileObject = Notification.Name("didReceivedFileObject")
-}
-
 class ProjectsPageViewController: BaseUICollectionViewList, UISearchBarDelegate {
 
-    //fileprivate var fileSearchResults = [File]()
-    fileprivate var fileSearchController = UISearchController(searchResultsController: nil)
+    fileprivate var projectSearchController = UISearchController(searchResultsController: nil)
+    
     private var animationCounter = 0
     private  let animations = [AnimationType.from(direction: .right, offset: 30.0)]
     
-    var projects: [Project] = []{
+    var projects = [Project](){
         didSet{
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
@@ -31,67 +26,18 @@ class ProjectsPageViewController: BaseUICollectionViewList, UISearchBarDelegate 
         }
     }
     
-    //var user: User!
-//    var files: [File] = [File](){
-//        didSet{
-//            DispatchQueue.main.async {
-//                self.collectionView.reloadData()
-//            }
-//        }
-//    }
-    
-
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        GithubService.shared.getUserProjects { (result) in
-
-            switch result{
-            case let .success(projects):
-                self.projects = projects
-            case let .failure(_):
-                print("Error occured")
-            }
-        }
-        if ThemeService.shared.isThemeDark(){
-            collectionView.backgroundColor = .black
-
-        } else {
-            collectionView.backgroundColor = .white
-        }
-        collectionView.register(AllFilesCollectionViewCell.self, forCellWithReuseIdentifier: AllFilesCollectionViewCell.id)
-        //configureNavBar()
+        fecthRepositories()
         setUpSearchBar()
-
-//        NotificationCenter.default.addObserver(self,
-//                                               selector: #selector(onDidReceiveNewFile(sender:)),
-//                                               name: .didReceiveFileObject,
-//                                               object: nil)
+        checkTheme()
+        collectionView.register(ProjectsCollectionViewCell.self, forCellWithReuseIdentifier: ProjectsCollectionViewCell.id)
     }
     
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//
-//        CoreDataManager.shared.fetchFilles(with: nil) { (fetchResults) in
-//            switch fetchResults {
-//            case let .success(fetchedFilesCallback):
-//                self.files = fetchedFilesCallback
-//                self.animateCells()
-//            case let .failure(error):
-//                // TODO : Add proper production error handling
-//                print("Error found \(error.localizedDescription)")
-//            }
-//        }
-//    }
-    
-//    deinit {
-//        NotificationCenter.default.removeObserver(self, name: .didReceiveFileObject, object: nil)
-//    }
-    
     /// Animates the home page table view cells when app starts
-    private func animateCells(){
+    fileprivate func animateCells(){
         
         if (animationCounter <= 0) {
             collectionView.reloadData()
@@ -106,67 +52,63 @@ class ProjectsPageViewController: BaseUICollectionViewList, UISearchBarDelegate 
         }
     }
     
+    fileprivate func fecthRepositories() {
+        
+        GithubService.shared.getUserProjects { (result) in
+            
+            switch result{
+            case let .success(projects):
+                self.projects = projects
+                
+                DispatchQueue.main.async {
+                    self.animateCells()
+                }
+                
+            case .failure(_):
+                print("Error occured")
+            }
+        }
+    }
+    
+    fileprivate func checkTheme() {
+        
+        if ThemeService.shared.isThemeDark(){
+            collectionView.backgroundColor = .black
+            
+        } else {
+            collectionView.backgroundColor = .white
+        }
+    }
     
     /// Configures and Styles the search bar
     fileprivate func setUpSearchBar() {
         
         definesPresentationContext = true
-        navigationItem.searchController = self.fileSearchController
+        navigationItem.searchController = self.projectSearchController
         navigationItem.hidesSearchBarWhenScrolling = false
         
-        self.fileSearchController.dimsBackgroundDuringPresentation = false
-        self.fileSearchController.searchBar.delegate = self
+        self.projectSearchController.dimsBackgroundDuringPresentation = false
+        self.projectSearchController.searchBar.delegate = self
         
         navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
     }
     
-//    @objc fileprivate func onDidReceiveNewFile(sender: Notification) {
-//
-//
-//        if let receivedFile = sender.object as? File {
-//
-//            self.projects.append(receivedFile)
-//            let destinationVC = TextEditorController()
-//            destinationVC.editingFile = receivedFile
-//            navigationController?.pushViewController(destinationVC, animated: true)
-//        }
-//    }
-
-//    fileprivate func configureNavBar(){
-//
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+",
-//                                                            style: .done,
-//                                                            target: self,
-//                                                            action: #selector(addFile(sender:)))
-//    }
-    
-    @objc func addFile(sender: UIBarButtonItem){
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-    
-        let destinationVC = CreateFileController()
-        destinationVC.modalPresentationStyle = .overCurrentContext
-        destinationVC.modalTransitionStyle = .crossDissolve
-        self.present(destinationVC, animated: true, completion: nil)
+        if !searchText.isEmpty {
+            
+            var fetchedResults = [Project]()
+            
+            projects.forEach { (project) in
+                if project.name.contains(searchText) {
+                    fetchedResults.append(project)
+                }
+            }
+            
+            self.projects = fetchedResults
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
     }
-    
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        
-//        if !searchText.isEmpty {
-//            let predicate = NSPredicate(format: "name contains[c] %@", searchText)
-//            CoreDataManager.shared.fetchFilles(with: predicate) { (fetchResults) in
-//                
-//                switch fetchResults{
-//                case let .success(fetchedFiles):
-//                    self.files = fetchedFiles
-//                    
-//                    DispatchQueue.main.async {
-//                        self.collectionView.reloadData()
-//                    }
-//                    
-//                case .failure(_):
-//                    print("Error found while fetching files in store")
-//                }
-//            }
-//        }
-//    }
 }
