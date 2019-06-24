@@ -2,7 +2,7 @@
 # OktoIDE
 
 ### Overview & Mission Statement
-
+OktoIDE is an on-the-go and offline Mobile IDE that syncs with your Github.
 
 ### Screenshots
 
