@@ -14,13 +14,28 @@ import ViewAnimator
 class ProjectsPageViewController: BaseUICollectionViewList, UISearchBarDelegate {
 
     fileprivate var projectSearchController = UISearchController(searchResultsController: nil)
+    lazy var appThemeSwitch: UISwitch = {
+        
+        var themeSwitch = UISwitch()
+        
+        themeSwitch.isOn = false
+        themeSwitch.onTintColor = .green
+        themeSwitch.addTarget(self, action: #selector(themeSwitchToggled(_:)), for: .valueChanged)
+        themeSwitch.translatesAutoresizingMaskIntoConstraints = false
+        
+        return themeSwitch
+    }()
     
     private var animationCounter = 0
     private  let animations = [AnimationType.from(direction: .right, offset: 30.0)]
     
     var projects = [Project](){
         didSet{
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
+                
+                guard let self = self else {
+                    return
+                }
                 self.collectionView.reloadData()
             }
         }
@@ -30,11 +45,13 @@ class ProjectsPageViewController: BaseUICollectionViewList, UISearchBarDelegate 
         
         super.viewDidLoad()
         
+        view.addSubview(appThemeSwitch)
         fecthRepositories()
         setUpSearchBar()
         checkTheme()
         collectionView.register(ProjectsCollectionViewCell.self, forCellWithReuseIdentifier: ProjectsCollectionViewCell.id)
     }
+    
     
     /// Animates the home page table view cells when app starts
     fileprivate func animateCells(){
@@ -60,7 +77,9 @@ class ProjectsPageViewController: BaseUICollectionViewList, UISearchBarDelegate 
             case let .success(projects):
                 self.projects = projects
                 
-                DispatchQueue.main.async {
+                DispatchQueue.main.async { [weak self] in
+                    
+                    guard let self = self else { return }
                     self.animateCells()
                 }
                 
@@ -70,13 +89,42 @@ class ProjectsPageViewController: BaseUICollectionViewList, UISearchBarDelegate 
         }
     }
     
+  
     fileprivate func checkTheme() {
         
         if ThemeService.shared.isThemeDark(){
+            
+            navigationController?.navigationBar.barTintColor = .black
+            navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
             collectionView.backgroundColor = .black
             
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+                self.appThemeSwitch.isOn = true
+            }
+            
+            
         } else {
+            
+            navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: ThemeService.shared.getMainColor()]
+            navigationController?.navigationBar.barTintColor = .white
             collectionView.backgroundColor = .white
+
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+                self.appThemeSwitch.isOn = false
+            }
+        }
+    }
+    
+    @objc fileprivate func themeSwitchToggled(_ sender: UISwitch){
+        
+        if sender.isOn {
+            UserDefaults.standard.set(true, forKey: "isDarkMode")
+            checkTheme()
+        } else {
+            UserDefaults.standard.set(false, forKey: "isDarkMode")
+            checkTheme()
         }
     }
     
@@ -86,6 +134,7 @@ class ProjectsPageViewController: BaseUICollectionViewList, UISearchBarDelegate 
         definesPresentationContext = true
         navigationItem.searchController = self.projectSearchController
         navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: appThemeSwitch)
         
         self.projectSearchController.dimsBackgroundDuringPresentation = false
         self.projectSearchController.searchBar.delegate = self

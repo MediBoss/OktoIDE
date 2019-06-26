@@ -22,7 +22,8 @@ extension ProjectsPageViewController: UICollectionViewDelegateFlowLayout{
         
 
         cell.project = self.projects[indexPath.row]
-       
+        cell.checkTheme()
+    
         return cell
     }
 

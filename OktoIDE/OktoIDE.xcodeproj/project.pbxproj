@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		81C10A38ED2E6956B6E53C7F /* Pods_OktoIDE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E06FA0881537B767C61BD1AA /* Pods_OktoIDE.framework */; };
 		ACE9F6F4AA56162B5DB621BE /* Pods_OktoIDETests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4671A3161A021BAD085681D4 /* Pods_OktoIDETests.framework */; };
-		B81F63F6229F73D7000EB97E /* ProfilePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81F63F5229F73D7000EB97E /* ProfilePageController.swift */; };
 		B824D36822ACA68E002577D3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B824D36722ACA68E002577D3 /* CoreDataManager.swift */; };
 		B8449C8422B1D84800B973E0 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8449C8322B1D84800B973E0 /* Data+Extension.swift */; };
 		B84DE8BB22BC597C0013A79B /* HTTNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DE8BA22BC597C0013A79B /* HTTNetworkRequest.swift */; };
@@ -38,7 +37,6 @@
 		B87F656F22B9A31D00A72403 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F656E22B9A31D00A72403 /* User.swift */; };
 		B87F657122B9B4B300A72403 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F657022B9B4B300A72403 /* LoginViewController.swift */; };
 		B88D2D76229D95E40032A531 /* ProjectsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D2D75229D95E40032A531 /* ProjectsPageViewController.swift */; };
-		B88D2D78229D96620032A531 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D2D77229D96620032A531 /* BaseTabBarController.swift */; };
 		B88D2D7A229DAC000032A531 /* TextEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D2D79229DAC000032A531 /* TextEditorController.swift */; };
 		B88D2D7D229DAD830032A531 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D2D7C229DAD830032A531 /* UIView+Extension.swift */; };
 		B88D2D7F229DADAB0032A531 /* CustomUIElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D2D7E229DADAB0032A531 /* CustomUIElements.swift */; };
@@ -65,7 +63,6 @@
 		4671A3161A021BAD085681D4 /* Pods_OktoIDETests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OktoIDETests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49FE197C465654C215EC18FB /* Pods-OktoIDE.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OktoIDE.release.xcconfig"; path = "Target Support Files/Pods-OktoIDE/Pods-OktoIDE.release.xcconfig"; sourceTree = "<group>"; };
 		AB761808C3DFF67D080A62E5 /* Pods-OktoIDE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OktoIDE.debug.xcconfig"; path = "Target Support Files/Pods-OktoIDE/Pods-OktoIDE.debug.xcconfig"; sourceTree = "<group>"; };
-		B81F63F5229F73D7000EB97E /* ProfilePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageController.swift; sourceTree = "<group>"; };
 		B824D36722ACA68E002577D3 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		B8449C8322B1D84800B973E0 /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
 		B84DE8BA22BC597C0013A79B /* HTTNetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTNetworkRequest.swift; sourceTree = "<group>"; };
@@ -98,7 +95,6 @@
 		B87F656E22B9A31D00A72403 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B87F657022B9B4B300A72403 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B88D2D75229D95E40032A531 /* ProjectsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsPageViewController.swift; sourceTree = "<group>"; };
-		B88D2D77229D96620032A531 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 		B88D2D79229DAC000032A531 /* TextEditorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditorController.swift; sourceTree = "<group>"; };
 		B88D2D7C229DAD830032A531 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		B88D2D7E229DADAB0032A531 /* CustomUIElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIElements.swift; sourceTree = "<group>"; };
@@ -245,9 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				B88D2D83229DAE450032A531 /* Projects */,
-				B88D2D82229DAE330032A531 /* Profile */,
 				B88D2D80229DAE200032A531 /* TextEditor */,
-				B88D2D77229D96620032A531 /* BaseTabBarController.swift */,
 				B855B73A22A0984500FA2E67 /* BaseUICollectionList.swift */,
 				B8DFC3D622A5EDFB00EED470 /* CreateFileController.swift */,
 				B87F657022B9B4B300A72403 /* LoginViewController.swift */,
@@ -323,14 +317,6 @@
 				B88D2D79229DAC000032A531 /* TextEditorController.swift */,
 			);
 			path = TextEditor;
-			sourceTree = "<group>";
-		};
-		B88D2D82229DAE330032A531 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				B81F63F5229F73D7000EB97E /* ProfilePageController.swift */,
-			);
-			path = Profile;
 			sourceTree = "<group>";
 		};
 		B88D2D83229DAE450032A531 /* Projects */ = {
@@ -537,7 +523,6 @@
 				B84DE8BD22BC59A10013A79B /* HTTPNetworkMethod.swift in Sources */,
 				B87F656F22B9A31D00A72403 /* User.swift in Sources */,
 				B84DE8C522BD5ECF0013A79B /* ProjectDetailsViewController.swift in Sources */,
-				B81F63F6229F73D7000EB97E /* ProfilePageController.swift in Sources */,
 				B8DFC3D722A5EDFB00EED470 /* CreateFileController.swift in Sources */,
 				B855B74622A0CBC400FA2E67 /* Helper.swift in Sources */,
 				B8685F8222C037A500821D5A /* String+Extension.swift in Sources */,
@@ -556,7 +541,6 @@
 				B84DE8C322BC5A0B0013A79B /* HTTPURLEncoder.swift in Sources */,
 				B88D2D85229DB1560032A531 /* UIColor+Extension.swift in Sources */,
 				B8685F8022BECF0600821D5A /* ContentTableViewCell.swift in Sources */,
-				B88D2D78229D96620032A531 /* BaseTabBarController.swift in Sources */,
 				B8A9520122B86A4400788BF3 /* KeyboardService.swift in Sources */,
 				B8DBB03022BB149D00D12364 /* Project.swift in Sources */,
 				B8449C8422B1D84800B973E0 /* Data+Extension.swift in Sources */,

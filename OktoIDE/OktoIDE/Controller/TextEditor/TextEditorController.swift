@@ -142,8 +142,10 @@ class TextEditorController: UIViewController {
         Helper.getEditorSyntaxtHighlight(ext: editingFile?.ext, textView: mainTextEditorTextView)
         mainTextEditorTextView.fillSuperview()
         addAcessory()
+        //registerNotifications()
         mainTextEditorTextView.delegate = self as UITextViewDelegate
         configureNavBar()
+        
     }
     
     //- MARK: CLASS METHODS
@@ -191,7 +193,6 @@ class TextEditorController: UIViewController {
         
         mainTextEditorTextView.insertText("\"")
     }
-    
     
     /// Highlight the entire text editor
     @objc fileprivate func allTextIsSelected(sender: UIButton) {

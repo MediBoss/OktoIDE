@@ -71,6 +71,7 @@ class ProjectsCollectionViewCell: SwipeCollectionViewCell {
                                        textAlignment: .left,
                                        fontName: "Helvetica")
     
+    static let shared  = ProjectsCollectionViewCell()
     lazy var languageColorView: UIView = {
        
         var view = UIView()
@@ -84,16 +85,21 @@ class ProjectsCollectionViewCell: SwipeCollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        styleCell()
+        constraintCellItems()
+    }
+    
+    func checkTheme() {
+        
         if ThemeService.shared.isThemeDark(){
             self.backgroundColor = .lightDark
             self.projectNameLabel.textColor = .white
             self.editedTimeLabel.textColor = .gray
         } else {
             self.backgroundColor = .lightGray
+            self.projectNameLabel.textColor = ThemeService.shared.getMainColor()
+            self.editedTimeLabel.textColor = .gray
         }
-        
-        styleCell()
-        constraintCellItems()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -107,6 +113,7 @@ class ProjectsCollectionViewCell: SwipeCollectionViewCell {
         self.layer.addShadow()
 
     }
+    
     fileprivate func constraintCellItems() {
         
         let labelStackView = CustomStackView(subviews: [projectNameLabel, editedTimeLabel],

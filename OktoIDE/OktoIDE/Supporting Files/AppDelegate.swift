@@ -49,8 +49,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if let window = window {
             
-            let destinationVC = BaseTabBarController()
-            window.rootViewController = destinationVC
+            let destinationVC = ProjectsPageViewController()
+            let navController = UINavigationController(rootViewController: destinationVC)
+            destinationVC.navigationController?.navigationBar.prefersLargeTitles = true
+            destinationVC.navigationItem.title = "Projects"
+            window.rootViewController = navController
             window.makeKeyAndVisible()
         }
     }
