@@ -167,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				B855B74522A0CBC400FA2E67 /* Helper.swift */,
+				B855B73A22A0984500FA2E67 /* BaseUICollectionList.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -240,12 +241,11 @@
 		B88D2D6E229D94DF0032A531 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B8FCF51022C3D50300757B85 /* CreateFile */,
+				B8FCF50F22C3D4FD00757B85 /* Login */,
+				B8FCF50E22C3D4DD00757B85 /* Contents */,
 				B88D2D83229DAE450032A531 /* Projects */,
 				B88D2D80229DAE200032A531 /* TextEditor */,
-				B855B73A22A0984500FA2E67 /* BaseUICollectionList.swift */,
-				B8DFC3D622A5EDFB00EED470 /* CreateFileController.swift */,
-				B87F657022B9B4B300A72403 /* LoginViewController.swift */,
-				B84DE8C422BD5ECF0013A79B /* ProjectDetailsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -326,6 +326,30 @@
 				B88D2D75229D95E40032A531 /* ProjectsPageViewController.swift */,
 			);
 			path = Projects;
+			sourceTree = "<group>";
+		};
+		B8FCF50E22C3D4DD00757B85 /* Contents */ = {
+			isa = PBXGroup;
+			children = (
+				B84DE8C422BD5ECF0013A79B /* ProjectDetailsViewController.swift */,
+			);
+			path = Contents;
+			sourceTree = "<group>";
+		};
+		B8FCF50F22C3D4FD00757B85 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B87F657022B9B4B300A72403 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		B8FCF51022C3D50300757B85 /* CreateFile */ = {
+			isa = PBXGroup;
+			children = (
+				B8DFC3D622A5EDFB00EED470 /* CreateFileController.swift */,
+			);
+			path = CreateFile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

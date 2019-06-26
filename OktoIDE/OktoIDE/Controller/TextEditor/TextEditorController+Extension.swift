@@ -13,9 +13,8 @@ extension TextEditorController: UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
         
-        //guard let ext = editingFile?.ext else { return }
-        //Helper.getEditorSyntaxtHighlight(ext: ext, textView: textView)
-        
+        guard let ext = editingFile?.ext else { return }
+        Helper.getEditorSyntaxtHighlight(ext: ext, textView: textView)
     }
 }
 

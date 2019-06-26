@@ -25,4 +25,17 @@ class ContentTableViewCell: UITableViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func checkTheme() {
+        
+        if ThemeService.shared.isThemeDark(){
+            self.backgroundColor = .lightDark
+            self.contentNameLabel.textColor = .white
+
+        } else {
+            self.backgroundColor = .lightGray
+            self.contentNameLabel.textColor = ThemeService.shared.getMainColor()
+
+        }
+    }
 }

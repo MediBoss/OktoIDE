@@ -35,10 +35,44 @@ class ProjectDetailsViewController: UIViewController {
         view.backgroundColor = .white
         view.addSubview(projectContentTableView)
         projectContentTableView.fillSuperview()
+        
         projectContentTableView.delegate = self
         projectContentTableView.dataSource = self
         
+        setUpNavBar()
+        checkTheme()
+        
         projectContentTableView.register(ContentTableViewCell.self, forCellReuseIdentifier: ContentTableViewCell.id)
+    }
+    
+    fileprivate func setUpNavBar() {
+        
+        navigationItem.title = "\(project.name)"
+        navigationController?.navigationBar.prefersLargeTitles = false
+    }
+    
+    fileprivate func checkTheme() {
+        
+        if ThemeService.shared.isThemeDark(){
+            
+            DispatchQueue.main.async {
+                self.navigationController?.navigationBar.barTintColor = .black
+                self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+                self.projectContentTableView.backgroundColor = .lightDark
+                self.projectContentTableView.reloadData()
+            }
+            
+            
+        } else {
+            
+            DispatchQueue.main.async {
+                
+                self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: ThemeService.shared.getMainColor()]
+                self.navigationController?.navigationBar.barTintColor = .white
+                self.projectContentTableView.backgroundColor = .lightGray
+                self.projectContentTableView.reloadData()
+            }
+        }
     }
 }
 
@@ -50,11 +84,15 @@ extension ProjectDetailsViewController: UITableViewDataSource, UITableViewDelega
         return contents.count
         
     }
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = projectContentTableView.dequeueReusableCell(withIdentifier: ContentTableViewCell.id, for: indexPath) as! ContentTableViewCell
         
         cell.contentNameLabel.text = contents[indexPath.row].name
+        cell.checkTheme()
+        
         return cell
     }
     
@@ -86,5 +124,9 @@ extension ProjectDetailsViewController: UITableViewDataSource, UITableViewDelega
             print("oops")
             
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80.0
     }
 }
