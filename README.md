@@ -3,7 +3,16 @@
 
 ### Overview
 
-OktoIDE is an offline mobile IDE that syncs with your Github account to provide you the ability to create, edit, and push your personal and organization projects at anytime, from anywhere. It supports fully built syntaxt highlight for Swift, Javascript, Python, and more to come
+OktoIDE is an offline mobile IDE that syncs with your Github account to provide you the ability to create, edit, and push your personal and organization projects at anytime, from anywhere.
+
+### Features
+
+OktoIDE provides :
+
+* Syntax highlight for Swift, Javascript, Python, and more to come
+* Create, edit, push code from your mobile device.
+* No internet? No problem. OktoIDE let's you work offline and seamlessly syncs with Github once online.
+* Full keyboard support to improve your typing speed and ease.
 
 ### Screenshots
 
