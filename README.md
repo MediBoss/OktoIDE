@@ -3,7 +3,7 @@
 
 ### Overview
 
-OktoIDE brings you the power of an IDE within your mobile iOS devices including the iPad. It supports fully built syntaxt highlight for Swift, Javascript, Python, and more to come. OktoIDE syncs with your Github account to provide you the ability to create, edit, and push your personal and organization projects at anytime, from anywhere.
+OktoIDE is an offline mobile IDE that syncs with your Github account to provide you the ability to create, edit, and push your personal and organization projects at anytime, from anywhere. It supports fully built syntaxt highlight for Swift, Javascript, Python, and more to come
 
 ### Screenshots
 
