@@ -13,6 +13,7 @@ OktoIDE provides :
 * Create, edit, push code from your mobile device.
 * No internet? No problem. OktoIDE let's you work offline and seamlessly syncs with Github once online.
 * Full keyboard support to improve your typing speed and ease.
+* Dark and Light theme to adapt your visual desires.
 
 ### Screenshots
 
@@ -25,6 +26,7 @@ OktoIDE provides :
 
 * [Swift 5](https://developer.apple.com/swift/) - Used for core app features.
 * [Xcode 10.1](https://developer.apple.com/xcode/) - Used as main IDE.
+* [Github REST API V3](https://developer.github.com/v3/) - Used to get access of user's projects.
 
 ### License
 
