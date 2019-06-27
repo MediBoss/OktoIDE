@@ -27,6 +27,7 @@ class SyntaxHighlighService {
     func swiftSyntaxtHighlight(on textView: UITextView) {
         
         guard let unwrappedText = textView.text else { return }
+        var preAttributedRange: NSRange = textView.selectedRange
     
         Prestyler.defineRule("type", UIColor.swiftTypesColorSyntax)
         Prestyler.defineRule("^", UIColor.mainSyntaxColor)
@@ -35,6 +36,7 @@ class SyntaxHighlighService {
         
         textView.attributedText = prefilteredText.prestyled()
         textView.font = textEditorFont
+        textView.selectedRange = preAttributedRange
     }
     
     func pythonSyntaxtHighlight(on textView: UITextView){
