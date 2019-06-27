@@ -45,6 +45,79 @@ extension UIView {
         return anchoredConstraints
     }
     
+    func anchor(top: NSLayoutYAxisAnchor?, right: NSLayoutXAxisAnchor?, bottom: NSLayoutYAxisAnchor?, left: NSLayoutXAxisAnchor?, topPadding: CGFloat, rightPadding: CGFloat, bottomPadding: CGFloat, leftPadding: CGFloat, height: CGFloat, width: CGFloat) {
+        
+        
+        
+        self.translatesAutoresizingMaskIntoConstraints = false
+        
+        if let top = top {
+            self.topAnchor.constraint(equalTo: top, constant: topPadding).isActive = true
+        }
+        
+        if let right = right {
+            self.rightAnchor.constraint(equalTo: right, constant: -rightPadding).isActive = true
+        }
+        
+        if let bottom = bottom {
+            self.bottomAnchor.constraint(equalTo: bottom, constant: -bottomPadding).isActive = true
+        }
+        
+        if let left = left {
+            self.leftAnchor.constraint(equalTo: left, constant: leftPadding).isActive = true
+        }
+        
+        if height != 0 {
+            self.heightAnchor.constraint(equalToConstant: height).isActive = true
+        }
+        
+        if width != 0 {
+            self.widthAnchor.constraint(equalToConstant: width).isActive = true
+        }
+        
+    }
+    
+    func anchor(centerX: NSLayoutXAxisAnchor?, centerY: NSLayoutYAxisAnchor?, top: NSLayoutYAxisAnchor?, right: NSLayoutXAxisAnchor?, bottom: NSLayoutYAxisAnchor?, left: NSLayoutXAxisAnchor?, topPadding: CGFloat, rightPadding: CGFloat, bottomPadding: CGFloat, leftPadding: CGFloat, height: CGFloat, width: CGFloat) {
+
+        
+        self.translatesAutoresizingMaskIntoConstraints = false
+        
+        if let top = top {
+            self.topAnchor.constraint(equalTo: top, constant: topPadding).isActive = true
+        }
+        
+        if let right = right {
+            self.rightAnchor.constraint(equalTo: right, constant: -rightPadding).isActive = true
+        }
+        
+        if let bottom = bottom {
+            self.bottomAnchor.constraint(equalTo: bottom, constant: -bottomPadding).isActive = true
+        }
+        
+        if let left = left {
+            self.leftAnchor.constraint(equalTo: left, constant: leftPadding).isActive = true
+        }
+        
+        if let centerX = centerX {
+            self.centerXAnchor.constraint(equalTo: centerX).isActive = true
+        }
+        
+        if let centerY = centerY {
+            self.centerYAnchor.constraint(equalTo: centerY).isActive = true
+        }
+        
+        
+        
+        if height != 0 {
+            self.heightAnchor.constraint(equalToConstant: height).isActive = true
+        }
+        
+        if width != 0 {
+            self.widthAnchor.constraint(equalToConstant: width).isActive = true
+        }
+        
+    }
+    
     func fillSuperview(padding: UIEdgeInsets = .zero) {
         translatesAutoresizingMaskIntoConstraints = false
         if let superviewTopAnchor = superview?.topAnchor {
@@ -105,6 +178,41 @@ extension UIView {
     func constrainHeight(constant: CGFloat) {
         translatesAutoresizingMaskIntoConstraints = false
         heightAnchor.constraint(equalToConstant: constant).isActive = true
+    }
+    
+    
+    func centerAnchor(centerX: NSLayoutXAxisAnchor?, centerY: NSLayoutYAxisAnchor?) {
+        
+        self.translatesAutoresizingMaskIntoConstraints = false
+        
+        if let centerX = centerX {
+            self.centerXAnchor.constraint(equalTo: centerX).isActive = true
+        }
+        
+        if let centerY = centerY {
+            self.centerYAnchor.constraint(equalTo: centerY).isActive = true
+        }
+    }
+    
+    func centerAnchor(centerX: NSLayoutXAxisAnchor?, centerY: NSLayoutYAxisAnchor?, width: CGFloat, height: CGFloat) {
+        
+        self.translatesAutoresizingMaskIntoConstraints = false
+        
+        if let centerX = centerX {
+            self.centerXAnchor.constraint(equalTo: centerX).isActive = true
+        }
+        
+        if let centerY = centerY {
+            self.centerYAnchor.constraint(equalTo: centerY).isActive = true
+        }
+        
+        if width != 0 {
+            self.widthAnchor.constraint(equalToConstant: width).isActive = true
+        }
+        
+        if height != 0 {
+            self.heightAnchor.constraint(equalToConstant: height).isActive = true
+        }
     }
 }
 

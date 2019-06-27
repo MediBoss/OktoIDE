@@ -9,10 +9,33 @@
 import Foundation
 import UIKit
 
-
+extension UITextField {
+    
+    func setPadding() {
+        
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: self.frame.height))
+        self.leftView = paddingView
+        self.leftViewMode = .always
+    }
+    
+    func setBottomBorder() {
+        
+        self.layer.shadowColor = UIColor.white.cgColor
+        self.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        self.layer.shadowOpacity = 1.0
+        self.layer.shadowRadius = 0.0
+    }
+}
 class LoginViewController: UIViewController {
     
 
+    lazy var customAlertView: CustomAlertView = {
+        
+        let view = CustomAlertView(title: "Oops",
+                                   message: "Please make sure to enter your credentials")
+        return view
+    }()
+    
     lazy var logoImageView: UIImageView = {
         
         let imageView = UIImageView()
@@ -29,6 +52,9 @@ class LoginViewController: UIViewController {
         textField.font = UIFont(name: "Helvetica", size: 20)
         textField.attributedPlaceholder = NSAttributedString(string: "Username",
                                                              attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        textField.backgroundColor = .black
+        textField.setPadding()
+        textField.setBottomBorder()
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -41,6 +67,9 @@ class LoginViewController: UIViewController {
         textField.attributedPlaceholder = NSAttributedString(string: "Password",
                                                              attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
        
+        textField.backgroundColor = .black
+        textField.setPadding()
+        textField.setBottomBorder()
         textField.isSecureTextEntry = true
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
@@ -48,13 +77,23 @@ class LoginViewController: UIViewController {
     
     lazy var loginButton: UIButton = {
         
-        let button = CustomButton(title: "Login",
-                                  fontSize: 10,
-                                  titleColor: .red,
+        let button = CustomButton(title: "Login with Github",
+                                  fontSize: 15,
+                                  titleColor: .black,
                                   target: self,
                                   action: #selector(loginButtonIsTapped(sender:)),
                                   event: .touchUpInside,
                                   titleFontName: "Helvetica")
+        
+        button.setImage(UIImage(named: "github-logo"), for: .normal)
+        button.imageView?.widthAnchor.constraint(equalTo: button.widthAnchor, multiplier: 0.5)
+        button.imageView?.heightAnchor.constraint(equalTo: button.heightAnchor)
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 7)
+        button.semanticContentAttribute = .forceLeftToRight
+        button.backgroundColor = .white
+        button.layer.cornerRadius = 30
+        
+        button.layer.masksToBounds = true
         button.translatesAutoresizingMaskIntoConstraints = false
 
         return button
@@ -67,20 +106,43 @@ class LoginViewController: UIViewController {
         constraintUIElements()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        UIApplication.shared.statusBarStyle = .lightContent
+    }
+    
+    
     @objc private func loginButtonIsTapped(sender: UIButton) {
         
         guard let username = userNameTextField.text, let password = passwordTextField.text else { return }
         
+        if (username.count == 0 || password.count == 0) {
+            customAlertView.show(animated: true)
+            return
+        }
         
         GithubService.shared.login(username, password) { (result) in
             
             switch result{
-            case let .success(user):
+            case .success(_):
                 
-                print("success boi")
+                DispatchQueue.main.async { [weak self] in
+                    
+                    guard let self = self else { return }
+                    let destinationVC = ProjectsPageViewController()
+                    self.present(destinationVC, animated: true, completion: nil)
+                }
                 
-            case let   .failure(error):
-                print("Authentication Error: \(error.localizedDescription)")
+            case .failure(_):
+                
+                DispatchQueue.main.async { [weak self] in
+                    
+                    guard let self = self else { return }
+                    self.customAlertView.titleLabel.text = "Incorrect credentials"
+                    self.customAlertView.messageLabel.text = "Please check your username or password"
+                    self.customAlertView.show(animated: true)
+                }
             }
         }
         
@@ -95,17 +157,30 @@ class LoginViewController: UIViewController {
         let mainStackView = CustomStackView(subviews: [logoImageView, textInputStackView, loginButton],
                                         alignment: .center,
                                         axis: .vertical,
-                                        distribution: .fillEqually)
+                                        distribution: .fill)
         
         view.addSubview(mainStackView)
-        //mainStackView.fillSuperview()
+
+        
         NSLayoutConstraint.activate([
             
             mainStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
-            mainStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
-            mainStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 10),
-            mainStackView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.95),
-            mainStackView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.95),
+            mainStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0),
+            mainStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0),
+            mainStackView.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -15),
+            mainStackView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor),
+
+            logoImageView.widthAnchor.constraint(equalTo: mainStackView.safeAreaLayoutGuide.widthAnchor, multiplier: 0.7),
+            logoImageView.heightAnchor.constraint(equalTo: mainStackView.safeAreaLayoutGuide.heightAnchor, multiplier: 0.5),
+            
+            userNameTextField.widthAnchor.constraint(equalTo: textInputStackView.safeAreaLayoutGuide.widthAnchor),
+            userNameTextField.heightAnchor.constraint(equalTo: textInputStackView.safeAreaLayoutGuide.heightAnchor, multiplier: 0.2),
+            passwordTextField.widthAnchor.constraint(equalTo: textInputStackView.safeAreaLayoutGuide.widthAnchor),
+            passwordTextField.heightAnchor.constraint(equalTo: textInputStackView.safeAreaLayoutGuide.heightAnchor, multiplier: 0.2),
+            textInputStackView.widthAnchor.constraint(equalTo: mainStackView.safeAreaLayoutGuide.widthAnchor, multiplier: 0.5),
+            textInputStackView.heightAnchor.constraint(equalTo: mainStackView.safeAreaLayoutGuide.heightAnchor, multiplier: 0.2),
+            loginButton.widthAnchor.constraint(equalTo: mainStackView.safeAreaLayoutGuide.widthAnchor, multiplier: 0.7),
+            loginButton.heightAnchor.constraint(equalTo: mainStackView.safeAreaLayoutGuide.heightAnchor, multiplier: 0.09)
         ])
     }
 }

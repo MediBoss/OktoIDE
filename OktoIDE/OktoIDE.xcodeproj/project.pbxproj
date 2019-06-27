@@ -47,6 +47,7 @@
 		B8DBB03222BB1A7D00D12364 /* HTTPNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DBB03122BB1A7D00D12364 /* HTTPNetworkError.swift */; };
 		B8DFC3D722A5EDFB00EED470 /* CreateFileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DFC3D622A5EDFB00EED470 /* CreateFileController.swift */; };
 		B8DFC3D922A5FC1100EED470 /* ThemeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DFC3D822A5FC1100EED470 /* ThemeService.swift */; };
+		B8FCF51222C43C8200757B85 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FCF51122C43C8200757B85 /* CustomAlertView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,7 @@
 		B8DBB03122BB1A7D00D12364 /* HTTPNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPNetworkError.swift; sourceTree = "<group>"; };
 		B8DFC3D622A5EDFB00EED470 /* CreateFileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFileController.swift; sourceTree = "<group>"; };
 		B8DFC3D822A5FC1100EED470 /* ThemeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeService.swift; sourceTree = "<group>"; };
+		B8FCF51122C43C8200757B85 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		C30B973FCF4DE03F52D9D446 /* Pods-OktoIDETests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OktoIDETests.debug.xcconfig"; path = "Target Support Files/Pods-OktoIDETests/Pods-OktoIDETests.debug.xcconfig"; sourceTree = "<group>"; };
 		D283395F867BB9351BC646E8 /* Pods-OktoIDETests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OktoIDETests.release.xcconfig"; path = "Target Support Files/Pods-OktoIDETests/Pods-OktoIDETests.release.xcconfig"; sourceTree = "<group>"; };
 		E06FA0881537B767C61BD1AA /* Pods_OktoIDE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OktoIDE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -265,6 +267,7 @@
 				B88D2D7E229DADAB0032A531 /* CustomUIElements.swift */,
 				B855B73C22A0993500FA2E67 /* ProjectsCollectionViewCell.swift */,
 				B8685F7F22BECF0600821D5A /* ContentTableViewCell.swift */,
+				B8FCF51122C43C8200757B85 /* CustomAlertView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -572,6 +575,7 @@
 				B84DE8BB22BC597C0013A79B /* HTTNetworkRequest.swift in Sources */,
 				B855B73B22A0984500FA2E67 /* BaseUICollectionList.swift in Sources */,
 				B8685F8822C045B500821D5A /* SecretsConfig.swift in Sources */,
+				B8FCF51222C43C8200757B85 /* CustomAlertView.swift in Sources */,
 				B8685F8622C0441500821D5A /* KeychainManager.swift in Sources */,
 				B85DCE1422A5DFC40035B74C /* GithubService.swift in Sources */,
 				B86DFDCA229A134C0075C666 /* AppDelegate.swift in Sources */,

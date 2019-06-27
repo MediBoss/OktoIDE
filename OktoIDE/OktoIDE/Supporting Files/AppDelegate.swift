@@ -24,7 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         
         self.UserLoggeInState(window)
-        
+        //UIApplication.shared.statusBarStyle = .lightContent
+
         return true
     }
 

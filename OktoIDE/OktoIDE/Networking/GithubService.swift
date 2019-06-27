@@ -24,7 +24,7 @@ struct GithubService{
         
         UserAPI(authentication: authentication).getUser { (response, error) in
             
-            if (error == nil) {
+            if (error == nil && response?.id != nil) {
                 
                 guard
                     let name = response?.name,
@@ -37,7 +37,8 @@ struct GithubService{
                 completion(.success(loggedInUser))
                 
             } else {
-                completion(.failure(error!))
+                
+                completion(.failure(HTTPNetworkError.badRequest))
             }
         }
     }
