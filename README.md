@@ -1,11 +1,11 @@
 <a href="" rel="some text">![Foo](https://raw.githubusercontent.com/GitHawkApp/GitHawk/master/images/app-store-badge.png)</a>
 # OktoIDE
 
-### Overview & Mission Statement
+### Overview
+
+OktoIDE brings you the power of an IDE within your mobile iOS devices including the iPad. It supports fully built syntaxt highlight for Swift, Javascript, Python, and more to come. OktoIDE syncs with your Github account to provide you the ability to create, edit, and push your personal and organization projects at anytime, from anywhere.
 
 ### Screenshots
-
-### Features
 
 
 ### Engineer(s)
