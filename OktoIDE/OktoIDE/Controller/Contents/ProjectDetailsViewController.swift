@@ -36,8 +36,8 @@ class ProjectDetailsViewController: UIViewController {
         view.addSubview(projectContentTableView)
         projectContentTableView.fillSuperview()
         
-        projectContentTableView.delegate = self
-        projectContentTableView.dataSource = self
+        projectContentTableView.delegate = self as! UITableViewDelegate
+        projectContentTableView.dataSource = self as! UITableViewDataSource
         
         setUpNavBar()
         checkTheme()
@@ -49,6 +49,15 @@ class ProjectDetailsViewController: UIViewController {
         
         navigationItem.title = "\(project.name)"
         navigationController?.navigationBar.prefersLargeTitles = false
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(NewFileButtonIsTapped))
+    }
+    
+    @objc fileprivate func NewFileButtonIsTapped(){
+        
+        let destinationVC =  CreateFileController()
+        destinationVC.modalPresentationStyle = .overCurrentContext
+        destinationVC.modalTransitionStyle = .crossDissolve
+        self.present(destinationVC, animated: true, completion: nil)
     }
     
     fileprivate func checkTheme() {
@@ -60,6 +69,7 @@ class ProjectDetailsViewController: UIViewController {
                 self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
                 self.projectContentTableView.backgroundColor = .lightDark
                 self.projectContentTableView.reloadData()
+                UIApplication.shared.statusBarStyle = .lightContent
             }
             
             
@@ -69,64 +79,10 @@ class ProjectDetailsViewController: UIViewController {
                 
                 self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: ThemeService.shared.getMainColor()]
                 self.navigationController?.navigationBar.barTintColor = .white
+                UIApplication.shared.statusBarStyle = .default
                 self.projectContentTableView.backgroundColor = .lightGray
                 self.projectContentTableView.reloadData()
             }
         }
-    }
-}
-
-extension ProjectDetailsViewController: UITableViewDataSource, UITableViewDelegate {
-    
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return contents.count
-        
-    }
-    
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = projectContentTableView.dequeueReusableCell(withIdentifier: ContentTableViewCell.id, for: indexPath) as! ContentTableViewCell
-        
-        cell.contentNameLabel.text = contents[indexPath.row].name
-        cell.checkTheme()
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let selectedContent = self.contents[indexPath.row]
-        
-        if selectedContent.type == ContentType.file.rawValue {
-            
-            GithubService.shared.downloadContents(content: selectedContent) { (result) in
-                
-                switch result {
-                    
-                case let .success(content):
-                    
-                    let destinationVC = TextEditorController()
-                    destinationVC.editingFile = content
-                    DispatchQueue.main.async {
-                        self.navigationController?.pushViewController(destinationVC, animated: true)
-                    }
-                
-                case .failure(_):
-                    print("j")
-                }
-            }
-            
-        } else {
-            
-            print("oops")
-            
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80.0
     }
 }

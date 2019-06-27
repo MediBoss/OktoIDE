@@ -97,7 +97,7 @@ class ProjectsPageViewController: BaseUICollectionViewList, UISearchBarDelegate 
             navigationController?.navigationBar.barTintColor = .black
             navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
             collectionView.backgroundColor = .black
-            
+            UIApplication.shared.statusBarStyle = .lightContent
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
                 self.appThemeSwitch.isOn = true
@@ -109,6 +109,7 @@ class ProjectsPageViewController: BaseUICollectionViewList, UISearchBarDelegate 
             navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: ThemeService.shared.getMainColor()]
             navigationController?.navigationBar.barTintColor = .white
             collectionView.backgroundColor = .white
+            UIApplication.shared.statusBarStyle = .default
 
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
