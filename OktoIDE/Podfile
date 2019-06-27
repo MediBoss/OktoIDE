@@ -14,7 +14,7 @@ target 'OktoIDE' do
   pod 'StatusAlert' 
   pod "ViewAnimator"
   pod 'IQKeyboardManager'
-  pod 'GithubAPI'
+  pod 'GithubAPI' 
 
   target 'OktoIDETests' do
     inherit! :search_paths

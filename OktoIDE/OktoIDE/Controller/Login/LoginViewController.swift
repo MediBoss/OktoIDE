@@ -115,37 +115,39 @@ class LoginViewController: UIViewController {
     
     @objc private func loginButtonIsTapped(sender: UIButton) {
         
+        loginButton.pulsate()
         guard let username = userNameTextField.text, let password = passwordTextField.text else { return }
-        
         if (username.count == 0 || password.count == 0) {
             customAlertView.show(animated: true)
             return
         }
         
-        GithubService.shared.login(username, password) { (result) in
+        DispatchQueue.global(qos: .background).async {
             
-            switch result{
-            case .success(_):
+            GithubService.shared.login(username, password) { (result) in
                 
-                DispatchQueue.main.async { [weak self] in
+                switch result{
+                case .success(_):
                     
-                    guard let self = self else { return }
-                    let destinationVC = ProjectsPageViewController()
-                    self.present(destinationVC, animated: true, completion: nil)
-                }
-                
-            case .failure(_):
-                
-                DispatchQueue.main.async { [weak self] in
+                    DispatchQueue.main.async { [weak self] in
+                        
+                        guard let self = self else { return }
+                        let destinationVC = ProjectsPageViewController()
+                        self.present(destinationVC, animated: true, completion: nil)
+                    }
                     
-                    guard let self = self else { return }
-                    self.customAlertView.titleLabel.text = "Incorrect credentials"
-                    self.customAlertView.messageLabel.text = "Please check your username or password"
-                    self.customAlertView.show(animated: true)
+                case .failure(_):
+                    
+                    DispatchQueue.main.async { [weak self] in
+                        
+                        guard let self = self else { return }
+                        self.customAlertView.titleLabel.text = "Incorrect credentials"
+                        self.customAlertView.messageLabel.text = "Please check your username or password"
+                        self.customAlertView.show(animated: true)
+                    }
                 }
             }
         }
-        
     }
     private func constraintUIElements() {
         

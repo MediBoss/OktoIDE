@@ -169,7 +169,6 @@
 			isa = PBXGroup;
 			children = (
 				B855B74522A0CBC400FA2E67 /* Helper.swift */,
-				B855B73A22A0984500FA2E67 /* BaseUICollectionList.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -268,6 +267,7 @@
 				B855B73C22A0993500FA2E67 /* ProjectsCollectionViewCell.swift */,
 				B8685F7F22BECF0600821D5A /* ContentTableViewCell.swift */,
 				B8FCF51122C43C8200757B85 /* CustomAlertView.swift */,
+				B855B73A22A0984500FA2E67 /* BaseUICollectionList.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

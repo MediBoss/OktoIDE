@@ -16,7 +16,7 @@ class SyntaxHighlighService {
     static let shared = SyntaxHighlighService()
     
     static let languageWithHighlight = ["swift", "py", "js"]
-    let textEditorFont = UIFont(name: "PingFangTC-Regular", size: 20)
+    let textEditorFont = UIFont(name: "PingFangTC-Regular", size: 15)
     
     static let languageColorDict = ["Swift": UIColor.swiftGithubRepoColor,
                                     "Python": UIColor.pythonKeywordColorHighlight,
@@ -44,7 +44,6 @@ class SyntaxHighlighService {
 
         let prefilteredText = unwrappedText.prefilter(text: "__init__", by: "^").prefilter(text: "for", by: "^").prefilter(text: "def", by: "^").prefilter(text: "while", by: "^").prefilter(text: "if", by: "^").prefilter(text: "return", by: "^").prefilter(text: "finally", by: "^").prefilter(text: "super", by: "^").prefilter(text: "else", by: "^").prefilter(text: "class", by: "^").prefilter(text: "continue", by: "^").prefilter(text: "global", by: "^").prefilter(text: "not", by: "^").prefilter(text: "nonlocal", by: "^").prefilter(text: "del", by: "^").prefilter(text: "with", by: "^").prefilter(text: "in", by: "^").prefilter(text: "throw", by: "^").prefilter(text: "try", by: "^").prefilter(text: "catch", by: "^").prefilter(text: "True", by: "^").prefilter(text: "False", by: "^").prefilter(text: "self", by: "^").prefilter(text: "yield", by: "^").prefilter(text: "raise", by: "^").prefilter(text: "break", by: "^").prefilter(text: "pass", by: "^").prefilter(text: "or", by: "^").prefilter(text: "elif", by: "^").prefilter(text: "as", by: "^").prefilter(text: "and", by: "^").prefilter(text: "from", by: "^").prefilter(text: "lambda", by: "^").prefilter(text: "None", by: "^").prefilter(text: "print", by: "^")
 
-        //textView.textColor = .white
         textView.attributedText = prefilteredText.prestyled()
         textView.font = textEditorFont
     }

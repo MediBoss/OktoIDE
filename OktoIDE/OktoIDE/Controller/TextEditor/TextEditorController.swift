@@ -125,6 +125,7 @@ class TextEditorController: UIViewController {
        
         let textEditor = UITextView()
         
+        //textEditor.font = UIFont(name: "<#T##String#>", size: <#T##CGFloat#>)
         textEditor.enablesReturnKeyAutomatically = false
         textEditor.autocapitalizationType = .none
         textEditor.autocorrectionType = .no
@@ -142,7 +143,7 @@ class TextEditorController: UIViewController {
         Helper.getEditorSyntaxtHighlight(ext: editingFile?.ext, textView: mainTextEditorTextView)
         mainTextEditorTextView.fillSuperview()
         addAcessory()
-        //registerNotifications()
+        
         mainTextEditorTextView.delegate = self as UITextViewDelegate
         configureNavBar()
         
