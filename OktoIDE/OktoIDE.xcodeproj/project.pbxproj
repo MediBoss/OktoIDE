@@ -28,7 +28,6 @@
 		B85DCE1422A5DFC40035B74C /* GithubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DCE1322A5DFC40035B74C /* GithubService.swift */; };
 		B8685F8022BECF0600821D5A /* ContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8685F7F22BECF0600821D5A /* ContentTableViewCell.swift */; };
 		B8685F8222C037A500821D5A /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8685F8122C037A500821D5A /* String+Extension.swift */; };
-		B8685F8422C043B000821D5A /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8685F8322C043B000821D5A /* Route.swift */; };
 		B8685F8622C0441500821D5A /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8685F8522C0441500821D5A /* KeychainManager.swift */; };
 		B8685F8822C045B500821D5A /* SecretsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8685F8722C045B500821D5A /* SecretsConfig.swift */; };
 		B86DFDCA229A134C0075C666 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86DFDC9229A134C0075C666 /* AppDelegate.swift */; };
@@ -84,7 +83,6 @@
 		B85DCE1322A5DFC40035B74C /* GithubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubService.swift; sourceTree = "<group>"; };
 		B8685F7F22BECF0600821D5A /* ContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTableViewCell.swift; sourceTree = "<group>"; };
 		B8685F8122C037A500821D5A /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
-		B8685F8322C043B000821D5A /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		B8685F8522C0441500821D5A /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		B8685F8722C045B500821D5A /* SecretsConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretsConfig.swift; sourceTree = "<group>"; };
 		B86DFDC6229A134C0075C666 /* OktoIDE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OktoIDE.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -229,7 +227,6 @@
 				B87F656E22B9A31D00A72403 /* User.swift */,
 				B8DBB02F22BB149D00D12364 /* Project.swift */,
 				B84DE8C622BD5F370013A79B /* Content.swift */,
-				B8685F8322C043B000821D5A /* Route.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -583,7 +580,6 @@
 				B8685F8622C0441500821D5A /* KeychainManager.swift in Sources */,
 				B85DCE1422A5DFC40035B74C /* GithubService.swift in Sources */,
 				B86DFDCA229A134C0075C666 /* AppDelegate.swift in Sources */,
-				B8685F8422C043B000821D5A /* Route.swift in Sources */,
 				B88D2D7F229DADAB0032A531 /* CustomUIElements.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

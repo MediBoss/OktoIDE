@@ -10,9 +10,12 @@ import Foundation
 
 extension String {
     
-    func encodeToBase64() {
+    func encodeToBase64() -> String {
         
+        let cleanDecodedString = self.replacingOccurrences(of: "\n", with: "")
+        let encodedString = Data(self.utf8).base64EncodedString()
         
+        return encodedString
     }
     
     func decodeFromBase64() -> String{

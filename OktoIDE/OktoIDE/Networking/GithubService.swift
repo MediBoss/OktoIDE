@@ -21,23 +21,23 @@ struct GithubService{
         
         let authentication = BasicAuthentication(username: username, password: password)
         KeychainManager.shared.cacheAuthObject(auth: authentication)
-        
+
         UserAPI(authentication: authentication).getUser { (response, error) in
-            
+
             if (error == nil && response?.id != nil) {
-                
+
                 guard
                     let name = response?.name,
                     let username = response?.login,
                     let avatarURL = URL(string: response?.avatarUrl ?? ""),
                     let id = response?.id else { return }
- 
+
                 let loggedInUser = User(name: name, username: username, id: id, avatarURL: avatarURL)
                 User.setCurrentUser(loggedInUser, writeToUserDefaults: true)
                 completion(.success(loggedInUser))
-                
+
             } else {
-                
+
                 completion(.failure(HTTPNetworkError.badRequest))
             }
         }
@@ -104,7 +104,7 @@ struct GithubService{
         }.resume()
     }
     
-    func downloadContents(content: Content, completion: @escaping(Result<Content, HTTPNetworkError>) -> ()) {
+    func getSingleFileContent(content: Content, completion: @escaping(Result<Content, HTTPNetworkError>) -> ()) {
         
         let url = URL(string: content.url)
         var request = URLRequest(url: url!)
@@ -134,5 +134,39 @@ struct GithubService{
                 }
             }
         }.resume()
+    }
+    
+    func updateFileContent(for content: Content,
+                           commitMessage: String,
+                           newContent: String,
+                           sha: String,
+                           branch: String
+                           ){
+     
+       
+       // let encodedContent = content.content?.encodeToBase64()
+        let parameters = ["ref": "master", "message": commitMessage, "content": newContent, "sha": sha, "branch": branch]
+        let headers = ["client_id": SecretsConfig.client_id, "client_secret": SecretsConfig.client_secret]
+        let url = URL(string: "\(content.url)&")
+        
+        do {
+            var request = try HTTPNetworkRequest.configureHTTPRequest(from: content.url, with: parameters, includes: headers, contains: nil, and: .put)
+            
+            githubSession.dataTask(with: request) { (data, res, err) in
+                
+                if (err == nil) {
+                    print("no error")
+                } else {
+                    print("oops error happened boiii")
+                }
+            }.resume()
+            
+        } catch {
+            
+        }
+        
+//        request.addValue(SecretsConfig.client_id, forHTTPHeaderField: "client_id")
+//        request.addValue(SecretsConfig.client_secret, forHTTPHeaderField: "client_secret")
+        
     }
 }

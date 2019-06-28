@@ -35,7 +35,7 @@ extension ProjectDetailsViewController: UITableViewDataSource, UITableViewDelega
         
         if selectedContent.type == ContentType.file.rawValue {
             
-            GithubService.shared.downloadContents(content: selectedContent) { (result) in
+            GithubService.shared.getSingleFileContent(content: selectedContent) { (result) in
                 
                 switch result {
                     
@@ -51,7 +51,6 @@ extension ProjectDetailsViewController: UITableViewDataSource, UITableViewDelega
                     print("j")
                 }
             }
-            
         } else {
             
             print("oops")

@@ -16,7 +16,7 @@ struct HTTPNetworkRequest {
     /// Set the body, method, headers, and paramaters of the request
     static func configureHTTPRequest(from url: String, with parameters: HTTPParameters, includes headers: HTTPHeaders?, contains body: Data?, and method: HTTPMethod) throws -> URLRequest {
         
-        guard let url = URL(string: url) else { fatalError("Error while unwrapping url")}
+        guard let url = URL(string: url) else { throw HTTPNetworkError.missingURL }
         
         var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10.0)
         

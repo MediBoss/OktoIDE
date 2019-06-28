@@ -224,6 +224,10 @@ class TextEditorController: UIViewController {
     
     @objc fileprivate func saveButtonIsTapped() {
         
+        guard let file = editingFile, let sha = editingFile?.sha, let newContent = mainTextEditorTextView.text else { return }
+        
+        let encodedFileContent = newContent.encodeToBase64()
+        GithubService.shared.updateFileContent(for: file, commitMessage: "test", newContent: encodedFileContent, sha: sha, branch: "master")
 //        editingFile?.content = mainTextEditorTextView.text
 //        editingFile?.editedAt = Date().toPrettyString()
 //        //CoreDataManager.shared.save()
