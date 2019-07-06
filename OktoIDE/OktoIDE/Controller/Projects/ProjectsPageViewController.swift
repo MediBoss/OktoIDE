@@ -13,8 +13,16 @@ import ViewAnimator
 
 class ProjectsPageViewController: BaseUICollectionViewList, UISearchBarDelegate {
 
-    fileprivate var projectSearchController = UISearchController(searchResultsController: nil)
-    lazy var appThemeSwitch: UISwitch = {
+    private var projectSearchController = UISearchController(searchResultsController: nil)
+    private var animationCounter = 0
+    private  let animations = [AnimationType.from(direction: .right, offset: 30.0)]
+    
+    private var internetCheckerAlertView: CustomAlertView = {
+        let view = CustomAlertView(title: "Unable To Connect", message: "Any changes you make will sync with Github when reconnected.")
+        return view
+    }()
+    
+    lazy private var appThemeSwitch: UISwitch = {
         
         var themeSwitch = UISwitch()
         
@@ -25,9 +33,6 @@ class ProjectsPageViewController: BaseUICollectionViewList, UISearchBarDelegate 
         
         return themeSwitch
     }()
-    
-    private var animationCounter = 0
-    private  let animations = [AnimationType.from(direction: .right, offset: 30.0)]
     
     var projects = [Project](){
         didSet{
@@ -46,10 +51,10 @@ class ProjectsPageViewController: BaseUICollectionViewList, UISearchBarDelegate 
         super.viewDidLoad()
         
         view.addSubview(appThemeSwitch)
-        fecthRepositories()
+        collectionView.register(ProjectsCollectionViewCell.self, forCellWithReuseIdentifier: ProjectsCollectionViewCell.id)
         setUpSearchBar()
         checkTheme()
-        collectionView.register(ProjectsCollectionViewCell.self, forCellWithReuseIdentifier: ProjectsCollectionViewCell.id)
+        monitorInternetConnectivity()
     }
     
     
@@ -69,7 +74,7 @@ class ProjectsPageViewController: BaseUICollectionViewList, UISearchBarDelegate 
         }
     }
     
-    fileprivate func fecthRepositories() {
+    fileprivate func fecthRepositoriesFromGithub() {
         
         GithubService.shared.getUserProjects { (result) in
             
@@ -89,7 +94,32 @@ class ProjectsPageViewController: BaseUICollectionViewList, UISearchBarDelegate 
         }
     }
     
+    fileprivate func fetchFromCoreData() {
+        
+        
+    }
+    
   
+    fileprivate func monitorInternetConnectivity() {
+        
+        NetworkReachabilityServices.shared.reachability.whenUnreachable = { reachability in
+            if reachability.connection == .none || (reachability.connection != .wifi && reachability.connection != .cellular) {
+                DispatchQueue.main.async {
+                    self.internetCheckerAlertView.show(animated: true)
+                }
+            }
+        }
+        
+        NetworkReachabilityServices.shared.reachability.whenReachable = { reachability in
+            if reachability.connection == .wifi || reachability.connection == .cellular {
+                DispatchQueue.main.async {
+                    self.internetCheckerAlertView.dismiss(animated: true)
+                    self.fecthRepositoriesFromGithub()
+                }
+            }
+        }
+    }
+    
     fileprivate func checkTheme() {
         
         if ThemeService.shared.isThemeDark(){

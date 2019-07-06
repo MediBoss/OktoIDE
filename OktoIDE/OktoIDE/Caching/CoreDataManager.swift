@@ -46,7 +46,7 @@
 //    }
 //
 //    /// Creates and returns a new 'File' object compatible to be stored in SQLite Database
-//    func create() -> File{
+//    func create() -> File {
 //
 //        let newFileObject = NSEntityDescription.insertNewObject(forEntityName: "File", into: persistentContainer.viewContext) as! File
 //        return newFileObject

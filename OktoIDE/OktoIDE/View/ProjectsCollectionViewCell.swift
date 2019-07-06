@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwipeCellKit
 import UIKit
 
 extension CALayer {
@@ -46,7 +45,7 @@ extension CALayer {
     }
 }
 
-class ProjectsCollectionViewCell: SwipeCollectionViewCell {
+class ProjectsCollectionViewCell: UICollectionViewCell {
     
     static let id = "AllFilesCollectionViewCellID"
     
@@ -71,7 +70,7 @@ class ProjectsCollectionViewCell: SwipeCollectionViewCell {
                                        textAlignment: .left,
                                        fontName: "Helvetica")
     
-    static let shared  = ProjectsCollectionViewCell()
+    //static let shared  = ProjectsCollectionViewCell()
     lazy var languageColorView: UIView = {
        
         var view = UIView()
@@ -83,8 +82,8 @@ class ProjectsCollectionViewCell: SwipeCollectionViewCell {
     }()
     
     override init(frame: CGRect) {
-        super.init(frame: frame)
         
+        super.init(frame: frame)
         styleCell()
         constraintCellItems()
     }

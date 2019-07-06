@@ -10,6 +10,10 @@ import Foundation
 import KeychainSwift
 import GithubAPI
 
+enum CrudOperation{
+    
+    case create, read, update, delete
+}
 
 struct GithubService{
     
@@ -29,10 +33,9 @@ struct GithubService{
                 guard
                     let name = response?.name,
                     let username = response?.login,
-                    let avatarURL = URL(string: response?.avatarUrl ?? ""),
-                    let id = response?.id else { return }
-
-                let loggedInUser = User(name: name, username: username, id: id, avatarURL: avatarURL)
+                    let email = response?.email else { return }
+                    
+                let loggedInUser = User(name: name, username: username, email: email)
                 User.setCurrentUser(loggedInUser, writeToUserDefaults: true)
                 completion(.success(loggedInUser))
 
@@ -76,13 +79,13 @@ struct GithubService{
         }
     }
     
-
-    func getRepoContents(projectName: String, completion: @escaping(Result<[Content], HTTPNetworkError>) -> ()){
+    /// Gets all the files and subdirectories of a single repository
+    func getRepoContents(projectName: String, isSubdir: Bool, completion: @escaping(Result<[Content], HTTPNetworkError>) -> ()){
         
-        let url = URL(string: "\(Routes.base.route)\(Routes.repos(projectName: projectName).route)")
-
         
+        let url = URL(string: "\(HTTPNetworkRoute.getRepoContents(projectName: projectName, isSubDir: isSubdir).path)")
         var request = URLRequest(url: url!)
+        
         request.addValue(SecretsConfig.client_id, forHTTPHeaderField: "client_id")
         request.addValue(SecretsConfig.client_secret, forHTTPHeaderField: "client_secret")
         githubSession.dataTask(with: request) { (data, res, err) in
@@ -104,6 +107,7 @@ struct GithubService{
         }.resume()
     }
     
+    /// Get the encoded string body of a single file
     func getSingleFileContent(content: Content, completion: @escaping(Result<Content, HTTPNetworkError>) -> ()) {
         
         let url = URL(string: content.url)
@@ -136,37 +140,42 @@ struct GithubService{
         }.resume()
     }
     
-    func updateFileContent(for content: Content,
-                           commitMessage: String,
-                           newContent: String,
-                           sha: String,
-                           branch: String
+    /// Performs different CRUD based on the operation given
+    func crudFileContent(
+                           operation: CrudOperation,
+                           route: HTTPNetworkRoute,
+                           body: HTTPNetworkBody,
+                           method: HTTPMethod,
+                           completion: @escaping((Result<Bool, HTTPNetworkError>) -> ())
                            ){
-     
-       
-       // let encodedContent = content.content?.encodeToBase64()
-        let parameters = ["ref": "master", "message": commitMessage, "content": newContent, "sha": sha, "branch": branch]
-        let headers = ["client_id": SecretsConfig.client_id, "client_secret": SecretsConfig.client_secret]
-        let url = URL(string: "\(content.url)&")
         
         do {
-            var request = try HTTPNetworkRequest.configureHTTPRequest(from: content.url, with: parameters, includes: headers, contains: nil, and: .put)
+            
+            let encodedBody = try JSONEncoder().encode(body.data)
+
+            var request = try HTTPNetworkRequest.configureHTTPRequest(path: route.path, params: nil, headers: route.headers, body: encodedBody, method: method)
             
             githubSession.dataTask(with: request) { (data, res, err) in
                 
-                if (err == nil) {
-                    print("no error")
+                if err == nil {
+                    
+                    guard let response = res as? HTTPURLResponse else { return }
+                    let result = HTTPNetworkResponse.handleNetworkResponse(for: response)
+                    
+                    switch result{
+                    case .success:
+                        completion(.success(true))
+                    case .failure:
+                        completion(.failure(HTTPNetworkError.FragmentResponse))
+                    }
                 } else {
                     print("oops error happened boiii")
                 }
             }.resume()
             
         } catch {
-            
+            completion(.failure(HTTPNetworkError.encodingFailed))
         }
-        
-//        request.addValue(SecretsConfig.client_id, forHTTPHeaderField: "client_id")
-//        request.addValue(SecretsConfig.client_secret, forHTTPHeaderField: "client_secret")
-        
     }
+    
 }

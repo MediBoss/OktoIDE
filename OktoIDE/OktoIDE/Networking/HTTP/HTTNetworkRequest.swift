@@ -14,15 +14,15 @@ public typealias HTTPHeaders = [String: Any]?
 struct HTTPNetworkRequest {
     
     /// Set the body, method, headers, and paramaters of the request
-    static func configureHTTPRequest(from url: String, with parameters: HTTPParameters, includes headers: HTTPHeaders?, contains body: Data?, and method: HTTPMethod) throws -> URLRequest {
+    static func configureHTTPRequest(path: String, params: HTTPParameters, headers: HTTPHeaders?, body: Data?, method: HTTPMethod) throws -> URLRequest {
         
-        guard let url = URL(string: url) else { throw HTTPNetworkError.missingURL }
+        guard let url = URL(string: path) else { throw HTTPNetworkError.missingURL }
         
         var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10.0)
         
         request.httpMethod = method.rawValue
         request.httpBody = body
-        try configureParametersAndHeaders(parameters: parameters, headers: headers, request: &request)
+        try configureParametersAndHeaders(parameters: params, headers: headers, request: &request)
         
         return request
     }
@@ -42,5 +42,4 @@ struct HTTPNetworkRequest {
             throw HTTPNetworkError.encodingFailed
         }
     }
-    
 }

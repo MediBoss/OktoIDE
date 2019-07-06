@@ -6,25 +6,58 @@
 //  Copyright © 2019 Medi Assumani. All rights reserved.
 //
 
-enum Routes{
-    
-    case base // Get the base URL of the Githubp V3 API
-    case repos(projectName: String) // Get all the current user's repository
-    case contens(projectName: String, contentName: String) // get content for a file from a repository
-}
+import Foundation
 
-extension Routes {
+enum HTTPNetworkRoute{
     
-    var route: String {
+    case getRepoContents(projectName: String, isSubDir: Bool)
+    case getSingleFileContents(projectName: String, fileName: String)
+    case createFile(projectName: String, fileName: String)
+    case updateFile(projectName: String, fileName: String)
+    
+    var username: String {
+        return User.currentUser.username
+    }
+    
+    var path: String {
+        
+        switch self {
+
+        case .getRepoContents(projectName: let aProjectName, isSubDir: let isSubdir):
+            
+            if isSubdir{
+                return "https://api.github.com/repos/\(self.username)/\(aProjectName)?ref=master"
+            }
+            return "https://api.github.com/repos/\(self.username)/\(aProjectName)/contents?ref=master"
+            
+        case .getSingleFileContents(projectName: let aProjectName, fileName: let aFileName):
+            return "https://api.github.com/repos/\(self.username)/\(aProjectName)/contents/\(aFileName)?ref=master"
+            
+        case .createFile(projectName: let aProjectName, fileName: let aFileName):
+            return "https://api.github.com/repos/\(self.username)/\(aProjectName)/contents/\(aFileName)?ref=master"
+            
+        case .updateFile(projectName: let aProjectName, fileName: let aFileName):
+            return "https://api.github.com/repos/\(self.username)/\(aProjectName)/contents/\(aFileName)?ref=master"
+        }
+    }
+    
+    var headers: [String: Any] {
+        
         switch self {
             
-        case .base:
-            return "https://api.github.com"
-        case .repos(projectName: let aProjectName):
-            return "/repos/MediBoss/\(aProjectName)/contents?ref=master"
-        case .contens(projectName: let aProjectName, contentName: let aContentName):
-            return "/repos/MediBoss/\(aProjectName)/contents/\(aContentName)?ref=master"
+        case .createFile(projectName: _, fileName: _):
+            fallthrough
+
+        case .getRepoContents(projectName: _):
+            fallthrough
+        case .updateFile(projectName: _, fileName: _):
+            fallthrough
+        case .getSingleFileContents(projectName: _, fileName: _):
+            fallthrough
+        default:
+            return ["client_id": SecretsConfig.client_id,
+                    "client_secret": SecretsConfig.client_secret,
+                    "Authorization": "token \(SecretsConfig.access_token)"]
         }
     }
 }
-

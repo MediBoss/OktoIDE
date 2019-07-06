@@ -13,8 +13,7 @@ struct User: Codable{
     
     let name: String
     let username: String
-    let id: Int
-    let avatarURL: URL
+    let email: String
 
     private static var _current: User?
     
@@ -31,12 +30,11 @@ struct User: Codable{
         }
     }
     
-    init(name: String, username: String, id: Int, avatarURL: URL) {
+    init(name: String, username: String, email: String) {
         
         self.name = name
         self.username = username
-        self.id = id
-        self.avatarURL = avatarURL
+        self.email = email
     }
     
     /// Marks the logged in user as the current user, caches state to UserDefaults for future

@@ -43,7 +43,10 @@ extension ProjectDetailsViewController: UITableViewDataSource, UITableViewDelega
                     
                     let destinationVC = TextEditorController()
                     destinationVC.editingFile = content
-                    DispatchQueue.main.async {
+                    destinationVC.editingFile?.repoName = self.project.name
+                    DispatchQueue.main.async { [weak self] in
+                        
+                        guard let self = self else { return }
                         self.navigationController?.pushViewController(destinationVC, animated: true)
                     }
                     
@@ -53,7 +56,21 @@ extension ProjectDetailsViewController: UITableViewDataSource, UITableViewDelega
             }
         } else {
             
-            print("oops")
+            var isSubdir = false
+            if selectedContent.type == ContentType.folder.rawValue {
+                isSubdir = true
+            }
+            
+            GithubService.shared.getRepoContents(projectName: "\(project.name)/contents/\(selectedContent.name)", isSubdir: isSubdir) { (result) in
+                
+                switch result{
+                case let .success(moreContents):
+                    moreContents.forEach({ self.contents.append($0) })
+                    
+                case .failure(_):
+                    print("failure")
+                }
+            }
             
         }
     }

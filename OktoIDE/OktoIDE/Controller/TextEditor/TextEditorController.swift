@@ -226,13 +226,45 @@ class TextEditorController: UIViewController {
         
         guard let file = editingFile, let sha = editingFile?.sha, let newContent = mainTextEditorTextView.text else { return }
         
-        let encodedFileContent = newContent.encodeToBase64()
-        GithubService.shared.updateFileContent(for: file, commitMessage: "test", newContent: encodedFileContent, sha: sha, branch: "master")
-//        editingFile?.content = mainTextEditorTextView.text
-//        editingFile?.editedAt = Date().toPrettyString()
-//        //CoreDataManager.shared.save()
-//        navigationController?.popViewController(animated: true)
-
+        // Create an alert to show the user when saving their changes
+        let commitChangeAlert = UIAlertController(title: "Commit changes", message: "provide a commit message and the branch to push to", preferredStyle: .alert)
+        
+        // Add two text fields for the user to enter the commit message and the branch to commit to
+        commitChangeAlert.addTextField(configurationHandler: { commitMessageTextField in
+            commitMessageTextField.placeholder = "Message"
+        })
+        
+        commitChangeAlert.addTextField(configurationHandler: { commitBranchTextField in
+            commitBranchTextField.placeholder = "Branch"
+        })
+        
+        // Add two action to cancel the user's action or to push the changes
+        commitChangeAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        commitChangeAlert.addAction(UIAlertAction(title: "Push", style: .default, handler: { [weak self] (_) in
+            
+            let commitMessage = commitChangeAlert.textFields![0].text ?? "default commit message"
+            let branch = commitChangeAlert.textFields![1].text ?? "master"
+            
+            let encodedFileContent = newContent.encodeToBase64()
+            let projectName = self?.editingFile?.repoName ?? ""
+            let filename = self?.editingFile?.name ?? ""
+            
+            GithubService.shared.crudFileContent(operation: .update, route: .updateFile(projectName: projectName, fileName: filename), body: .updateFile(commitMessage: commitMessage, content: encodedFileContent, sha: sha, branch: branch), method: .put, completion: { (result) in
+                
+                switch result {
+                case .success(_):
+                    
+                    DispatchQueue.main.async { [weak self] in
+                        guard let self = self else { return }
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                case .failure(_):
+                    print("failed to update file")
+                }
+            })
+        }))
+        
+        self.present(commitChangeAlert, animated: true, completion: nil)
     }
     
     fileprivate func configureNavBar(){

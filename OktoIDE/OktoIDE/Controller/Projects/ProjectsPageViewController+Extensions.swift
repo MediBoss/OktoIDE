@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwipeCellKit
 import UIKit
 
 extension ProjectsPageViewController: UICollectionViewDelegateFlowLayout{
@@ -32,7 +31,7 @@ extension ProjectsPageViewController: UICollectionViewDelegateFlowLayout{
         
         let destinationVC = ProjectDetailsViewController()
         let selectedProject = self.projects[indexPath.row]
-        GithubService.shared.getRepoContents(projectName: selectedProject.name) { (result) in
+        GithubService.shared.getRepoContents(projectName: selectedProject.name, isSubdir: false) { (result) in
             
             switch result{
             case let .success(contents):

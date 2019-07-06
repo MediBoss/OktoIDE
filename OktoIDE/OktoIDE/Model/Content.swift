@@ -14,6 +14,7 @@ public enum ContentType: String {
     
     case file = "file"
     case folder = "dir"
+    case subfolder = "sub-dir"
 }
 
 struct Content: Codable {
@@ -27,6 +28,7 @@ struct Content: Codable {
     var content: String?
     var encoding: String?
     var ext: String?
+    var repoName: String?
 }
 
 

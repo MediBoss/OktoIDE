@@ -11,7 +11,7 @@ import UIKit
 
 struct Project {
     
-    let name: String
+    var name: String
     let id: Int
     let language: String?
     let allContentsUrl: String

@@ -20,6 +20,7 @@ class ProjectDetailsViewController: UIViewController {
     }()
     
     var project: Project!
+    
     var contents = [Content](){
         didSet{
             DispatchQueue.main.async {
@@ -28,16 +29,16 @@ class ProjectDetailsViewController: UIViewController {
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .white
+        projectContentTableView.reloadData()
         view.addSubview(projectContentTableView)
         projectContentTableView.fillSuperview()
         
-        projectContentTableView.delegate = self as! UITableViewDelegate
-        projectContentTableView.dataSource = self as! UITableViewDataSource
+        projectContentTableView.delegate = self as UITableViewDelegate
+        projectContentTableView.dataSource = self as UITableViewDataSource
         
         setUpNavBar()
         checkTheme()
@@ -55,6 +56,7 @@ class ProjectDetailsViewController: UIViewController {
     @objc fileprivate func NewFileButtonIsTapped(){
         
         let destinationVC =  CreateFileController()
+        destinationVC.project = self.project
         destinationVC.modalPresentationStyle = .overCurrentContext
         destinationVC.modalTransitionStyle = .crossDissolve
         self.present(destinationVC, animated: true, completion: nil)

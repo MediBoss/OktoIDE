@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 
-import UIKit
 /*
  Credit and recognition goes out to Aatish Rajkarnikar.
  Thanks for the code!! You can find his Medium article by searching this url: https://medium.com/@aatish.rajkarnikar/how-to-make-custom-alertview-dialogbox-with-animation-in-swift-3-2852f4e6f311
