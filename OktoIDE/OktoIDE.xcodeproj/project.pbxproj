@@ -10,6 +10,7 @@
 		81C10A38ED2E6956B6E53C7F /* Pods_OktoIDE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E06FA0881537B767C61BD1AA /* Pods_OktoIDE.framework */; };
 		ACE9F6F4AA56162B5DB621BE /* Pods_OktoIDETests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4671A3161A021BAD085681D4 /* Pods_OktoIDETests.framework */; };
 		B824D36822ACA68E002577D3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B824D36722ACA68E002577D3 /* CoreDataManager.swift */; };
+		B834AC3622D1486400357E45 /* SecretsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B834AC3522D1486400357E45 /* SecretsConfig.swift */; };
 		B8449C8422B1D84800B973E0 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8449C8322B1D84800B973E0 /* Data+Extension.swift */; };
 		B84DE8BB22BC597C0013A79B /* HTTNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DE8BA22BC597C0013A79B /* HTTNetworkRequest.swift */; };
 		B84DE8BD22BC59A10013A79B /* HTTPNetworkMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DE8BC22BC59A10013A79B /* HTTPNetworkMethod.swift */; };
@@ -29,7 +30,6 @@
 		B8685F8022BECF0600821D5A /* ContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8685F7F22BECF0600821D5A /* ContentTableViewCell.swift */; };
 		B8685F8222C037A500821D5A /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8685F8122C037A500821D5A /* String+Extension.swift */; };
 		B8685F8622C0441500821D5A /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8685F8522C0441500821D5A /* KeychainManager.swift */; };
-		B8685F8822C045B500821D5A /* SecretsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8685F8722C045B500821D5A /* SecretsConfig.swift */; };
 		B86DFDCA229A134C0075C666 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86DFDC9229A134C0075C666 /* AppDelegate.swift */; };
 		B86DFDD4229A134D0075C666 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B86DFDD3229A134D0075C666 /* Assets.xcassets */; };
 		B86DFDD7229A134D0075C666 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B86DFDD5229A134D0075C666 /* LaunchScreen.storyboard */; };
@@ -44,6 +44,7 @@
 		B88D2D87229DB18F0032A531 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D2D86229DB18F0032A531 /* UIButton+Extension.swift */; };
 		B8A9520122B86A4400788BF3 /* KeyboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A9520022B86A4400788BF3 /* KeyboardService.swift */; };
 		B8A9E95D22D1349400B6B353 /* NetworkReachabilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A9E95C22D1349400B6B353 /* NetworkReachabilityService.swift */; };
+		B8AC0E5F22D1726C00F211DE /* CALayer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AC0E5E22D1726C00F211DE /* CALayer+Extension.swift */; };
 		B8CBFDCE22CAD70300AA260A /* HTTPNetworkBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CBFDCD22CAD70300AA260A /* HTTPNetworkBody.swift */; };
 		B8DBB03022BB149D00D12364 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DBB02F22BB149D00D12364 /* Project.swift */; };
 		B8DBB03222BB1A7D00D12364 /* HTTPNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DBB03122BB1A7D00D12364 /* HTTPNetworkError.swift */; };
@@ -67,6 +68,7 @@
 		49FE197C465654C215EC18FB /* Pods-OktoIDE.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OktoIDE.release.xcconfig"; path = "Target Support Files/Pods-OktoIDE/Pods-OktoIDE.release.xcconfig"; sourceTree = "<group>"; };
 		AB761808C3DFF67D080A62E5 /* Pods-OktoIDE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OktoIDE.debug.xcconfig"; path = "Target Support Files/Pods-OktoIDE/Pods-OktoIDE.debug.xcconfig"; sourceTree = "<group>"; };
 		B824D36722ACA68E002577D3 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		B834AC3522D1486400357E45 /* SecretsConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretsConfig.swift; sourceTree = "<group>"; };
 		B8449C8322B1D84800B973E0 /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
 		B84DE8BA22BC597C0013A79B /* HTTNetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTNetworkRequest.swift; sourceTree = "<group>"; };
 		B84DE8BC22BC59A10013A79B /* HTTPNetworkMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPNetworkMethod.swift; sourceTree = "<group>"; };
@@ -86,7 +88,6 @@
 		B8685F7F22BECF0600821D5A /* ContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTableViewCell.swift; sourceTree = "<group>"; };
 		B8685F8122C037A500821D5A /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		B8685F8522C0441500821D5A /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
-		B8685F8722C045B500821D5A /* SecretsConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretsConfig.swift; sourceTree = "<group>"; };
 		B86DFDC6229A134C0075C666 /* OktoIDE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OktoIDE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B86DFDC9229A134C0075C666 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B86DFDD3229A134D0075C666 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -105,6 +106,7 @@
 		B88D2D86229DB18F0032A531 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		B8A9520022B86A4400788BF3 /* KeyboardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardService.swift; sourceTree = "<group>"; };
 		B8A9E95C22D1349400B6B353 /* NetworkReachabilityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityService.swift; sourceTree = "<group>"; };
+		B8AC0E5E22D1726C00F211DE /* CALayer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Extension.swift"; sourceTree = "<group>"; };
 		B8CBFDCD22CAD70300AA260A /* HTTPNetworkBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPNetworkBody.swift; sourceTree = "<group>"; };
 		B8DBB02F22BB149D00D12364 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		B8DBB03122BB1A7D00D12364 /* HTTPNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPNetworkError.swift; sourceTree = "<group>"; };
@@ -272,7 +274,7 @@
 			children = (
 				B824D36722ACA68E002577D3 /* CoreDataManager.swift */,
 				B8685F8522C0441500821D5A /* KeychainManager.swift */,
-				B8685F8722C045B500821D5A /* SecretsConfig.swift */,
+				B834AC3522D1486400357E45 /* SecretsConfig.swift */,
 			);
 			path = Caching;
 			sourceTree = "<group>";
@@ -305,6 +307,7 @@
 				B88D2D86229DB18F0032A531 /* UIButton+Extension.swift */,
 				B8449C8322B1D84800B973E0 /* Data+Extension.swift */,
 				B8685F8122C037A500821D5A /* String+Extension.swift */,
+				B8AC0E5E22D1726C00F211DE /* CALayer+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -546,6 +549,7 @@
 				B84DE8BF22BC59C20013A79B /* HTTPNetworkRoute.swift in Sources */,
 				B855B74322A0CA3300FA2E67 /* ProjectsPageViewController+Extensions.swift in Sources */,
 				B855B73D22A0993500FA2E67 /* ProjectsCollectionViewCell.swift in Sources */,
+				B834AC3622D1486400357E45 /* SecretsConfig.swift in Sources */,
 				B84DE8C722BD5F370013A79B /* Content.swift in Sources */,
 				B88D2D7D229DAD830032A531 /* UIView+Extension.swift in Sources */,
 				B824D36822ACA68E002577D3 /* CoreDataManager.swift in Sources */,
@@ -563,12 +567,12 @@
 				B88D2D7A229DAC000032A531 /* TextEditorController.swift in Sources */,
 				B84DE8BB22BC597C0013A79B /* HTTNetworkRequest.swift in Sources */,
 				B855B73B22A0984500FA2E67 /* BaseUICollectionList.swift in Sources */,
-				B8685F8822C045B500821D5A /* SecretsConfig.swift in Sources */,
 				B8FCF51222C43C8200757B85 /* CustomAlertView.swift in Sources */,
 				B8685F8622C0441500821D5A /* KeychainManager.swift in Sources */,
 				B85DCE1422A5DFC40035B74C /* GithubService.swift in Sources */,
 				B86DFDCA229A134C0075C666 /* AppDelegate.swift in Sources */,
 				B88D2D7F229DADAB0032A531 /* CustomUIElements.swift in Sources */,
+				B8AC0E5F22D1726C00F211DE /* CALayer+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -55,6 +55,7 @@ class ProjectsPageViewController: BaseUICollectionViewList, UISearchBarDelegate 
         setUpSearchBar()
         checkTheme()
         monitorInternetConnectivity()
+        fecthRepositoriesFromGithub()
     }
     
     
@@ -71,6 +72,27 @@ class ProjectsPageViewController: BaseUICollectionViewList, UISearchBarDelegate 
             }, completion: nil)
         } else {
             return
+        }
+    }
+    
+    fileprivate func cacheToCoreData(projects: [Project]) {
+        
+        self.projects.forEach { (currentProject) in
+            
+            // Fetch contens of current project
+            GithubService.shared.getRepoContents(projectName: currentProject.name, isSubdir: false, completion: { (result) in
+                
+                switch result{
+                case let .success(contents):
+                    
+                    
+                    // Cache Project with the contents on CoreData
+                    print("success")
+                    
+                case let .failure(error):
+                    print("failure")
+                }
+            })
         }
     }
     
@@ -114,7 +136,6 @@ class ProjectsPageViewController: BaseUICollectionViewList, UISearchBarDelegate 
             if reachability.connection == .wifi || reachability.connection == .cellular {
                 DispatchQueue.main.async {
                     self.internetCheckerAlertView.dismiss(animated: true)
-                    self.fecthRepositoriesFromGithub()
                 }
             }
         }

@@ -23,9 +23,13 @@ struct User: Codable{
             return user
         } else {
             
-            let data = UserDefaults.standard.value(forKey: "currentUser") as? Data
-            let user = try! JSONDecoder().decode(User.self, from: data!)
-            
+            var user: User!
+            do {
+                let data = UserDefaults.standard.value(forKey: "currentUser") as? Data
+                user = try? JSONDecoder().decode(User.self, from: data!)
+            } catch {
+                print("Error getting current user")
+            }
             return user
         }
     }
@@ -46,14 +50,5 @@ struct User: Codable{
             }
         }
         _current = user
-    }
-    
-    /// Serializes the User object into a JSON format to be sent over HTTP
-    func toDictionary() -> [String: Any] {
-        
-        let data = try! JSONEncoder().encode(self)
-        let json = try! JSONSerialization.jsonObject(with: data, options: [])
-        
-        return json as! [String: Any]
     }
 }

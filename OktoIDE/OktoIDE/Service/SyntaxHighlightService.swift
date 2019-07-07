@@ -18,9 +18,17 @@ class SyntaxHighlighService {
     static let languageWithHighlight = ["swift", "py", "js"]
     let textEditorFont = UIFont(name: "PingFangTC-Regular", size: 15)
     
-    static let languageColorDict = ["Swift": UIColor.swiftGithubRepoColor,
-                                    "Python": UIColor.pythonKeywordColorHighlight,
-                                    "JavaScript": UIColor.javascriptKeywordColorHighlight
+    static let languageColorDict: [String: UIColor] = ["Swift": .swiftGithubRepoColor,
+                                    "Python": .pythonGithubRepoColor,
+                                    "JavaScript": .javascriptGithubRepoColor,
+                                    "Ruby": .rubyGithubRepoColor,
+                                    "Java": .javaGithubRepoColor,
+                                    "C++": .cppGithubRepoColor,
+                                    "HTML": .htmlGithubRepoColor,
+                                    "CSS": .cssGithubRepoColor,
+                                    "Go": .goGithubRepoColor,
+                                    "Jupyter Notebook": .jupyterGithubRepoColor
+
     ]
     
     // MARK : CLASS METHODS
@@ -29,7 +37,7 @@ class SyntaxHighlighService {
         guard let unwrappedText = textView.text else { return }
         let preAttributedRange: NSRange = textView.selectedRange
     
-        Prestyler.defineRule("type", UIColor.swiftTypesColorSyntax)
+        Prestyler.defineRule("type", UIColor.mainIDEColorSyntax)
         Prestyler.defineRule("^", UIColor.mainSyntaxColor)
         
         let prefilteredText = unwrappedText.prefilter(text: "var", by: "^").prefilter(text: "let", by: "^").prefilter(text: "static", by: "^").prefilter(text: "init", by: "^").prefilter(text: "for", by: "^").prefilter(text: "func", by: "^").prefilter(text: "while", by: "^").prefilter(text: "if", by: "^").prefilter(text: "return", by: "^").prefilter(text: "lazy", by: "^").prefilter(text: "super", by: "^").prefilter(text: "else", by: "^").prefilter(text: "class", by: "^").prefilter(text: "protocol", by: "^").prefilter(text: "struct", by: "^").prefilter(text: "continue", by: "^").prefilter(text: "case", by: "^").prefilter(text: "switch", by: "^").prefilter(text: "enum", by: "^").prefilter(text: "default", by: "^").prefilter(text: "defer", by: "^").prefilter(text: "guard", by: "^").prefilter(text: "throw", by: "^").prefilter(text: "try", by: "^").prefilter(text: "catch", by: "^").prefilter(text: "true", by: "^").prefilter(text: "false", by: "^").prefilter(text: "Self", by: "^").prefilter(text: "self", by: "^").prefilter(text: "Any", by: "^").prefilter(text: "get", by: "^").prefilter(text: "set", by: "^").prefilter(text: "override", by: "^").prefilter(text: "dynamic", by: "^").prefilter(text: "#selector", by: "^").prefilter(text: "weak", by: "^").prefilter(text: "unowned", by: "^").prefilter(text: "didSet", by: "^").prefilter(text: "willSet", by: "^").prefilter(text: "required", by: "^").prefilter(text: "convenience", by: "^").prefilter(text: "import", by: "^").prefilter(text: "print", by: "^").prefilter(text: "final", by: "^").prefilter(text: "#selector", by: "^").prefilter(text: "@objc", by: "^").prefilter(text: "extension", by: "^").prefilter(text: "@IBOutlet", by: "^").prefilter(text: "@IBAction", by: "^").prefilter(text: "@IBDesignable", by: "^").prefilter(text: "@escaping", by: "^").prefilter(text: "public", by: "^").prefilter(text: "private", by: "^").prefilter(text: "fileprivate", by: "^").prefilter(text: "internal", by: "^").prefilter(text: "typealias", by: "^").prefilter(text: "String", by: "type").prefilter(text: "Int", by: "type").prefilter(text: "Double", by: "type").prefilter(text: "Float", by: "type").prefilter(text: "Dictionary", by: "type").prefilter(text: "Error", by: "type").prefilter(text: "UITextView", by: "type").prefilter(text: "UILabel", by: "type").prefilter(text: "UIButton", by: "type").prefilter(text: "UIViewController", by: "type").prefilter(text: "UITableViewController", by: "type").prefilter(text: "UICollectionViewController", by: "type").prefilter(text: "UIColor", by: "type").prefilter(text: "UIImage", by: "type").prefilter(text: "UIImageView", by: "type").prefilter(text: "UIView", by: "type").prefilter(text: "UIApplication", by: "type").prefilter(text: "UISwitch", by: "type").prefilter(text: "UIWindow", by: "type").prefilter(text: "UISearchBar", by: "type").prefilter(text: "UIStackView", by: "type").prefilter(text: "UIControll", by: "type").prefilter(text: "UISlider", by: "type").prefilter(text: "UITextField", by: "type")

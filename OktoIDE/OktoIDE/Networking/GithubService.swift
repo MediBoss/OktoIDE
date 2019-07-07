@@ -54,8 +54,7 @@ struct GithubService{
             let auth = try KeychainManager.shared.retrieveCachedObject()
             var projects = [Project]()
             
-            
-            RepositoriesAPI(authentication: auth).repositories(completion: { (response, err) in
+            RepositoriesAPI(authentication: auth).repositories(user: auth.username, type: .all, sort: .updated, direction: .desc) { (response, err) in
                 if err == nil {
                     
                     response?.forEach({ (project) in
@@ -73,7 +72,8 @@ struct GithubService{
                 } else {
                     return completion(.failure(err!))
                 }
-            })
+            }
+
         } catch {
             print(HTTPNetworkError.KeychainNil.localizedDescription)
         }

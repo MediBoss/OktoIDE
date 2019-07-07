@@ -11,17 +11,7 @@ import StatusAlert
 import UIKit
 
 struct Helper{
-    
-    static func createStatusAlert(title: String, message: String?){
         
-        let statusAlert = StatusAlert()
-            
-        statusAlert.image = UIImage(named: "trash")
-        statusAlert.title = title
-        statusAlert.canBePickedOrDismissed = true
-        statusAlert.showInKeyWindow()
-    }
-    
     static func getEditorSyntaxtHighlight(ext: String?, textView: UITextView) {
         
         switch ext {
