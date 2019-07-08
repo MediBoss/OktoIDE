@@ -74,28 +74,7 @@ class ProjectsPageViewController: BaseUICollectionViewList, UISearchBarDelegate 
             return
         }
     }
-    
-    fileprivate func cacheToCoreData(projects: [Project]) {
-        
-        self.projects.forEach { (currentProject) in
-            
-            // Fetch contens of current project
-            GithubService.shared.getRepoContents(projectName: currentProject.name, isSubdir: false, completion: { (result) in
-                
-                switch result{
-                case let .success(contents):
-                    
-                    
-                    // Cache Project with the contents on CoreData
-                    print("success")
-                    
-                case let .failure(error):
-                    print("failure")
-                }
-            })
-        }
-    }
-    
+
     fileprivate func fecthRepositoriesFromGithub() {
         
         GithubService.shared.getUserProjects { (result) in
@@ -116,12 +95,7 @@ class ProjectsPageViewController: BaseUICollectionViewList, UISearchBarDelegate 
         }
     }
     
-    fileprivate func fetchFromCoreData() {
-        
-        
-    }
-    
-  
+
     fileprivate func monitorInternetConnectivity() {
         
         NetworkReachabilityServices.shared.reachability.whenUnreachable = { reachability in
@@ -136,6 +110,7 @@ class ProjectsPageViewController: BaseUICollectionViewList, UISearchBarDelegate 
             if reachability.connection == .wifi || reachability.connection == .cellular {
                 DispatchQueue.main.async {
                     self.internetCheckerAlertView.dismiss(animated: true)
+                    self.fecthRepositoriesFromGithub()
                 }
             }
         }
@@ -149,6 +124,8 @@ class ProjectsPageViewController: BaseUICollectionViewList, UISearchBarDelegate 
             navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
             collectionView.backgroundColor = .black
             UIApplication.shared.statusBarStyle = .lightContent
+            projectSearchController.searchBar.setTextColor(color: .white)
+
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
                 self.appThemeSwitch.isOn = true
@@ -161,6 +138,7 @@ class ProjectsPageViewController: BaseUICollectionViewList, UISearchBarDelegate 
             navigationController?.navigationBar.barTintColor = .white
             collectionView.backgroundColor = .white
             UIApplication.shared.statusBarStyle = .default
+            projectSearchController.searchBar.setTextColor(color: .black)
 
             DispatchQueue.main.async {
                 self.collectionView.reloadData()

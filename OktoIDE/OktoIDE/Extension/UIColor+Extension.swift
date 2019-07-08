@@ -15,8 +15,12 @@ extension UIColor{
     
 
     static var lightGray = UIColor(red: 0.9686, green: 0.9686, blue: 0.9686, alpha: 1.0)
+    static var grayIsh = UIColor(red: 0.9529, green: 0.9725, blue: 0.9608, alpha: 1.0)
     static var lightDark = UIColor(red: 0.0667, green: 0.0667, blue: 0.0667, alpha: 1.0)
     static let darkModeBacgroundColor = #colorLiteral(red: 0.07895455509, green: 0.1626217663, blue: 0.2949268222, alpha: 1)
+    static var lightBlue = UIColor(red: 109/255, green: 188/255, blue: 237/255, alpha: 1.0)
+    static var cyanGreen = UIColor(red: 0.0627, green: 0.8078, blue: 0.6824, alpha: 1.0)
+    static var lightPink = UIColor(red: 1, green: 0.3882, blue: 0.9176, alpha: 1.0)
     static var currentBackgroundColor = UIColor.white
     static var mainIDEColorSyntax = UIColor(red: 0.3373, green: 0.1255, blue: 0.6471, alpha: 1.0)
     

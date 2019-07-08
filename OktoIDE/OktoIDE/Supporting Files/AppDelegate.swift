@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if UserDefaults.standard.value(forKey: "currentUser") != nil {
             self.showHomePage(for: window)
         } else {
-            self.showLoginPage(for: window)
+            self.showOnboardingPage(for: window)
         }
     }
     
@@ -59,12 +59,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    /// Displays the login page view controller on the given window
-    func showLoginPage(for window: UIWindow?){
+    /// Displays the onboarding page view controller on the given window
+    func showOnboardingPage(for window: UIWindow?){
         
         if let window = window {
             
-            let destinationVC = LoginViewController()
+            let destinationVC = OnboardingViewController()
             window.rootViewController = destinationVC
             window.makeKeyAndVisible()
         }

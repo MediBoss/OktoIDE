@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "513FEFE9F91812B8D925C112566C3488"
+               BlueprintIdentifier = "17859996880E2C76D5F0AAD6D0403A6A"
                BuildableName = "Pods_OktoIDE.framework"
                BlueprintName = "Pods-OktoIDE"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "513FEFE9F91812B8D925C112566C3488"
+            BlueprintIdentifier = "17859996880E2C76D5F0AAD6D0403A6A"
             BuildableName = "Pods_OktoIDE.framework"
             BlueprintName = "Pods-OktoIDE"
             ReferencedContainer = "container:Pods.xcodeproj">

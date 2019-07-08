@@ -34,6 +34,8 @@
 		B86DFDD4229A134D0075C666 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B86DFDD3229A134D0075C666 /* Assets.xcassets */; };
 		B86DFDD7229A134D0075C666 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B86DFDD5229A134D0075C666 /* LaunchScreen.storyboard */; };
 		B86DFDE2229A134D0075C666 /* OktoIDETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86DFDE1229A134D0075C666 /* OktoIDETests.swift */; };
+		B86EF8FD22D17987000DEFF5 /* UISerchBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86EF8FC22D17987000DEFF5 /* UISerchBar+Extension.swift */; };
+		B86EF8FF22D17A74000DEFF5 /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86EF8FE22D17A74000DEFF5 /* OnboardingController.swift */; };
 		B87F656F22B9A31D00A72403 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F656E22B9A31D00A72403 /* User.swift */; };
 		B87F657122B9B4B300A72403 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F657022B9B4B300A72403 /* LoginViewController.swift */; };
 		B88D2D76229D95E40032A531 /* ProjectsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D2D75229D95E40032A531 /* ProjectsPageViewController.swift */; };
@@ -96,6 +98,8 @@
 		B86DFDDD229A134D0075C666 /* OktoIDETests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OktoIDETests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B86DFDE1229A134D0075C666 /* OktoIDETests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OktoIDETests.swift; sourceTree = "<group>"; };
 		B86DFDE3229A134D0075C666 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B86EF8FC22D17987000DEFF5 /* UISerchBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISerchBar+Extension.swift"; sourceTree = "<group>"; };
+		B86EF8FE22D17A74000DEFF5 /* OnboardingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
 		B87F656E22B9A31D00A72403 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B87F657022B9B4B300A72403 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B88D2D75229D95E40032A531 /* ProjectsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsPageViewController.swift; sourceTree = "<group>"; };
@@ -308,6 +312,7 @@
 				B8449C8322B1D84800B973E0 /* Data+Extension.swift */,
 				B8685F8122C037A500821D5A /* String+Extension.swift */,
 				B8AC0E5E22D1726C00F211DE /* CALayer+Extension.swift */,
+				B86EF8FC22D17987000DEFF5 /* UISerchBar+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -344,6 +349,7 @@
 			isa = PBXGroup;
 			children = (
 				B87F657022B9B4B300A72403 /* LoginViewController.swift */,
+				B86EF8FE22D17A74000DEFF5 /* OnboardingController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -464,6 +470,7 @@
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/StatusAlert/StatusAlert.framework",
 				"${BUILT_PRODUCTS_DIR}/ViewAnimator/ViewAnimator.framework",
+				"${BUILT_PRODUCTS_DIR}/paper-onboarding/paper_onboarding.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -477,6 +484,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StatusAlert.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ViewAnimator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/paper_onboarding.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -556,6 +564,7 @@
 				B8A9E95D22D1349400B6B353 /* NetworkReachabilityService.swift in Sources */,
 				B88D2D87229DB18F0032A531 /* UIButton+Extension.swift in Sources */,
 				B856FA0922C45A4300717511 /* ProjectDetailsViewController+Extension.swift in Sources */,
+				B86EF8FF22D17A74000DEFF5 /* OnboardingController.swift in Sources */,
 				B855B74122A0C27B00FA2E67 /* SyntaxHighlightService.swift in Sources */,
 				B84DE8C322BC5A0B0013A79B /* HTTPURLEncoder.swift in Sources */,
 				B88D2D85229DB1560032A531 /* UIColor+Extension.swift in Sources */,
@@ -563,6 +572,7 @@
 				B8A9520122B86A4400788BF3 /* KeyboardService.swift in Sources */,
 				B8DBB03022BB149D00D12364 /* Project.swift in Sources */,
 				B8CBFDCE22CAD70300AA260A /* HTTPNetworkBody.swift in Sources */,
+				B86EF8FD22D17987000DEFF5 /* UISerchBar+Extension.swift in Sources */,
 				B8449C8422B1D84800B973E0 /* Data+Extension.swift in Sources */,
 				B88D2D7A229DAC000032A531 /* TextEditorController.swift in Sources */,
 				B84DE8BB22BC597C0013A79B /* HTTNetworkRequest.swift in Sources */,

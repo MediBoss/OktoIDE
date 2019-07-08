@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "777D9E8E1FD8F36CF0177AC7D1C8CF4E"
+               BlueprintIdentifier = "90EA5825B3B9C984E6CFB80536136652"
                BuildableName = "Prestyler.framework"
                BlueprintName = "Prestyler"
                ReferencedContainer = "container:Pods.xcodeproj">
