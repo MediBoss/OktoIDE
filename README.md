@@ -1,4 +1,4 @@
-<a href="" rel="some text">![Foo](https://raw.githubusercontent.com/GitHawkApp/GitHawk/master/images/app-store-badge.png)</a>
+<a href="not deployed yet" rel="some text">![Foo](https://raw.githubusercontent.com/GitHawkApp/GitHawk/master/images/app-store-badge.png)</a>
 # OktoIDE
 
 ### Overview
